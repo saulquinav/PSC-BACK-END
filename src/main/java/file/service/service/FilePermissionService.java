@@ -2,8 +2,10 @@ package file.service.service;
 
 import file.service.dao.FilePermissionDAO;
 import file.service.dto.FilePermissionDTO;
+import file.service.dto.UserDTO;
 import file.service.entity.FilePermission;
 
+import file.service.entity.User;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
@@ -38,6 +40,25 @@ public class FilePermissionService
         else
             // If nothing was found, then just return an Optional with no value
             return Optional.empty();
+    }
+
+    public void create(FilePermissionDTO filePermissionDTO)
+    {
+        FilePermission filePermission = convertToEntity(filePermissionDTO);
+
+        filePermissionDAO.create(filePermission);
+    }
+
+    public void update(FilePermissionDTO filePermissionDTO)
+    {
+        FilePermission filePermission = convertToEntity(filePermissionDTO);
+
+        filePermissionDAO.update(filePermission);
+    }
+
+    public void delete(Long id)
+    {
+        filePermissionDAO.delete(id);
     }
 
     // Method that converts from Entity to DTO
