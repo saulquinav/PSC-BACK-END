@@ -2,6 +2,7 @@ package file.service.dao;
 
 import file.service.entity.FilePermission;
 import file.service.entity.User;
+import jakarta.ejb.Stateless;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import jakarta.transaction.Transactional;
@@ -9,6 +10,7 @@ import jakarta.transaction.Transactional;
 import java.util.List;
 import java.util.Optional;
 
+@Stateless // not shure if the @Stateless annotation is recommended
 public class FilePermissionDAO implements GenericDAO<FilePermission>
 {
     @PersistenceContext
