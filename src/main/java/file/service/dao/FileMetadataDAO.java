@@ -18,7 +18,7 @@ public class FileMetadataDAO implements GenericDAO<FileMetadata>
     private EntityManager entityManager;  // every DAO has an EntityManager instance inside it
 
     @Override
-    public Optional<FileMetadata> findById(long id)
+    public Optional<FileMetadata> findById(Long id)
     {
         FileMetadata fileMetadata = entityManager.find(FileMetadata.class, id);
         return Optional.ofNullable(fileMetadata);
@@ -52,7 +52,7 @@ public class FileMetadataDAO implements GenericDAO<FileMetadata>
 
     @Override
     @Transactional // is it necessary?
-    public void delete(long id)
+    public void delete(Long id)
     {
         FileMetadata foundFileMetadata = entityManager.find(FileMetadata.class, id);
         if (foundFileMetadata != null)

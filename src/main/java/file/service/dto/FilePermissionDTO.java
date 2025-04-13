@@ -13,7 +13,7 @@ public class FilePermissionDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
-    private long id;
+    private Long id;
     private User user;
     private FileMetadata fileMetadata;
     private FilePermisionType permissionType;
@@ -28,7 +28,7 @@ public class FilePermissionDTO implements Serializable
         this.permissionType = permissionType;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
     public void setId(long id) {

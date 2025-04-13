@@ -9,10 +9,10 @@ public class FileVersion
     @Id
     @GeneratedValue
     @Column(name = "id", unique = true, nullable = false)
-    private long id;
+    private Long id;
 
     @Column(name = "editing_user_id_fk", unique = true, nullable = false)
-    private long editingUserId;
+    private Long editingUserId;
 
     @Column(unique = false, nullable = false)
     private String name;
@@ -37,14 +37,14 @@ public class FileVersion
         this.data = data;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
     public void setId(long id) {
         this.id = id;
     }
 
-    public long getEditingUserId() {
+    public Long getEditingUserId() {
         return editingUserId;
     }
     public void setEditingUserId(long editingUserId) {

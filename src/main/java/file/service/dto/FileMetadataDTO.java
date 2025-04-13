@@ -7,8 +7,8 @@ import java.util.Set;
 
 public class FileMetadataDTO
 {
-    private long id;
-    private boolean isEdited;
+    private Long id;
+    private Boolean isEdited;
     private String name;
     private Set<User> users;
     private Set<FilePermission> filePermissions;
@@ -23,14 +23,13 @@ public class FileMetadataDTO
         this.filePermissions = filePermissions;
     }
 
-    public long getId() { return id; }
-
+    public Long getId() { return id; }
     public void setId(long id)
     {
         this.id = id;
     }
 
-    public boolean getIsEdited() { return isEdited; }
+    public Boolean getIsEdited() { return isEdited; }
     public void setIsEdited(boolean edited)
     {
         isEdited = edited;

@@ -11,7 +11,7 @@ public class User
     @Id
     @GeneratedValue
     @Column(name = "id", unique = true, nullable = false)
-    private long id;
+    private Long id;
 
     @Column(name = "username", unique = true, nullable = false)
     private String userName;
@@ -41,7 +41,7 @@ public class User
         this.surName = surName;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
     public void setId(long id) {

@@ -11,10 +11,10 @@ public class FileMetadata
     @Id
     @GeneratedValue
     @Column(name = "id", unique = true, nullable = false)
-    private long id;
+    private Long id;
 
     @Column(name = "is_edited", unique = false, nullable = false)
-    private boolean isEdited;
+    private Boolean isEdited;
 
     @Column(name = "name", unique = false, nullable = false)
     private String name;
@@ -36,13 +36,13 @@ public class FileMetadata
         this.filePermissions = filePermissions;
     }
 
-    public long getId() { return id;}
+    public Long getId() { return id;}
     public void setId(long id)
     {
         this.id = id;
     }
 
-    public boolean getIsEdited() { return isEdited; }
+    public Boolean getIsEdited() { return isEdited; }
     public void setIsEdited(boolean edited)
     {
         isEdited = edited;

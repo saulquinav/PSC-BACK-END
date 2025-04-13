@@ -15,7 +15,7 @@ public class FileVersionDAO implements GenericDAO<FileVersion>
     private EntityManager entityManager;  // every DAO has an EntityManager instance inside it
 
     @Override
-    public Optional<FileVersion> findById(long id)
+    public Optional<FileVersion> findById(Long id)
     {
         FileVersion filePermission = entityManager.find(FileVersion.class, id);
         return Optional.ofNullable(filePermission);
@@ -49,7 +49,7 @@ public class FileVersionDAO implements GenericDAO<FileVersion>
 
     @Override
     @Transactional // is it necessary?
-    public void delete(long id)
+    public void delete(Long id)
     {
         FileVersion foundFileVersion = entityManager.find(FileVersion.class, id);
 

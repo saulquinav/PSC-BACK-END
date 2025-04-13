@@ -11,8 +11,8 @@ public class FileVersionDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
-    private long id;
-    private long editingUserId;
+    private Long id;
+    private Long editingUserId;
     private String name;
     private Boolean isEdited;
     private byte[] data; // the document BLOB
@@ -31,13 +31,13 @@ public class FileVersionDTO implements Serializable
         this.data = data;
     }
 
-    public long getId() { return id; }
+    public Long getId() { return id; }
     public void setId(long id)
     {
         this.id = id;
     }
 
-    public long getEditingUserId() { return editingUserId; }
+    public Long getEditingUserId() { return editingUserId; }
     public void setEditingUserId(long editingUserId)
     {
         this.editingUserId = editingUserId;

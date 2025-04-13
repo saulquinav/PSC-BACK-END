@@ -16,7 +16,7 @@ public class FilePermissionDAO implements GenericDAO<FilePermission>
     private EntityManager entityManager;  // every DAO has an EntityManager instance inside it
 
     @Override
-    public Optional<FilePermission> findById(long id)
+    public Optional<FilePermission> findById(Long id)
     {
         FilePermission filePermission = entityManager.find(FilePermission.class, id);
         return Optional.ofNullable(filePermission);
@@ -50,7 +50,7 @@ public class FilePermissionDAO implements GenericDAO<FilePermission>
 
     @Override
     @Transactional // is it necessary?
-    public void delete(long id)
+    public void delete(Long id)
     {
         FilePermission foundFilePermission = entityManager.find(FilePermission.class, id);
         if (foundFilePermission != null)

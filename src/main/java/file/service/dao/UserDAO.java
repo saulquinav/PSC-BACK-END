@@ -17,7 +17,7 @@ public class UserDAO implements GenericDAO<User>
     @PersistenceContext
     private EntityManager entityManager;  // every DAO has an EntityManager instance inside it
 
-    public Optional<User> findById(long id)
+    public Optional<User> findById(Long id)
     {
         // Use the EntityManager to find the user by ID.
         // For the EntityManager to know in what type to return the found entity,
@@ -60,7 +60,7 @@ public class UserDAO implements GenericDAO<User>
 
     @Override
     @Transactional // is it necessary?
-    public void delete(long id)
+    public void delete(Long id)
     {
         User user = entityManager.find(User.class, id);
         if (user != null) {

@@ -6,7 +6,7 @@ public class UserDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
-    private long id;
+    private Long id;
     private String userName;
     private String firstName;
     private String surName;
@@ -21,10 +21,9 @@ public class UserDTO implements Serializable
         this.surName = surName;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
-
     public void setId(long id) {
         this.id = id;
     }
@@ -32,7 +31,6 @@ public class UserDTO implements Serializable
     public String getUserName() {
         return userName;
     }
-
     public void setUserName(String userName) {
         this.userName = userName;
     }
@@ -40,7 +38,6 @@ public class UserDTO implements Serializable
     public String getFirstName() {
         return firstName;
     }
-
     public void setFirstName(String firstName) {
         this.firstName = firstName;
     }
@@ -48,7 +45,6 @@ public class UserDTO implements Serializable
     public String getSurName() {
         return surName;
     }
-
     public void setSurName(String surName) {
         this.surName = surName;
     }

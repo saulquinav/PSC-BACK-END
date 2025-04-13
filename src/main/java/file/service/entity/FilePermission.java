@@ -2,24 +2,6 @@ package file.service.entity;
 
 import jakarta.persistence.*;
 
-//CREATE TABLE User (
-//        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-//        username VARCHAR(255) NOT NULL
-//);
-//
-//CREATE TABLE File (
-//        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-//        filename VARCHAR(255) NOT NULL
-//);
-//
-//CREATE TABLE FilePermission (
-//        id BIGINT AUTO_INCREMENT PRIMARY KEY,
-//        user_id BIGINT,
-//        file_id BIGINT,
-//        permission_type VARCHAR(50),
-//FOREIGN KEY (user_id) REFERENCES User(id),
-//FOREIGN KEY (file_id) REFERENCES File(id)
-//        );
 
 @Entity
 @Table(name = "file_permission")
@@ -28,7 +10,7 @@ public class FilePermission
     @Id
     @GeneratedValue
     @Column(name = "id", unique = true, nullable = false)
-    private long id;
+    private Long id;
 
     @ManyToOne
     @JoinColumn(name = "user_id_fk")
@@ -63,7 +45,7 @@ public class FilePermission
         this.permissionType = permissionType;
     }
 
-    public long getId() {
+    public Long getId() {
         return id;
     }
     public void setId(long id) {

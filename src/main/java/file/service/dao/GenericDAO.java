@@ -5,7 +5,7 @@ import java.util.Optional;
 
 public interface GenericDAO<T>
 {
-    public Optional<T> findById(long id);
+    public Optional<T> findById(Long id);
 
     public List<T> findAll();
 
@@ -13,5 +13,5 @@ public interface GenericDAO<T>
 
     public T update(T entity);
 
-    public void delete(long id);
+    public void delete(Long id);
 }
