@@ -11,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-@Stateless // not shure if the @Stateless annotation is recommended
+@Stateless // not sure if the @Stateless annotation is recommended
 public class UserDAO implements GenericDAO<User>
 {
     @PersistenceContext
@@ -51,6 +51,7 @@ public class UserDAO implements GenericDAO<User>
     public User update(User user)
     {
         User foundUser = entityManager.find(User.class, user.getId());
+
         if (foundUser == null)
             return null; // Or throw an exception
         else

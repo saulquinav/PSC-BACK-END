@@ -2,7 +2,8 @@ package file.service.dto;
 
 
 
-import file.service.entity.FilePermission;
+import file.service.entity.FileMetadata;
+import file.service.entity.FilePermisionType;
 import file.service.entity.User;
 
 import java.io.Serializable;
