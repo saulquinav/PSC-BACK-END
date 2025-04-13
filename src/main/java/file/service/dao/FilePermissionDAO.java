@@ -26,7 +26,7 @@ public class FilePermissionDAO implements GenericDAO<FilePermission>
     @Override
     public List<FilePermission> findAll()
     {
-        return entityManager.createQuery("SELECT u FROM User u", FilePermission.class)
+        return entityManager.createQuery("SELECT p FROM FilePermission p", FilePermission.class)
                             .getResultList();
     }
 
