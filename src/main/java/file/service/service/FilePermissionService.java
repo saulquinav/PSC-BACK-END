@@ -1,11 +1,8 @@
 package file.service.service;
 
 import file.service.dao.FilePermissionDAO;
-
 import file.service.dto.FilePermissionDTO;
-import file.service.dto.UserDTO;
 import file.service.entity.FilePermission;
-import file.service.entity.User;
 
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
