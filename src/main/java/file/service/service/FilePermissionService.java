@@ -57,6 +57,5 @@ public class FilePermissionService
         return new FilePermission(filePermissionDTO.getUser(),
                                     filePermissionDTO.getFileMetadata(),
                                     filePermissionDTO.getPermissionType());
-
     }
 }
