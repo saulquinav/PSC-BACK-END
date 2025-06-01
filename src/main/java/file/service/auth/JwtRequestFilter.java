@@ -15,7 +15,6 @@ import jakarta.ws.rs.ext.Provider;
 
 import java.security.Principal;
 
-
 @Provider
 @Priority(Priorities.AUTHENTICATION)
 public class JwtRequestFilter implements ContainerRequestFilter

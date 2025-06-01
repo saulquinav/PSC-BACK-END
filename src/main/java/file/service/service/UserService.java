@@ -7,6 +7,7 @@ import file.service.dto.UserDTO;
 import file.service.dto.UserLoginDTO;
 import file.service.entity.DocumentPermissionEntity;
 import file.service.entity.UserEntity;
+import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
@@ -17,73 +18,29 @@ import java.util.stream.Collectors;
 
 // We use @Stateless 'Bean' when this bean doesn't hold any client-specific information between method calls.
 @Stateless
-public class UserService
+public class UserService extends GenericService<UserEntity, UserDTO>
 {
 //    private static final Logger LOGGER = Logger.getLogger(UserService.class.getName());
 
     @Inject // or @EJB - either will work
     private UserDAO userDAO; // a service always has one or more DAO instances
 
-    private static final UserConverter userConverter = new UserConverter();
-    private static final DocumentPermissionsConverter documentPermissionsConverter = new DocumentPermissionsConverter();
+    @Inject
+    private UserConverter userConverter;
 
-    public Optional<UserDTO> findById(Long id)
+    @Inject
+    private DocumentPermissionsConverter documentPermissionsConverter;
+
+    @PostConstruct
+    private void init()
     {
-        // Use the DAO to find the requested user
-        Optional<UserEntity> optionalUser = userDAO.findById(id);
-
-        // If there is a (non-null) value inside the Optional
-        if (optionalUser.isPresent())
-        {
-            // Get the User value from inside the Optional
-            UserEntity userEntity = optionalUser.get();
-
-            // Convert the value to DTO
-            UserDTO userDTO = userConverter.convertToDTO(userEntity);
-
-            // Return the user converted to DTO, wrapped inside an Optional
-            return Optional.of(userDTO);
-        }
-        else
-            // If nothing was found, then just return an Optional with no value
-            return Optional.empty();
+        setDao(userDAO);
+        setConverter(userConverter);
     }
 
     public Optional<UserEntity> findByUsername(String username)
     {
         return userDAO.findByUsername(username);
-    }
-
-    public List<UserDTO> findAll()
-    {
-        return userDAO.findAll().stream()
-                .map(userEntity -> userConverter.convertToDTO(userEntity))
-                .collect(Collectors.toList());
-    }
-
-    public void create(UserDTO userDTO)
-    {
-        UserEntity userEntity = userConverter.convertToEntityWithoutId(userDTO);
-
-        if (userDTO.getDocumentPermissions() != null)
-        {
-            Set<DocumentPermissionEntity> documentPermissionEntities = documentPermissionsConverter.convertAllToEntityWithoutId(userDTO.getDocumentPermissions());
-            userEntity.setFilePermissions(documentPermissionEntities);
-        }
-
-        userDAO.create(userEntity);
-    }
-
-    public void update(UserDTO userDTO)
-    {
-        UserEntity userEntity = userConverter.convertToEntity(userDTO);
-
-        userDAO.update(userEntity);
-    }
-
-    public void delete(Long id)
-    {
-        userDAO.delete(id);
     }
 
 //    public Optional<User> authenticate(UserLoginDTO userLoginDTO)

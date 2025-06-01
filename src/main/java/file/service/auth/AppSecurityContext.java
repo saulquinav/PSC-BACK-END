@@ -5,7 +5,7 @@ import file.service.entity.UserEntity;
 
 import java.security.Principal;
 
-// Not used in this version of the project. Instead, we use an inline implmentation
+// Not used in this version of the project. Instead, we use an inline implementation
 // of the 'SecurityContext' interface
 public class AppSecurityContext implements SecurityContext
 {
