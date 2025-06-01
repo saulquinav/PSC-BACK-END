@@ -1,0 +1,14 @@
+version: '3'
+services:
+  db:
+    image: postgres:15
+    # The name of the container, this is what we will see in the Docker list of containers.
+    # We use this name in order to start or stop the container.
+    container_name: postgres-db-2-ent
+    restart: always
+    environment:
+      POSTGRES_DB: userdb
+      POSTGRES_USER: user
+      POSTGRES_PASSWORD: password
+    ports:
+      - "5432:5432"
