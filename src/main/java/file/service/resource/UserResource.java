@@ -1,5 +1,6 @@
 package file.service.resource;
 
+import jakarta.annotation.security.PermitAll;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
@@ -10,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @Path("users")
+@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
 public class UserResource
 {
     @Inject
