@@ -1,0 +1,34 @@
+package file.service.converters;
+
+import java.util.Set;
+import java.util.stream.Collectors;
+
+/* E - Entity
+** D - DTO */
+public abstract class GenericConverter<E, D>
+{
+    public abstract D convertToDTO(E entity);
+    public abstract E convertToEntityWithoutId(D dto);
+    public abstract E convertToEntity(D dto);
+
+    public Set<E> convertAllToEntityWithoutId(Set<D> dtos)
+    {
+        return dtos.stream()
+                    .map(dto -> convertToEntityWithoutId(dto))
+                    .collect(Collectors.toSet());
+    }
+
+    public Set<E> convertAllToEntity(Set<D> dtos)
+    {
+        return dtos.stream()
+                    .map(dto -> convertToEntity(dto))
+                    .collect(Collectors.toSet());
+    }
+
+    public Set<D> convertAllToDTO(Set<E> entities)
+    {
+        return entities.stream()
+                        .map(entity -> convertToDTO(entity))
+                        .collect(Collectors.toSet());
+    }
+}

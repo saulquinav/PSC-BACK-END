@@ -1,13 +1,10 @@
 package file.service.dto;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
-import jakarta.persistence.Lob;
-
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
-public class FileVersionDTO implements Serializable
+public class DocumentDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -17,19 +14,32 @@ public class FileVersionDTO implements Serializable
     private Boolean isEdited;
     private byte[] data; // the document BLOB
 
-    // No-arguments constructor
-    public FileVersionDTO() { }
+    private Set<DocumentPermissionDTO> documentPermissions = new HashSet<DocumentPermissionDTO>();
 
-    public FileVersionDTO(long editingUserId,
-                          String name,
-                          Boolean isEdited,
-                          byte[] data)
+    public DocumentDTO(long editingUserId,
+                       String name,
+                       Boolean isEdited,
+                       byte[] data)
     {
         this.editingUserId = editingUserId;
         this.name = name;
         this.isEdited = isEdited;
         this.data = data;
     }
+
+    public DocumentDTO(long editingUserId,
+                       String name,
+                       Boolean isEdited,
+                       byte[] data,
+                       Set<DocumentPermissionDTO> documentPermissions)
+    {
+        this.editingUserId = editingUserId;
+        this.name = name;
+        this.isEdited = isEdited;
+        this.data = data;
+        this.documentPermissions = documentPermissions;
+    }
+
 
     public Long getId() { return id; }
     public void setId(long id)
@@ -60,4 +70,8 @@ public class FileVersionDTO implements Serializable
     {
         this.data = data;
     }
+
+    public Set<DocumentPermissionDTO> getDocumentPermissions() { return documentPermissions; }
+    public void setDocumentPermissions(Set<DocumentPermissionDTO> documentPermissions)
+    { this.documentPermissions = documentPermissions; }
 }

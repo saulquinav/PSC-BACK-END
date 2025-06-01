@@ -7,6 +7,5 @@ import jakarta.ws.rs.core.Application;
  * Configures RESTful Web Services for the application.
  */
 @ApplicationPath("resources")
-public class RestConfiguration extends Application {
-    
-}
+public class RestApplication extends Application
+{ }

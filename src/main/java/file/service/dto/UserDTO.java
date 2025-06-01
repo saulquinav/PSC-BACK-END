@@ -1,24 +1,31 @@
 package file.service.dto;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
 
 public class UserDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
+    /* For DTO the fields are also private, because it adheres to JavaBeans
+    ** standard and leads to more maintainable code */
     private Long id;
-    private String userName;
-    private String firstName;
-    private String surName;
+    private String username;
+    private String password;
+    private Set<DocumentPermissionDTO> documentPermissions = new HashSet<DocumentPermissionDTO>();
 
-    // No-argument constructor
-    public UserDTO() { }
-
-    public UserDTO(String userName, String firstName, String surName)
+    public UserDTO(String username, String password)
     {
-        this.userName = userName;
-        this.firstName = firstName;
-        this.surName = surName;
+        this.username = username;
+        this.password = password;
+    }
+
+    public UserDTO(String username, String password, Set<DocumentPermissionDTO> documentPermissions)
+    {
+        this.username = username;
+        this.password = password;
+        this.documentPermissions = documentPermissions;
     }
 
     public Long getId() {
@@ -28,24 +35,21 @@ public class UserDTO implements Serializable
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getFirstName() {
-        return firstName;
-    }
-    public void setFirstName(String firstName) {
-        this.firstName = firstName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
-    public String getSurName() {
-        return surName;
+    public String getPassword() {
+        return password;
     }
-    public void setSurName(String surName) {
-        this.surName = surName;
+    public void setPassword(String password) {
+        this.password = password;
     }
+
+    public Set<DocumentPermissionDTO> getDocumentPermissions() { return documentPermissions; }
+    public void setDocumentPermissions(Set<DocumentPermissionDTO> documentPermissions)
+    { this.documentPermissions = documentPermissions; }
 }

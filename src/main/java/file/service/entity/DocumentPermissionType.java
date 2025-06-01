@@ -1,6 +1,6 @@
 package file.service.entity;
 
-public enum FilePermisionType
+public enum DocumentPermissionType
 {
     NONE,
     READ,

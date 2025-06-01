@@ -2,8 +2,8 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>file.service</groupId>
-    <artifactId>file-service</artifactId>
+    <groupId>payara.example</groupId>
+    <artifactId>payara.example</artifactId>
     <version>0.1-SNAPSHOT</version>
     <packaging>war</packaging>
 
@@ -15,10 +15,14 @@
         <jakartaee-api.version>10.0.0</jakartaee-api.version>
         <payara.version>6.2025.3</payara.version>
         <cargo.version>1.10.13</cargo.version>
+        <failOnMissingWebXml>false</failOnMissingWebXml>
         <payara.url>https://repo1.maven.org/maven2/fish/payara/distributions/payara/6.2025.3/payara-6.2025.3.zip</payara.url>
         <payara.home>payara6</payara.home>
+        <!-- Added -->
+        <hibernate.version>6.3.1.Final</hibernate.version>
+        <h2.version>2.2.224</h2.version>
     </properties>
-    
+
     <dependencyManagement>
         <dependencies>
             <dependency>
@@ -35,19 +39,55 @@
         <dependency>
             <groupId>jakarta.platform</groupId>
             <artifactId>jakarta.jakartaee-api</artifactId>
-                    <scope>provided</scope>
+            <!--            <version>${jakartaee-api.version}</version>-->
+            <scope>provided</scope>
         </dependency>
+
         <dependency>
             <groupId>org.eclipse.microprofile</groupId>
             <artifactId>microprofile</artifactId>
             <scope>provided</scope>
             <type>pom</type>
         </dependency>
+
         <dependency>
             <groupId>fish.payara.api</groupId>
             <artifactId>payara-api</artifactId>
             <scope>provided</scope>
         </dependency>
+
+        <!-- PostgreSQL JDBC Driver -->
+        <dependency>
+            <groupId>org.postgresql</groupId>
+            <artifactId>postgresql</artifactId>
+            <version>42.7.5</version>
+        </dependency>
+
+        <!-- Dependencies dor JJWT Library for Java -->
+        <!--        <dependency>-->
+        <!--            <groupId>io.jsonwebtoken</groupId>-->
+        <!--            <artifactId>jjwt</artifactId>-->
+        <!--            <version>0.9.1</version>-->
+        <!--        </dependency>-->
+
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-api</artifactId>
+            <version>0.12.6</version>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-impl</artifactId>
+            <version>0.12.6</version>
+            <scope>runtime</scope>
+        </dependency>
+        <dependency>
+            <groupId>io.jsonwebtoken</groupId>
+            <artifactId>jjwt-jackson</artifactId> <!-- or jjwt-gson if Gson is preferred -->
+            <version>0.12.6</version>
+            <scope>runtime</scope>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -67,21 +107,21 @@
             </plugin>
             <!-- Execute 'mvn clean package cargo:run' to run the application. -->
             <plugin>
-                    <groupId>org.codehaus.cargo</groupId>
-                    <artifactId>cargo-maven3-plugin</artifactId>
-                    <version>${cargo.version}</version>
-                    <configuration>
-                        <container>
-                            <containerId>payara</containerId>
-                            <zipUrlInstaller>
-                                <url>${payara.url}</url>
-                            </zipUrlInstaller>
-                        </container>
-                    </configuration>
+                <groupId>org.codehaus.cargo</groupId>
+                <artifactId>cargo-maven3-plugin</artifactId>
+                <version>${cargo.version}</version>
+                <configuration>
+                    <container>
+                        <containerId>payara</containerId>
+                        <zipUrlInstaller>
+                            <url>${payara.url}</url>
+                        </zipUrlInstaller>
+                    </container>
+                </configuration>
             </plugin>
         </plugins>
     </build>
-    
+
     <repositories>
         <repository>
             <id>payara-nexus-artifacts</id>
@@ -94,8 +134,8 @@
             </snapshots>
         </repository>
     </repositories>
-    
-    
+
+
     <profiles>
     </profiles>
 
