@@ -3,10 +3,10 @@
 
     <persistence-unit name="ExamplePersistenceUnit" transaction-type="JTA">
         <jta-data-source>jdbc/postgres</jta-data-source>
-        <class>payara.example.entity.UserEntity</class>
-        <class>payara.example.entity.UserInfoEntity</class>
-        <class>payara.example.entity.DocumentPermissionEntity</class>
-        <class>payara.example.entity.DocumentEntity</class>
+        <class>file.service.entity.UserEntity</class>
+        <class>file.service.entity.UserInfoEntity</class>
+        <class>file.service.entity.DocumentPermissionEntity</class>
+        <class>file.service.entity.DocumentEntity</class>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
