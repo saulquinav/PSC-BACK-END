@@ -17,14 +17,8 @@ public class DocumentEntity
     @Column(unique = false, nullable = false)
     private String name;
 
-    @Column(name = "editing_user_id_fk", unique = true, nullable = false)
-    private Long editingUserId;
-
-    @Column(name = "is_edited", unique = false, nullable = false)
-    private Boolean isEdited;
-
     @Lob
-    @Column(length=100000)
+    @Column(length = 100000)
     private byte[] data; // the document BLOB
 
     // One-to-many relationship with DocumentPermissionEntity (the join table entity).
@@ -35,18 +29,24 @@ public class DocumentEntity
     @OneToMany(mappedBy = "document", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<DocumentPermissionEntity> documentPermissions = new HashSet<DocumentPermissionEntity>();
 
-    public Long getId() {
-        return id;
-    }
-    public void setId(long id) {
-        this.id = id;
+    public DocumentEntity() { }
+
+    public DocumentEntity(String name, byte[] data, Set<DocumentPermissionEntity> documentPermissions)
+    {
+        this.name = name;
+        this.data = data;
+        this.documentPermissions = documentPermissions;
     }
 
-    public Long getEditingUserId() {
-        return editingUserId;
+    public DocumentEntity(String name, byte[] data)
+    {
+        this.name = name;
+        this.data = data;
     }
-    public void setEditingUserId(long editingUserId) {
-        this.editingUserId = editingUserId;
+
+    public Long getId() { return id; }
+    public void setId(long id) {
+        this.id = id;
     }
 
     public String getName() {
@@ -54,13 +54,6 @@ public class DocumentEntity
     }
     public void setName(String name) {
         this.name = name;
-    }
-
-    public Boolean getIsEdited() {
-        return isEdited;
-    }
-    public void setIsEdited(Boolean edited) {
-        isEdited = edited;
     }
 
     public byte[] getData() {

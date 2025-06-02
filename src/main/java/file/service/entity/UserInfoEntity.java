@@ -18,12 +18,30 @@ public class UserInfoEntity
     private String surname;
 
     // One-to-one relationship with User
-    // @JoinColumn specifies the foreign key column in the user_info table that references the users table.
+    // @JoinColumn specifies the foreign key column in the user_infos table that references the users table.
     // nullable = false ensures that every UserInfo must be linked to a User.
     // unique = true ensures that only one UserInfo can point to a specific User, enforcing the one-to-one.
     @OneToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, unique = true)
     private UserEntity user;
+
+    public UserInfoEntity() { }
+
+    public UserInfoEntity(String firstname, String surname)
+    {
+        this.firstname = firstname;
+        this.surname = surname;
+    }
+
+    public UserInfoEntity(String firstname, String surname, UserEntity user)
+    {
+        this.firstname = firstname;
+        this.surname = surname;
+        this.user = user;
+    }
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getFirstname() {
         return firstname;

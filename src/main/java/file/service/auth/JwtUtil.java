@@ -16,18 +16,11 @@ public class JwtUtil
 
     public static String generateToken(UserEntity userEntity)
     {
-//        return Jwts.builder()
-//                .setSubject(user.getUsername())
-//                .setIssuedAt(new Date())
-//                .setExpiration(new Date(System.currentTimeMillis() + 86400000)) // 1 day expiry
-////                .signWith(KEY, SignatureAlgorithm.HS512)
-//                .signWith(KEY)
-//                .compact();
-
         return Jwts.builder()
                 .setSubject(userEntity.getUsername())
                 .setIssuedAt(new Date())
                 .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
+//                .signWith(KEY, SignatureAlgorithm.HS512)
                 .signWith(SECRET_KEY)
                 .compact();
     }
@@ -57,7 +50,7 @@ public class JwtUtil
                 .getSubject();
     }
 
-    // old
+// old
 //    public static Optional<User> parseToken(String token)
 //    {
 //        String username = getUsernameFromToken(token);

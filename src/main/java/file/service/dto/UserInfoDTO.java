@@ -6,6 +6,7 @@ public class UserInfoDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
+    private Long id;
     private String firstname;
     private String surname;
 
@@ -14,6 +15,9 @@ public class UserInfoDTO implements Serializable
         this.firstname = firstname;
         this.surname = surname;
     }
+
+    public Long getId() { return id; }
+    public void setId(Long id) { this.id = id; }
 
     public String getFirstname() {
         return firstname;

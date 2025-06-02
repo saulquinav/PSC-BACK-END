@@ -1,15 +1,12 @@
 package file.service.dao;
 
-import file.service.entity.DocumentPermissionEntity;
+import file.service.entity.UserInfoEntity;
 import jakarta.ejb.Stateless;
 
 @Stateless // the @Stateless annotation is recommended for DAO
 // @Stateless is transactional by default, so we don't need to apply the @Transactional
 // annotation to the methods
-public class DocumentPermissionDAO extends AbstractGenericDAO<DocumentPermissionEntity>
+public class UserInfoDAO extends AbstractGenericDAO<UserInfoEntity>
 {
-    public DocumentPermissionDAO()
-    {
-        super(DocumentPermissionEntity.class);
-    }
+    public UserInfoDAO() { super(UserInfoEntity.class); }
 }

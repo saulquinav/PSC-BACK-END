@@ -3,7 +3,7 @@ package file.service.entity;
 import jakarta.persistence.*;
 
 @Entity
-@Table(name = "user_documents")
+@Table(name = "document_permissions")
 public class DocumentPermissionEntity
 {
     // Define the composite primary key using @EmbeddedId
