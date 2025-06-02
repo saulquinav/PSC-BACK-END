@@ -10,7 +10,7 @@ import jakarta.inject.Inject;
 
 // We use @Stateless 'Bean' when this bean doesn't hold any client-specific information between method calls.
 @Stateless
-public class DocumentService extends GenericService<DocumentEntity, DocumentDTO>
+public class DocumentService extends CrudService<DocumentEntity, Long, DocumentDTO>
 {
     @Inject
     private DocumentDAO documentDAO;

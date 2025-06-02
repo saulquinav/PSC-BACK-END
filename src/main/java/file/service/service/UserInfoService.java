@@ -7,7 +7,7 @@ import file.service.entity.UserInfoEntity;
 import jakarta.annotation.PostConstruct;
 import jakarta.inject.Inject;
 
-public class UserInfoService extends GenericService<UserInfoEntity, UserInfoDTO>
+public class UserInfoService extends CrudService<UserInfoEntity, Long, UserInfoDTO>
 {
     @Inject
     public UserInfoDAO userInfoDAO;
