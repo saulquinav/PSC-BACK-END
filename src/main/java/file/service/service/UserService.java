@@ -13,7 +13,7 @@ import java.util.Optional;
 
 // We use @Stateless 'Bean' when this bean doesn't hold any client-specific information between method calls.
 @Stateless
-public class UserService extends GenericService<UserEntity, UserDTO>
+public class UserService extends CrudService<UserEntity, Long, UserDTO>
 {
 //    private static final Logger LOGGER = Logger.getLogger(UserService.class.getName());
 

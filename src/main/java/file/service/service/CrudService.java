@@ -1,7 +1,7 @@
 package file.service.service;
 
 import file.service.converters.GenericConverter;
-import file.service.dao.GenericDAO;
+import file.service.dao.CrudDAO;
 
 import java.util.List;
 import java.util.Optional;
@@ -9,13 +9,14 @@ import java.util.stream.Collectors;
 
 /* Type parameters:
 ** E - entity
+** ID - the id of the Entity
 ** D - DTO  */
-public class GenericService<E, D>
+public class CrudService<E, ID, D>
 {
-    protected GenericDAO<E> dao;
+    protected CrudDAO<E, ID> dao;
     protected GenericConverter<E, D> converter;
 
-    public Optional<D> findById(Long id)
+    public Optional<D> findById(ID id)
     {
         // Use the DAO to find the requested user
         Optional<E> optionalEntity = dao.findById(id);
@@ -58,12 +59,12 @@ public class GenericService<E, D>
         dao.update(entity);
     }
 
-    public void delete(Long id)
+    public void delete(ID id)
     {
         dao.delete(id);
     }
 
-    protected void setDao(GenericDAO<E> dao)
+    protected void setDao(CrudDAO<E, ID> dao)
     {
         this.dao = dao;
     }

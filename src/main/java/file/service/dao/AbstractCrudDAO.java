@@ -6,20 +6,22 @@ import jakarta.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 
-public class AbstractGenericDAO<E> implements GenericDAO<E>
+public class AbstractCrudDAO<E, ID> implements CrudDAO<E, ID>
 {
     @PersistenceContext
     protected EntityManager entityManager;
 
     private final Class<E> entityClass;
+//    private final Class<ID> idClass;
 
-    public AbstractGenericDAO(Class<E> entityClass)
+    public AbstractCrudDAO(Class<E> entityClass)
     {
         this.entityClass = entityClass;
+//        this.idClass = idClass;
     }
 
     @Override
-    public Optional<E> findById(Long id)
+    public Optional<E> findById(ID id)
     {
         return Optional.ofNullable(entityManager.find(entityClass, id));
     }
@@ -44,7 +46,7 @@ public class AbstractGenericDAO<E> implements GenericDAO<E>
     }
 
     @Override
-    public void delete(Long id)
+    public void delete(ID id)
     {
         findById(id).ifPresent(entity -> entityManager.remove(entity));
     }
