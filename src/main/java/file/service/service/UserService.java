@@ -1,20 +1,15 @@
 package file.service.service;
 
-import file.service.converters.DocumentPermissionsConverter;
 import file.service.converters.UserConverter;
 import file.service.dao.UserDAO;
 import file.service.dto.UserDTO;
 import file.service.dto.UserLoginDTO;
-import file.service.entity.DocumentPermissionEntity;
 import file.service.entity.UserEntity;
 import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
-import java.util.List;
 import java.util.Optional;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 // We use @Stateless 'Bean' when this bean doesn't hold any client-specific information between method calls.
 @Stateless
@@ -27,9 +22,6 @@ public class UserService extends GenericService<UserEntity, UserDTO>
 
     @Inject
     private UserConverter userConverter;
-
-    @Inject
-    private DocumentPermissionsConverter documentPermissionsConverter;
 
     @PostConstruct
     private void init()

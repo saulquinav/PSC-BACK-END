@@ -15,40 +15,40 @@ public class UserConverter extends GenericConverter<UserEntity, UserDTO>
     // This method does not search for relationship-owned auxiliary elements in the database,
     // it just copies field to field.
     @Override
-    public UserDTO convertToDTO(UserEntity userEntity)
+    public UserDTO convertToDTO(UserEntity entity)
     {
-        UserDTO userDTO = new UserDTO(userEntity.getUsername(), userEntity.getPassword());
+        UserDTO dto = new UserDTO(entity.getUsername(), entity.getPassword());
 
-        userDTO.setId(userEntity.getId());
+        dto.setId(entity.getId());
 
-        Set<DocumentPermissionDTO> dtoPermissions = documentPermissionsConverter.convertAllToDTO(userEntity.getFilePermissions());
+        Set<DocumentPermissionDTO> dtoPermissions = documentPermissionsConverter.convertAllToDTO(entity.getFilePermissions());
 
-        userDTO.setDocumentPermissions(dtoPermissions);
-        return userDTO;
+        dto.setDocumentPermissions(dtoPermissions);
+        return dto;
     }
 
     // Method that converts from DTO to Entity
     @Override
-    public UserEntity convertToEntityWithoutId(UserDTO userDTO)
+    public UserEntity convertToEntityWithoutId(UserDTO dto)
     {
-        UserEntity userEntity = new UserEntity(userDTO.getUsername(), userDTO.getPassword());
+        UserEntity entity = new UserEntity(dto.getUsername(), dto.getPassword());
 
-        Set<DocumentPermissionEntity> documentPermissionEntity = documentPermissionsConverter.convertAllToEntityWithoutId(userDTO.getDocumentPermissions());
+        Set<DocumentPermissionEntity> documentPermissionEntity = documentPermissionsConverter.convertAllToEntityWithoutId(dto.getDocumentPermissions());
 
-        userEntity.setFilePermissions(documentPermissionEntity);
+        entity.setFilePermissions(documentPermissionEntity);
 
-        return userEntity;
+        return entity;
     }
 
     // Method that converts from DTO to Entity
     @Override
-    public UserEntity convertToEntity(UserDTO userDTO)
+    public UserEntity convertToEntity(UserDTO dto)
     {
-        UserEntity userEntity = convertToEntityWithoutId(userDTO);
+        UserEntity entity = convertToEntityWithoutId(dto);
 
         // Also copy the ID
-        userEntity.setId(userDTO.getId());
+        entity.setId(dto.getId());
 
-        return userEntity;
+        return entity;
     }
 }

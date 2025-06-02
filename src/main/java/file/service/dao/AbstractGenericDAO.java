@@ -6,39 +6,39 @@ import jakarta.persistence.PersistenceContext;
 import java.util.List;
 import java.util.Optional;
 
-public class AbstractGenericDAO<T> implements GenericDAO<T>
+public class AbstractGenericDAO<E> implements GenericDAO<E>
 {
     @PersistenceContext
     protected EntityManager entityManager;
 
-    private final Class<T> entityClass;
+    private final Class<E> entityClass;
 
-    public AbstractGenericDAO(Class<T> entityClass)
+    public AbstractGenericDAO(Class<E> entityClass)
     {
         this.entityClass = entityClass;
     }
 
     @Override
-    public Optional<T> findById(Long id)
+    public Optional<E> findById(Long id)
     {
         return Optional.ofNullable(entityManager.find(entityClass, id));
     }
 
     @Override
-    public List<T> findAll()
+    public List<E> findAll()
     {
         String jpql = "SELECT e FROM " + entityClass.getSimpleName() + " e";
         return entityManager.createQuery(jpql, entityClass).getResultList();
     }
 
     @Override
-    public void create(T entity)
+    public void create(E entity)
     {
         entityManager.persist(entity);
     }
 
     @Override
-    public T update(T entity)
+    public E update(E entity)
     {
         return entityManager.merge(entity);
     }

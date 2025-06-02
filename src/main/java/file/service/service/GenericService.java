@@ -2,13 +2,9 @@ package file.service.service;
 
 import file.service.converters.GenericConverter;
 import file.service.dao.GenericDAO;
-import file.service.dto.UserDTO;
-import file.service.entity.DocumentPermissionEntity;
-import file.service.entity.UserEntity;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 /* Type parameters:
@@ -17,7 +13,6 @@ import java.util.stream.Collectors;
 public class GenericService<E, D>
 {
     protected GenericDAO<E> dao;
-
     protected GenericConverter<E, D> converter;
 
     public Optional<D> findById(Long id)

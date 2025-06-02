@@ -15,6 +15,7 @@ import static java.lang.annotation.ElementType.METHOD;
 import static java.lang.annotation.ElementType.TYPE;
 import static java.lang.annotation.RetentionPolicy.RUNTIME;
 
+// This interface should be removed
 /* Very important! We use the @NameBinding annotation here, which tells JAX-RS library
 * that the @Secured annotation can be used to associate filters/interceptors with
 * the methods or resources that have this annotation.

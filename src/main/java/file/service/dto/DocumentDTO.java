@@ -9,33 +9,22 @@ public class DocumentDTO implements Serializable
     private static final long serialVersionUID = 1L;
 
     private Long id;
-    private Long editingUserId;
     private String name;
-    private Boolean isEdited;
     private byte[] data; // the document BLOB
 
     private Set<DocumentPermissionDTO> documentPermissions = new HashSet<DocumentPermissionDTO>();
 
-    public DocumentDTO(long editingUserId,
-                       String name,
-                       Boolean isEdited,
-                       byte[] data)
+    public DocumentDTO(String name, byte[] data)
     {
-        this.editingUserId = editingUserId;
         this.name = name;
-        this.isEdited = isEdited;
         this.data = data;
     }
 
-    public DocumentDTO(long editingUserId,
-                       String name,
-                       Boolean isEdited,
+    public DocumentDTO(String name,
                        byte[] data,
                        Set<DocumentPermissionDTO> documentPermissions)
     {
-        this.editingUserId = editingUserId;
         this.name = name;
-        this.isEdited = isEdited;
         this.data = data;
         this.documentPermissions = documentPermissions;
     }
@@ -47,22 +36,10 @@ public class DocumentDTO implements Serializable
         this.id = id;
     }
 
-    public Long getEditingUserId() { return editingUserId; }
-    public void setEditingUserId(long editingUserId)
-    {
-        this.editingUserId = editingUserId;
-    }
-
     public String getName() { return name; }
     public void setName(String name)
     {
         this.name = name;
-    }
-
-    public Boolean getIsEdited() { return isEdited;}
-    public void setIsEdited(Boolean edited)
-    {
-        isEdited = edited;
     }
 
     public byte[] getData() { return data; }

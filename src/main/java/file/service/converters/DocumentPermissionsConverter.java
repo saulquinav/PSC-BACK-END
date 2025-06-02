@@ -7,34 +7,33 @@ import file.service.entity.DocumentPermissionId;
 public class DocumentPermissionsConverter extends GenericConverter<DocumentPermissionEntity, DocumentPermissionDTO>
 {
     @Override
-    public DocumentPermissionDTO convertToDTO(DocumentPermissionEntity documentPermissionEntity)
+    public DocumentPermissionDTO convertToDTO(DocumentPermissionEntity entity)
     {
-        DocumentPermissionDTO documentPermissionDTO = new DocumentPermissionDTO(documentPermissionEntity.getName());
-        documentPermissionDTO.setUserId(documentPermissionEntity.getId().getUserId());
-        documentPermissionDTO.setDocumentId(documentPermissionEntity.getId().getDocumentId());
+        DocumentPermissionDTO dto = new DocumentPermissionDTO(entity.getName());
+        dto.setUserId(entity.getId().getUserId());
+        dto.setDocumentId(entity.getId().getDocumentId());
 
-        return documentPermissionDTO;
+        return dto;
     }
 
     @Override
-    public DocumentPermissionEntity convertToEntityWithoutId(DocumentPermissionDTO documentPermissionDTO)
+    public DocumentPermissionEntity convertToEntityWithoutId(DocumentPermissionDTO dto)
     {
-        DocumentPermissionEntity documentPermissionEntity = new DocumentPermissionEntity(documentPermissionDTO.getName());
+        DocumentPermissionEntity entity = new DocumentPermissionEntity(dto.getName());
         // should try to get the 'user' field?
 
-        return documentPermissionEntity;
+        return entity;
     }
 
     @Override
-    public DocumentPermissionEntity convertToEntity(DocumentPermissionDTO documentPermissionDTO)
+    public DocumentPermissionEntity convertToEntity(DocumentPermissionDTO dto)
     {
-        DocumentPermissionEntity permissionEntity = convertToEntityWithoutId(documentPermissionDTO);
+        DocumentPermissionEntity entity = convertToEntityWithoutId(dto);
 
-        DocumentPermissionId documentPermissionId = new DocumentPermissionId(documentPermissionDTO.getUserId(),
-                                                                            documentPermissionDTO.getDocumentId());
         // also copy the ID
-        permissionEntity.setId(documentPermissionId);
+        DocumentPermissionId id = new DocumentPermissionId(dto.getUserId(), dto.getDocumentId());
+        entity.setId(id);
 
-        return permissionEntity;
+        return entity;
     }
 }
