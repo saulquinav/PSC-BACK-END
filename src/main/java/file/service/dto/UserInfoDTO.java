@@ -10,6 +10,8 @@ public class UserInfoDTO implements Serializable
     private String firstname;
     private String surname;
 
+    public UserInfoDTO() { }
+
     public UserInfoDTO(String firstname, String surname)
     {
         this.firstname = firstname;

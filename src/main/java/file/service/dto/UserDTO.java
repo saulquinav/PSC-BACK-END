@@ -15,6 +15,8 @@ public class UserDTO implements Serializable
     private String password;
     private Set<DocumentPermissionDTO> documentPermissions = new HashSet<DocumentPermissionDTO>();
 
+    public UserDTO() { }
+
     public UserDTO(String username, String password)
     {
         this.username = username;
