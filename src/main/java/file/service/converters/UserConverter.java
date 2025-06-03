@@ -4,9 +4,11 @@ import file.service.dto.DocumentPermissionDTO;
 import file.service.dto.UserDTO;
 import file.service.entity.DocumentPermissionEntity;
 import file.service.entity.UserEntity;
+import jakarta.enterprise.context.ApplicationScoped;
 
 import java.util.Set;
 
+@ApplicationScoped
 public class UserConverter extends GenericConverter<UserEntity, UserDTO>
 {
     private final static DocumentPermissionsConverter documentPermissionsConverter = new DocumentPermissionsConverter();

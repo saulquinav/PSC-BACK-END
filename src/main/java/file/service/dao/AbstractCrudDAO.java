@@ -17,7 +17,6 @@ public class AbstractCrudDAO<E, ID> implements CrudDAO<E, ID>
     public AbstractCrudDAO(Class<E> entityClass)
     {
         this.entityClass = entityClass;
-//        this.idClass = idClass;
     }
 
     @Override

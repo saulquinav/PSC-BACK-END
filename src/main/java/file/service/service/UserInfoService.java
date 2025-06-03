@@ -1,6 +1,8 @@
 package file.service.service;
 
+import file.service.converters.GenericConverter;
 import file.service.converters.UserInfoConverter;
+import file.service.dao.CrudDAO;
 import file.service.dao.UserInfoDAO;
 import file.service.dto.UserInfoDTO;
 import file.service.entity.UserInfoEntity;
@@ -15,10 +17,17 @@ public class UserInfoService extends CrudService<UserInfoEntity, Long, UserInfoD
     @Inject
     public UserInfoConverter userInfoConverter;
 
-    @PostConstruct
-    private void init()
-    {
-        setDao(userInfoDAO);
-        setConverter(userInfoConverter);
-    }
+    @Override
+    protected CrudDAO<UserInfoEntity, Long> getDao() { return userInfoDAO; }
+
+    @Override
+    protected GenericConverter<UserInfoEntity, UserInfoDTO> getConverter() { return userInfoConverter; }
+
+
+//    @PostConstruct
+//    private void init()
+//    {
+//        setDao(userInfoDAO);
+//        setConverter(userInfoConverter);
+//    }
 }

@@ -1,7 +1,6 @@
 package file.service.resource;
 
 import file.service.dto.DocumentPermissionDTO;
-import file.service.dto.UserDTO;
 import file.service.entity.DocumentPermissionEntity;
 import file.service.entity.DocumentPermissionId;
 import file.service.service.CrudService;
@@ -27,8 +26,9 @@ public class DocumentPermissionResource extends CrudResource<DocumentPermissionE
 
     @GET
     @Path("/{id}")
-    public Response get(@PathParam("id") DocumentPermissionId id)
+    public Response get(@PathParam("userId") Long userId, @PathParam("documentId") Long documentId)
     {
+        DocumentPermissionId id = new DocumentPermissionId(userId, documentId);
         return super.get(id); // delegate logic to base class method
     }
 
@@ -46,15 +46,17 @@ public class DocumentPermissionResource extends CrudResource<DocumentPermissionE
 
     @PUT
     @Path("/{id}")
-    public Response update(@PathParam("id") DocumentPermissionId id, DocumentPermissionDTO dto)
+    public Response update(@PathParam("userId") Long userId, @PathParam("documentId") Long documentId, DocumentPermissionDTO dto)
     {
+        DocumentPermissionId id = new DocumentPermissionId(userId, documentId);
         return super.update(id, dto); // delegate logic to base class method
     }
 
     @DELETE
     @Path("/{id}")
-    public Response delete(@PathParam("id") DocumentPermissionId id)
+    public Response delete(@PathParam("userId") Long userId, @PathParam("documentId") Long documentId)
     {
+        DocumentPermissionId id = new DocumentPermissionId(userId, documentId);
         return super.delete(id); // delegate logic to base class method
     }
 }

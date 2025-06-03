@@ -2,6 +2,8 @@ package file.service.converters;
 
 import file.service.dto.UserInfoDTO;
 import file.service.entity.UserInfoEntity;
+
+import jakarta.enterprise.context.ApplicationScoped;
 import jakarta.persistence.Column;
 
 //@Column(name = "firstname", nullable = false)
@@ -10,6 +12,7 @@ import jakarta.persistence.Column;
 //@Column(name = "surname", nullable = false)
 //private String surname;
 
+@ApplicationScoped
 public class UserInfoConverter extends GenericConverter<UserInfoEntity, UserInfoDTO>
 {
     @Override

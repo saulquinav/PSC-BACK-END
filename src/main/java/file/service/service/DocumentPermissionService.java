@@ -1,6 +1,8 @@
 package file.service.service;
 
 import file.service.converters.DocumentPermissionsConverter;
+import file.service.converters.GenericConverter;
+import file.service.dao.CrudDAO;
 import file.service.dao.DocumentPermissionDAO;
 import file.service.dto.DocumentPermissionDTO;
 import file.service.entity.DocumentPermissionEntity;
@@ -19,10 +21,16 @@ public class DocumentPermissionService extends CrudService<DocumentPermissionEnt
     @Inject
     private DocumentPermissionsConverter documentPermissionsConverter;
 
-    @PostConstruct
-    private void init()
-    {
-        setDao(documentPermissionDAO);
-        setConverter(documentPermissionsConverter);
-    }
+    @Override
+    protected CrudDAO<DocumentPermissionEntity, DocumentPermissionId> getDao() { return documentPermissionDAO; }
+
+    @Override
+    protected GenericConverter<DocumentPermissionEntity, DocumentPermissionDTO> getConverter() { return documentPermissionsConverter; }
+
+//    @PostConstruct
+//    private void init()
+//    {
+//        setDao(documentPermissionDAO);
+//        setConverter(documentPermissionsConverter);
+//    }
 }

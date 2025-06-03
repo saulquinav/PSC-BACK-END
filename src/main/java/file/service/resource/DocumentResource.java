@@ -1,7 +1,6 @@
 package file.service.resource;
 
 import file.service.dto.DocumentDTO;
-import file.service.dto.UserDTO;
 import file.service.entity.DocumentEntity;
 import file.service.service.CrudService;
 import file.service.service.DocumentService;

@@ -1,6 +1,5 @@
 package file.service.resource;
 
-import file.service.dto.UserDTO;
 import file.service.service.CrudService;
 import jakarta.ws.rs.core.Response;
 
