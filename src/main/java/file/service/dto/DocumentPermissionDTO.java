@@ -21,6 +21,8 @@ public class DocumentPermissionDTO implements Serializable
     private DocumentPermissionType permissionType;
     private String filePassword;
 
+    public DocumentPermissionDTO() { }
+
     public DocumentPermissionDTO(String name,
                                  UserEntity userEntity,
                                  DocumentEntity fileMetadata,

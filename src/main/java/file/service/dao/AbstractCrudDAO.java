@@ -17,7 +17,6 @@ public class AbstractCrudDAO<E, ID> implements CrudDAO<E, ID>
     public AbstractCrudDAO(Class<E> entityClass)
     {
         this.entityClass = entityClass;
-//        this.idClass = idClass;
     }
 
     @Override
@@ -29,8 +28,8 @@ public class AbstractCrudDAO<E, ID> implements CrudDAO<E, ID>
     @Override
     public List<E> findAll()
     {
-        String jpql = "SELECT e FROM " + entityClass.getSimpleName() + " e";
-        return entityManager.createQuery(jpql, entityClass).getResultList();
+        String query = "SELECT e FROM " + entityClass.getSimpleName() + " e";
+        return entityManager.createQuery(query, entityClass).getResultList();
     }
 
     @Override

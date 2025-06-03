@@ -11,15 +11,18 @@ import java.util.stream.Collectors;
 ** E - entity
 ** ID - the id of the Entity
 ** D - DTO  */
-public class CrudService<E, ID, D>
+public abstract class CrudService<E, ID, D>
 {
-    protected CrudDAO<E, ID> dao;
-    protected GenericConverter<E, D> converter;
+//    protected CrudDAO<E, ID> dao;
+//    protected GenericConverter<E, D> converter;
+
+    protected abstract CrudDAO<E, ID> getDao();
+    protected abstract GenericConverter<E, D> getConverter();
 
     public Optional<D> findById(ID id)
     {
         // Use the DAO to find the requested user
-        Optional<E> optionalEntity = dao.findById(id);
+        Optional<E> optionalEntity = getDao().findById(id);
 
         // If there is a (non-null) value inside the Optional
         if (optionalEntity.isPresent())
@@ -28,7 +31,7 @@ public class CrudService<E, ID, D>
             E entity = optionalEntity .get();
 
             // Convert the value to DTO
-            D dto = converter.convertToDTO(entity);
+            D dto = getConverter().convertToDTO(entity);
 
             // Return the user converted to DTO, wrapped inside an Optional
             return Optional.of(dto);
@@ -40,37 +43,37 @@ public class CrudService<E, ID, D>
 
     public List<D> findAll()
     {
-        return dao.findAll().stream()
-                .map(entity -> converter.convertToDTO(entity))
+        return getDao().findAll().stream()
+                .map(entity -> getConverter().convertToDTO(entity))
                 .collect(Collectors.toList());
     }
 
     public void create(D dto)
     {
-        E entity = converter.convertToEntityWithoutId(dto);
+        E entity = getConverter().convertToEntityWithoutId(dto);
 
-        dao.create(entity);
+        getDao().create(entity);
     }
 
     public void update(D dto)
     {
-        E entity = converter.convertToEntity(dto);
+        E entity = getConverter().convertToEntity(dto);
 
-        dao.update(entity);
+        getDao().update(entity);
     }
 
     public void delete(ID id)
     {
-        dao.delete(id);
+        getDao().delete(id);
     }
 
-    protected void setDao(CrudDAO<E, ID> dao)
-    {
-        this.dao = dao;
-    }
-
-    protected void setConverter(GenericConverter<E, D> converter)
-    {
-        this.converter = converter;
-    }
+//    protected void setDao(CrudDAO<E, ID> dao)
+//    {
+//        this.dao = dao;
+//    }
+//
+//    protected void setConverter(GenericConverter<E, D> converter)
+//    {
+//        this.converter = converter;
+//    }
 }

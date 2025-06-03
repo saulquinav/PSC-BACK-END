@@ -2,7 +2,9 @@ package file.service.converters;
 
 import file.service.dto.DocumentDTO;
 import file.service.entity.DocumentEntity;
+import jakarta.enterprise.context.ApplicationScoped;
 
+@ApplicationScoped
 public class DocumentConverter extends GenericConverter<DocumentEntity, DocumentDTO>
 {
     @Override

@@ -1,6 +1,8 @@
 package file.service.service;
 
 import file.service.converters.DocumentConverter;
+import file.service.converters.GenericConverter;
+import file.service.dao.CrudDAO;
 import file.service.dao.DocumentDAO;
 import file.service.dto.DocumentDTO;
 import file.service.entity.DocumentEntity;
@@ -18,10 +20,18 @@ public class DocumentService extends CrudService<DocumentEntity, Long, DocumentD
     @Inject
     private DocumentConverter converter;
 
-    @PostConstruct
-    private void init()
-    {
-        setDao(documentDAO);
-        setConverter(converter);
-    }
+    @Override
+    protected CrudDAO<DocumentEntity, Long> getDao() { return documentDAO; }
+
+    @Override
+    protected GenericConverter<DocumentEntity, DocumentDTO> getConverter() { return converter; }
+
+//    @PostConstruct
+//    private void init()
+//    {
+//        setDao(documentDAO);
+//        setConverter(converter);
+//    }
+
+
 }

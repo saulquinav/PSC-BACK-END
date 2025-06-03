@@ -3,7 +3,9 @@ package file.service.converters;
 import file.service.dto.DocumentPermissionDTO;
 import file.service.entity.DocumentPermissionEntity;
 import file.service.entity.DocumentPermissionId;
+import jakarta.enterprise.context.ApplicationScoped;
 
+@ApplicationScoped
 public class DocumentPermissionsConverter extends GenericConverter<DocumentPermissionEntity, DocumentPermissionDTO>
 {
     @Override

@@ -14,6 +14,8 @@ public class DocumentDTO implements Serializable
 
     private Set<DocumentPermissionDTO> documentPermissions = new HashSet<DocumentPermissionDTO>();
 
+    public DocumentDTO() { }
+
     public DocumentDTO(String name, byte[] data)
     {
         this.name = name;

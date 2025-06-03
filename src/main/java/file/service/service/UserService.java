@@ -1,6 +1,8 @@
 package file.service.service;
 
+import file.service.converters.GenericConverter;
 import file.service.converters.UserConverter;
+import file.service.dao.CrudDAO;
 import file.service.dao.UserDAO;
 import file.service.dto.UserDTO;
 import file.service.dto.UserLoginDTO;
@@ -23,12 +25,18 @@ public class UserService extends CrudService<UserEntity, Long, UserDTO>
     @Inject
     private UserConverter userConverter;
 
-    @PostConstruct
-    private void init()
-    {
-        setDao(userDAO);
-        setConverter(userConverter);
-    }
+    @Override
+    protected CrudDAO<UserEntity, Long> getDao() { return userDAO; }
+
+    @Override
+    protected GenericConverter<UserEntity, UserDTO> getConverter() { return userConverter; }
+
+//    @PostConstruct
+//    private void init()
+//    {
+//        setDao(userDAO);
+//        setConverter(userConverter);
+//    }
 
     public Optional<UserEntity> findByUsername(String username)
     {

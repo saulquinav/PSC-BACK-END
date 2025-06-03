@@ -5,6 +5,17 @@ import jakarta.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
+//{
+//        "username": "alex",
+//        "password": "1234567890",
+//        "userInfo":
+//        {
+//        "firstname": "Alex-N",
+//        "surname": "N"
+//        },
+//        "documentPermissions": []
+//}
+
 @Entity
 @Table(name = "users")
 public class UserEntity

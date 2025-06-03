@@ -8,6 +8,8 @@ public class LoginResponseDTO implements Serializable
 
     private String token;
 
+    public LoginResponseDTO() { }
+
     public LoginResponseDTO(String token)
     {
         this.token = token;
