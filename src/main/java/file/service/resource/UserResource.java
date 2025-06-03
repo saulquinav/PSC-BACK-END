@@ -1,5 +1,7 @@
 package file.service.resource;
 
+import file.service.entity.UserEntity;
+import file.service.service.CrudService;
 import jakarta.annotation.security.PermitAll;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
@@ -12,63 +14,45 @@ import java.util.Optional;
 
 @Path("users")
 @PermitAll // This annotation allows access to anybody, it's here only for testing purposes
-public class UserResource
+public class UserResource extends CrudResource<UserEntity, Long, UserDTO>
 {
     @Inject
     private UserService userService;
+
+    // Implement the only abstract method of CrudResource<E, ID, D> class
+    @Override
+    protected CrudService<UserEntity, Long, UserDTO> getService() { return userService; }
 
     @GET
     @Path("/{id}")
     public Response get(@PathParam("id") Long id)
     {
-        Optional<UserDTO> foundUser = userService.findById(id);
-
-        if (foundUser.isPresent())
-            return Response.ok(foundUser.get()).build();
-        else
-            return Response.status(Response.Status.NOT_FOUND).build();
+        return super.get(id); // delegate logic to base class method
     }
 
     @GET
     public Response getAll()
     {
-        List<UserDTO> allUsers = userService.findAll();
-        return Response.ok(allUsers).build();
+        return super.getAll(); // delegate logic to base class method
     }
 
     @POST
     public Response create(UserDTO userDTO)
     {
-        userService.create(userDTO);
-        return Response.status(Response.Status.CREATED).build();
+        return super.create(userDTO); // delegate logic to base class method
     }
 
     @PUT
     @Path("/{id}")
     public Response update(@PathParam("id") Long id, UserDTO userDTO)
     {
-        userService.update(userDTO);
-
-        Optional<UserDTO> foundUser = userService.findById(id);
-
-        if (foundUser.isPresent())
-        {
-            UserDTO user = foundUser.get();
-            user.setUsername(userDTO.getUsername());
-
-            userService.update(user);
-
-            return Response.ok(user).build();
-        }
-        else
-            return Response.status(Response.Status.NOT_FOUND).build();
+        return super.update(id, userDTO); // delegate logic to base class method
     }
 
     @DELETE
     @Path("/{id}")
     public Response delete(@PathParam("id") Long id)
     {
-        userService.delete(id);
-        return Response.ok().build();
+        return super.delete(id); // delegate logic to base class method
     }
 }
