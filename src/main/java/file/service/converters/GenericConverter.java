@@ -1,5 +1,6 @@
 package file.service.converters;
 
+import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
@@ -30,5 +31,12 @@ public abstract class GenericConverter<E, D>
         return entities.stream()
                         .map(entity -> convertToDTO(entity))
                         .collect(Collectors.toSet());
+    }
+
+    public List<D> convertAllToDTO(List<E> entities)
+    {
+        return entities.stream()
+                .map(entity -> convertToDTO(entity))
+                .collect(Collectors.toList());
     }
 }
