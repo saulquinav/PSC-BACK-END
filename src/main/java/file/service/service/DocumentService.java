@@ -25,13 +25,4 @@ public class DocumentService extends CrudService<DocumentEntity, Long, DocumentD
 
     @Override
     protected GenericConverter<DocumentEntity, DocumentDTO> getConverter() { return converter; }
-
-//    @PostConstruct
-//    private void init()
-//    {
-//        setDao(documentDAO);
-//        setConverter(converter);
-//    }
-
-
 }

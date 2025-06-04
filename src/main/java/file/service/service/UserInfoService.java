@@ -22,12 +22,4 @@ public class UserInfoService extends CrudService<UserInfoEntity, Long, UserInfoD
 
     @Override
     protected GenericConverter<UserInfoEntity, UserInfoDTO> getConverter() { return userInfoConverter; }
-
-
-//    @PostConstruct
-//    private void init()
-//    {
-//        setDao(userInfoDAO);
-//        setConverter(userInfoConverter);
-//    }
 }

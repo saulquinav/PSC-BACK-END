@@ -26,11 +26,4 @@ public class DocumentPermissionService extends CrudService<DocumentPermissionEnt
 
     @Override
     protected GenericConverter<DocumentPermissionEntity, DocumentPermissionDTO> getConverter() { return documentPermissionsConverter; }
-
-//    @PostConstruct
-//    private void init()
-//    {
-//        setDao(documentPermissionDAO);
-//        setConverter(documentPermissionsConverter);
-//    }
 }

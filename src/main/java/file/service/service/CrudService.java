@@ -13,9 +13,6 @@ import java.util.stream.Collectors;
 ** D - DTO  */
 public abstract class CrudService<E, ID, D>
 {
-//    protected CrudDAO<E, ID> dao;
-//    protected GenericConverter<E, D> converter;
-
     protected abstract CrudDAO<E, ID> getDao();
     protected abstract GenericConverter<E, D> getConverter();
 
@@ -66,14 +63,4 @@ public abstract class CrudService<E, ID, D>
     {
         getDao().delete(id);
     }
-
-//    protected void setDao(CrudDAO<E, ID> dao)
-//    {
-//        this.dao = dao;
-//    }
-//
-//    protected void setConverter(GenericConverter<E, D> converter)
-//    {
-//        this.converter = converter;
-//    }
 }
