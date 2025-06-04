@@ -49,6 +49,11 @@ public class UserEntity
     // No-argument constructor
     public UserEntity() { }
 
+    public UserEntity(String username)
+    {
+        this.username = username;
+    }
+
     public UserEntity(String username, String password)
     {
         this.username = username;
