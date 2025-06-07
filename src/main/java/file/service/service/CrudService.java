@@ -33,7 +33,7 @@ public abstract class CrudService<E, ID, DC, DR, DU extends IdCarrier<ID>>
             E entity = optionalEntity .get();
 
             // Convert the value to DTO
-            DR dto = getReadingConverter().convertToDTO(entity);
+            DR dto = getReadingConverter().convertToNewDTO(entity);
 
             // Return the user converted to DTO, wrapped inside an Optional
             return Optional.of(dto);
@@ -46,13 +46,13 @@ public abstract class CrudService<E, ID, DC, DR, DU extends IdCarrier<ID>>
     public List<DR> findAll()
     {
         return getDao().findAll().stream()
-                .map(entity -> getReadingConverter().convertToDTO(entity))
+                .map(entity -> getReadingConverter().convertToNewDTO(entity))
                 .collect(Collectors.toList());
     }
 
     public void create(DC dto)
     {
-        E entity = getCreationConverter().convertToEntity(dto);
+        E entity = getCreationConverter().convertToNewEntity(dto);
 
         getDao().create(entity);
     }
@@ -63,7 +63,7 @@ public abstract class CrudService<E, ID, DC, DR, DU extends IdCarrier<ID>>
 
         if (foundEntity.isPresent())
         {
-            E entity = getUpdateConverter().convertToEntity(dto);
+            E entity = getUpdateConverter().convertToNewEntity(dto);
             getDao().update(entity);
         }
     }

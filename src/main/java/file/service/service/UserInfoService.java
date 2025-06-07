@@ -1,7 +1,6 @@
 package file.service.service;
 
 import file.service.converters.GenericConverter;
-import file.service.converters.UserInfoConverter;
 import file.service.dao.CrudDAO;
 import file.service.dao.UserInfoDAO;
 import file.service.dto.userinfo.UserInfoDTO;

@@ -1,6 +1,6 @@
 package file.service.resource;
 
-import file.service.dto.permission.DocumentPermissionDTO;
+import file.service.dto.docpermission.DocumentPermissionDTO;
 import file.service.entity.DocumentPermissionEntity;
 import file.service.entity.DocumentPermissionId;
 import file.service.service.CrudService;

@@ -2,15 +2,15 @@ package file.service.dto.user;
 
 import java.io.Serializable;
 
-public class LoginResponseDTO implements Serializable
+public class UserLoginResponseDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
     private String token;
 
-    public LoginResponseDTO() { }
+    public UserLoginResponseDTO() { }
 
-    public LoginResponseDTO(String token)
+    public UserLoginResponseDTO(String token)
     {
         this.token = token;
     }

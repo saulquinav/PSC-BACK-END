@@ -1,10 +1,6 @@
 package file.service.dto.document;
 
-import file.service.dto.permission.DocumentPermissionDTO;
-
 import java.io.Serializable;
-import java.util.HashSet;
-import java.util.Set;
 
 public class DocumentReadingDTO implements Serializable
 {
@@ -13,17 +9,13 @@ public class DocumentReadingDTO implements Serializable
     private Long id;
     private String name;
     private byte[] data; // the document BLOB
-    private Set<DocumentPermissionDTO> documentPermissions = new HashSet<DocumentPermissionDTO>();
-
     public DocumentReadingDTO(Long id,
                                 String name,
-                               byte[] data,
-                               Set<DocumentPermissionDTO> documentPermissions)
+                               byte[] data)
     {
         this.id = id;
         this.name = name;
         this.data = data;
-        this.documentPermissions = documentPermissions;
     }
 
     public Long getId() { return id; }
@@ -40,9 +32,4 @@ public class DocumentReadingDTO implements Serializable
     {
         this.data = data;
     }
-
-    public Set<DocumentPermissionDTO> getDocumentPermissions()
-    { return documentPermissions; }
-    public void setDocumentPermissions(Set<DocumentPermissionDTO> documentPermissions)
-    { this.documentPermissions = documentPermissions; }
 }

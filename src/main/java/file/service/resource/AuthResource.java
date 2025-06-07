@@ -5,7 +5,7 @@ import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 import file.service.auth.JwtUtil;
-import file.service.dto.user.LoginResponseDTO;
+import file.service.dto.user.UserLoginResponseDTO;
 import file.service.dto.user.UserLoginDTO;
 import file.service.entity.UserEntity;
 import file.service.service.UserService;
@@ -29,7 +29,7 @@ public class AuthResource
         {
             String token = JwtUtil.generateToken(userOpt.get());
 //            return Response.ok(Collections.singletonMap("token", token)).build();
-            return Response.ok().entity(new LoginResponseDTO(token)).build();
+            return Response.ok().entity(new UserLoginResponseDTO(token)).build();
         }
         return Response.status(Response.Status.UNAUTHORIZED).build();
     }
