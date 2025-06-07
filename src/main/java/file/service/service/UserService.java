@@ -2,9 +2,15 @@ package file.service.service;
 
 import file.service.converters.GenericConverter;
 import file.service.converters.UserConverter;
+import file.service.converters.user.UserCreationConverter;
+import file.service.converters.user.UserReadingConverter;
+import file.service.converters.user.UserUpdateConverter;
 import file.service.dao.CrudDAO;
 import file.service.dao.UserDAO;
+import file.service.dto.user.UserCreationDTO;
 import file.service.dto.user.UserLoginDTO;
+import file.service.dto.user.UserReadingDTO;
+import file.service.dto.user.UserUpdateDTO;
 import file.service.entity.UserEntity;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
@@ -13,13 +19,19 @@ import java.util.Optional;
 
 // We use @Stateless 'Bean' when this bean doesn't hold any client-specific information between method calls.
 @Stateless
-public class UserService extends CrudService<UserEntity, Long, UserDTO>
+public class UserService extends CrudService<UserEntity, Long, UserCreationDTO, UserReadingDTO, UserUpdateDTO>
 {
     @Inject // or @EJB - either will work
     private UserDAO userDAO; // a service always has one or more DAO instances
 
     @Inject
-    private UserConverter userConverter;
+    private UserCreationConverter userConverter;
+
+    @Inject
+    private UserReadingConverter userReadingConverter;
+
+    @Inject
+    private UserUpdateConverter userUpdateConverter;
 
     @Override
     protected CrudDAO<UserEntity, Long> getDao() { return userDAO; }

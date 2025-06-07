@@ -2,6 +2,7 @@ package file.service.service;
 
 import file.service.converters.GenericConverter;
 import file.service.dao.CrudDAO;
+import file.service.entity.IdCarrier;
 
 import java.util.List;
 import java.util.Optional;
@@ -13,7 +14,7 @@ import java.util.stream.Collectors;
 ** DC - DTO for Creation
 ** DD - DTO for Reading
 ** DU - DTO for Update */
-public abstract class CrudService<E, ID, DC, DR, DU>
+public abstract class CrudService<E, ID, DC, DR, DU extends IdCarrier<ID>>
 {
     protected abstract CrudDAO<E, ID> getDao();
     protected abstract GenericConverter<E, DC> getCreationConverter();
@@ -58,10 +59,13 @@ public abstract class CrudService<E, ID, DC, DR, DU>
 
     public void update(DU dto)
     {
-//        Optional<E> entity = getDao().findById(id);
+        Optional<E> foundEntity = getDao().findById(dto.getId());
 
-        E entity = getUpdateConverter().convertToEntity(dto);
-        getDao().update(entity);
+        if (foundEntity.isPresent())
+        {
+            E entity = getUpdateConverter().convertToEntity(dto);
+            getDao().update(entity);
+        }
     }
 
     public void delete(ID id)

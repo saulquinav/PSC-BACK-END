@@ -1,8 +1,10 @@
 package file.service.dto.user;
 
+import file.service.entity.IdCarrier;
+
 import java.io.Serializable;
 
-public class UserUpdateDTO implements Serializable
+public class UserUpdateDTO implements Serializable, IdCarrier<Long>
 {
     private static final long serialVersionUID = 1L;
 
@@ -16,7 +18,9 @@ public class UserUpdateDTO implements Serializable
         this.username = username;
     }
 
+    @Override
     public Long getId() { return id; }
+    @Override
     public void setId(Long id) { this.id = id; }
 
     public String getUsername() { return username; }
