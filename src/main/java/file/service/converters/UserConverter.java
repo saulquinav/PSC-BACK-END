@@ -1,7 +1,6 @@
 package file.service.converters;
 
-import file.service.dto.DocumentPermissionDTO;
-import file.service.dto.UserDTO;
+import file.service.dto.permission.DocumentPermissionDTO;
 import file.service.entity.DocumentPermissionEntity;
 import file.service.entity.UserEntity;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -17,7 +16,7 @@ public class UserConverter extends GenericConverter<UserEntity, UserDTO>
     // This method does not search for relationship-owned auxiliary elements in the database,
     // it just copies field to field.
     @Override
-    public UserDTO convertToDTO(UserEntity entity)
+    public UserDTO fromEntityToCreateDTO(UserEntity entity)
     {
         UserDTO dto = new UserDTO(entity.getUsername(), entity.getPassword());
 

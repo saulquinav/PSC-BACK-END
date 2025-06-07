@@ -14,11 +14,11 @@ public class DocumentEntity
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
-    @Column(unique = false, nullable = false)
+    @Column(name = "name", unique = false, nullable = false)
     private String name;
 
     @Lob
-    @Column(length = 100000)
+    @Column(name = "data", length = 100000)
     private byte[] data; // the document BLOB
 
     // One-to-many relationship with DocumentPermissionEntity (the join table entity).

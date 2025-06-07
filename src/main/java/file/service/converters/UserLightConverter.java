@@ -1,13 +1,12 @@
 package file.service.converters;
 
-import file.service.dto.UserLightDTO;
 import file.service.entity.UserEntity;
 
 public class UserLightConverter extends GenericConverter<UserEntity, UserLightDTO>
 {
 
     @Override
-    public UserLightDTO convertToDTO(UserEntity entity)
+    public UserLightDTO fromEntityToCreateDTO(UserEntity entity)
     {
         UserLightDTO dto = new UserLightDTO();
 

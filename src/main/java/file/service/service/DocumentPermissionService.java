@@ -4,10 +4,9 @@ import file.service.converters.DocumentPermissionsConverter;
 import file.service.converters.GenericConverter;
 import file.service.dao.CrudDAO;
 import file.service.dao.DocumentPermissionDAO;
-import file.service.dto.DocumentPermissionDTO;
+import file.service.dto.permission.DocumentPermissionDTO;
 import file.service.entity.DocumentPermissionEntity;
 import file.service.entity.DocumentPermissionId;
-import jakarta.annotation.PostConstruct;
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 

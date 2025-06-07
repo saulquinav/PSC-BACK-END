@@ -1,6 +1,6 @@
 package file.service.converters;
 
-import file.service.dto.UserInfoDTO;
+import file.service.dto.userinfo.UserInfoDTO;
 import file.service.entity.UserInfoEntity;
 
 import jakarta.enterprise.context.ApplicationScoped;
@@ -9,7 +9,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class UserInfoConverter extends GenericConverter<UserInfoEntity, UserInfoDTO>
 {
     @Override
-    public UserInfoDTO convertToDTO(UserInfoEntity entity)
+    public UserInfoDTO fromEntityToCreateDTO(UserInfoEntity entity)
     {
         UserInfoDTO dto = new UserInfoDTO(entity.getFirstname(), entity.getSurname());
 

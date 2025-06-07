@@ -4,12 +4,10 @@ import file.service.converters.GenericConverter;
 import file.service.converters.UserLightConverter;
 import file.service.dao.CrudDAO;
 import file.service.dao.UserDAO;
-import file.service.dto.UserLightDTO;
 import file.service.entity.UserEntity;
 
 import jakarta.inject.Inject;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -33,7 +31,7 @@ public class UserLightService extends CrudService<UserEntity, Long, UserLightDTO
 
         if (optUserEntity.isPresent())
         {
-            UserLightDTO dto = converter.convertToDTO(optUserEntity.get());
+            UserLightDTO dto = converter.fromEntityToCreateDTO(optUserEntity.get());
             return Optional.of(dto);
         }
         else

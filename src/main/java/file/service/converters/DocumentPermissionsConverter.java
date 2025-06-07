@@ -1,6 +1,6 @@
 package file.service.converters;
 
-import file.service.dto.DocumentPermissionDTO;
+import file.service.dto.permission.DocumentPermissionDTO;
 import file.service.entity.DocumentPermissionEntity;
 import file.service.entity.DocumentPermissionId;
 import jakarta.enterprise.context.ApplicationScoped;
@@ -9,7 +9,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class DocumentPermissionsConverter extends GenericConverter<DocumentPermissionEntity, DocumentPermissionDTO>
 {
     @Override
-    public DocumentPermissionDTO convertToDTO(DocumentPermissionEntity entity)
+    public DocumentPermissionDTO fromEntityToCreateDTO(DocumentPermissionEntity entity)
     {
         DocumentPermissionDTO dto = new DocumentPermissionDTO(entity.getName());
         dto.setUserId(entity.getId().getUserId());

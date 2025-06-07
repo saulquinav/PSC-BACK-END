@@ -10,13 +10,17 @@ import java.util.stream.Collectors;
 /* Type parameters:
 ** E - entity
 ** ID - the id of the Entity
-** D - DTO  */
-public abstract class CrudService<E, ID, D>
+** DC - DTO for Creation
+** DD - DTO for Reading
+** DU - DTO for Update */
+public abstract class CrudService<E, ID, DC, DR, DU>
 {
     protected abstract CrudDAO<E, ID> getDao();
-    protected abstract GenericConverter<E, D> getConverter();
+    protected abstract GenericConverter<E, DC> getCreationConverter();
+    protected abstract GenericConverter<E, DR> getReadingConverter();
+    protected abstract GenericConverter<E, DU> getUpdateConverter();
 
-    public Optional<D> findById(ID id)
+    public Optional<DR> findById(ID id)
     {
         // Use the DAO to find the requested user
         Optional<E> optionalEntity = getDao().findById(id);
@@ -28,7 +32,7 @@ public abstract class CrudService<E, ID, D>
             E entity = optionalEntity .get();
 
             // Convert the value to DTO
-            D dto = getConverter().convertToDTO(entity);
+            DR dto = getReadingConverter().convertToDTO(entity);
 
             // Return the user converted to DTO, wrapped inside an Optional
             return Optional.of(dto);
@@ -38,24 +42,25 @@ public abstract class CrudService<E, ID, D>
             return Optional.empty();
     }
 
-    public List<D> findAll()
+    public List<DR> findAll()
     {
         return getDao().findAll().stream()
-                .map(entity -> getConverter().convertToDTO(entity))
+                .map(entity -> getReadingConverter().convertToDTO(entity))
                 .collect(Collectors.toList());
     }
 
-    public void create(D dto)
+    public void create(DC dto)
     {
-        E entity = getConverter().convertToEntityWithoutId(dto);
+        E entity = getCreationConverter().convertToEntity(dto);
 
         getDao().create(entity);
     }
 
-    public void update(D dto)
+    public void update(DU dto)
     {
-        E entity = getConverter().convertToEntity(dto);
+//        Optional<E> entity = getDao().findById(id);
 
+        E entity = getUpdateConverter().convertToEntity(dto);
         getDao().update(entity);
     }
 

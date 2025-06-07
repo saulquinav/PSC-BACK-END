@@ -1,4 +1,4 @@
-package file.service.dto;
+package file.service.dto.permission;
 
 import file.service.entity.DocumentEntity;
 import file.service.entity.DocumentPermissionType;

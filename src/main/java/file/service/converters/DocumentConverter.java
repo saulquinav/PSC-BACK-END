@@ -1,22 +1,22 @@
 package file.service.converters;
 
-import file.service.dto.DocumentDTO;
+import file.service.dto.document.DocumentCreationDTO;
 import file.service.entity.DocumentEntity;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-public class DocumentConverter extends GenericConverter<DocumentEntity, DocumentDTO>
+public class DocumentConverter extends GenericConverter<DocumentEntity, DocumentCreationDTO>
 {
     @Override
-    public DocumentDTO convertToDTO(DocumentEntity entity)
+    public DocumentCreationDTO fromEntityToCreateDTO(DocumentEntity entity)
     {
-        DocumentDTO dto = new DocumentDTO(entity.getName(), entity.getData());
+        DocumentCreationDTO dto = new DocumentCreationDTO(entity.getName(), entity.getData());
 
         return dto;
     }
 
     @Override
-    public DocumentEntity convertToEntityWithoutId(DocumentDTO dto)
+    public DocumentEntity convertToEntityWithoutId(DocumentCreationDTO dto)
     {
         DocumentEntity entity = new DocumentEntity(dto.getName(), dto.getData());
 
@@ -24,7 +24,7 @@ public class DocumentConverter extends GenericConverter<DocumentEntity, Document
     }
 
     @Override
-    public DocumentEntity convertToEntity(DocumentDTO dto)
+    public DocumentEntity convertToEntity(DocumentCreationDTO dto)
     {
         DocumentEntity entity = convertToEntityWithoutId(dto);
 

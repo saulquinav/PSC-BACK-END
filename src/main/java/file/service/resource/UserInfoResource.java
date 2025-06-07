@@ -1,6 +1,6 @@
 package file.service.resource;
 
-import file.service.dto.UserInfoDTO;
+import file.service.dto.userinfo.UserInfoDTO;
 import file.service.entity.UserInfoEntity;
 import file.service.service.CrudService;
 import file.service.service.UserInfoService;

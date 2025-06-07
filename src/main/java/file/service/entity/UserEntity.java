@@ -49,23 +49,23 @@ public class UserEntity
     // No-argument constructor
     public UserEntity() { }
 
-    public UserEntity(String username)
-    {
-        this.username = username;
-    }
-
-    public UserEntity(String username, String password)
-    {
-        this.username = username;
-        this.password = password;
-    }
-
-    public UserEntity(String username, String password, Set<DocumentPermissionEntity> documentPermissions)
-    {
-        this.username = username;
-        this.password = password;
-        this.documentPermissions = documentPermissions;
-    }
+//    public UserEntity(String username)
+//    {
+//        this.username = username;
+//    }
+//
+//    public UserEntity(String username, String password)
+//    {
+//        this.username = username;
+//        this.password = password;
+//    }
+//
+//    public UserEntity(String username, String password, Set<DocumentPermissionEntity> documentPermissions)
+//    {
+//        this.username = username;
+//        this.password = password;
+//        this.documentPermissions = documentPermissions;
+//    }
 
     public Long getId() {
         return id;

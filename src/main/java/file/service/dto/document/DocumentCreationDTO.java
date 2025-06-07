@@ -1,41 +1,33 @@
-package file.service.dto;
+package file.service.dto.document;
+
+import file.service.dto.permission.DocumentPermissionDTO;
 
 import java.io.Serializable;
 import java.util.HashSet;
 import java.util.Set;
 
-public class DocumentDTO implements Serializable
+public class DocumentCreationDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
-    private Long id;
     private String name;
     private byte[] data; // the document BLOB
 
     private Set<DocumentPermissionDTO> documentPermissions = new HashSet<DocumentPermissionDTO>();
 
-    public DocumentDTO() { }
+//    public DocumentCreationDTO(String name, byte[] data)
+//    {
+//        this.name = name;
+//        this.data = data;
+//    }
 
-    public DocumentDTO(String name, byte[] data)
-    {
-        this.name = name;
-        this.data = data;
-    }
-
-    public DocumentDTO(String name,
-                       byte[] data,
-                       Set<DocumentPermissionDTO> documentPermissions)
+    public DocumentCreationDTO(String name,
+                               byte[] data,
+                               Set<DocumentPermissionDTO> documentPermissions)
     {
         this.name = name;
         this.data = data;
         this.documentPermissions = documentPermissions;
-    }
-
-
-    public Long getId() { return id; }
-    public void setId(long id)
-    {
-        this.id = id;
     }
 
     public String getName() { return name; }
@@ -50,7 +42,8 @@ public class DocumentDTO implements Serializable
         this.data = data;
     }
 
-    public Set<DocumentPermissionDTO> getDocumentPermissions() { return documentPermissions; }
+    public Set<DocumentPermissionDTO> getDocumentPermissions()
+    { return documentPermissions; }
     public void setDocumentPermissions(Set<DocumentPermissionDTO> documentPermissions)
     { this.documentPermissions = documentPermissions; }
 }
