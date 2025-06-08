@@ -21,6 +21,13 @@ public class UserResource
     @Inject
     private UserService service;
 
+    @OPTIONS
+    public Response handleOptions()
+    {
+        return Response.ok().build();
+    }
+
+
     @GET
     @Path("/{id}")
     public Response get(@PathParam("id") Long id)
