@@ -1,7 +1,6 @@
 package file.service.service;
 
 import file.service.converters.GenericConverter;
-import file.service.dao.AbstractCrudDAO;
 import file.service.dao.CrudDAO;
 import file.service.entity.IdOwner;
 
@@ -13,7 +12,7 @@ import java.util.stream.Collectors;
  ** E - entity
  ** ID - the id of the Entity
  ** D - DTO  */
-public class ServiceUtility
+public class GenericServiceUtility
 {
     public static <E, ID, D> Optional<D> findById(ID id, CrudDAO<E, ID> dao, GenericConverter<E, D> converter)
     {

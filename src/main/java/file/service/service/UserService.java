@@ -15,7 +15,6 @@ import jakarta.inject.Inject;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 // We use @Stateless 'Bean' when this bean doesn't hold any client-specific information between method calls.
 @Stateless
@@ -54,7 +53,7 @@ public class UserService
 //            // If nothing was found, then just return an Optional with no value
 //            return Optional.empty();
 
-        return ServiceUtility.<UserEntity, Long, UserReadingDTO>findById(id, userDAO, userReadingConverter);
+        return GenericServiceUtility.<UserEntity, Long, UserReadingDTO>findById(id, userDAO, userReadingConverter);
         // this alos work, where explicit type arguments can be infered
 //        return ServiceUtility.<UserEntity, Long, UserReadingDTO>findById(id, userDAO, userReadingConverter);
     }
@@ -65,7 +64,7 @@ public class UserService
 //                .map(entity -> userReadingConverter.convertToDTO(entity))
 //                .collect(Collectors.toList());
 
-        return ServiceUtility.<UserEntity, Long, UserReadingDTO>findAll(userDAO, userReadingConverter);
+        return GenericServiceUtility.<UserEntity, Long, UserReadingDTO>findAll(userDAO, userReadingConverter);
     }
 
     public void register(UserRegisterDTO dto)

@@ -10,7 +10,6 @@ import jakarta.inject.Inject;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 @Stateless
 public class DocumentDataService
@@ -42,7 +41,7 @@ public class DocumentDataService
 //            // If nothing was found, then just return an Optional with no value
 //            return Optional.empty();
 
-        return ServiceUtility.<DocumentDataEntity, Long, DocumentDataDTO>findById(id, dao, converter);
+        return GenericServiceUtility.<DocumentDataEntity, Long, DocumentDataDTO>findById(id, dao, converter);
     }
 
     public List<DocumentDataDTO> findAll()
@@ -51,7 +50,7 @@ public class DocumentDataService
 //                .map(entity -> converter.convertToDTO(entity))
 //                .collect(Collectors.toList());
 
-        return ServiceUtility.<DocumentDataEntity, Long, DocumentDataDTO>findAll(dao, converter);
+        return GenericServiceUtility.<DocumentDataEntity, Long, DocumentDataDTO>findAll(dao, converter);
     }
 
     public void create(DocumentDataDTO dto)
@@ -59,7 +58,7 @@ public class DocumentDataService
 //        DocumentDataEntity entity = converter.convertToEntity(dto);
 //        dao.create(entity);
 
-        ServiceUtility.<DocumentDataEntity, Long, DocumentDataDTO>create(dto, dao, converter);
+        GenericServiceUtility.<DocumentDataEntity, Long, DocumentDataDTO>create(dto, dao, converter);
     }
 
     public void update(DocumentDataDTO dto)
@@ -72,7 +71,7 @@ public class DocumentDataService
 //            dao.update(entity);
 //        }
 
-        ServiceUtility.<DocumentDataEntity, Long, DocumentDataDTO>update(dto, dao, converter);
+        GenericServiceUtility.<DocumentDataEntity, Long, DocumentDataDTO>update(dto, dao, converter);
     }
 
     public void delete(Long id)

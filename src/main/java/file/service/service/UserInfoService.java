@@ -9,7 +9,6 @@ import jakarta.inject.Inject;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 public class UserInfoService
 {
@@ -40,7 +39,7 @@ public class UserInfoService
 //            // If nothing was found, then just return an Optional with no value
 //            return Optional.empty();
 
-        return ServiceUtility.<UserInfoEntity, Long, UserInfoDTO>findById(id, dao, converter);
+        return GenericServiceUtility.<UserInfoEntity, Long, UserInfoDTO>findById(id, dao, converter);
     }
 
     public List<UserInfoDTO> findAll()
@@ -49,7 +48,7 @@ public class UserInfoService
 //                .map(entity -> converter.convertToDTO(entity))
 //                .collect(Collectors.toList());
 
-        return ServiceUtility.<UserInfoEntity, Long, UserInfoDTO>findAll(dao, converter);
+        return GenericServiceUtility.<UserInfoEntity, Long, UserInfoDTO>findAll(dao, converter);
     }
 
     public void create(UserInfoDTO dto)
@@ -57,7 +56,7 @@ public class UserInfoService
 //        UserInfoEntity entity = converter.convertToEntity(dto);
 //        dao.create(entity);
 
-        ServiceUtility.<UserInfoEntity, Long, UserInfoDTO>create(dto, dao, converter);
+        GenericServiceUtility.<UserInfoEntity, Long, UserInfoDTO>create(dto, dao, converter);
     }
 
     public void update(UserInfoDTO dto)
@@ -72,7 +71,7 @@ public class UserInfoService
 //            dao.update(entity);
 //        }
 
-        ServiceUtility.<UserInfoEntity, Long, UserInfoDTO>update(dto, dao, converter);
+        GenericServiceUtility.<UserInfoEntity, Long, UserInfoDTO>update(dto, dao, converter);
     }
 
     public void delete(Long id)

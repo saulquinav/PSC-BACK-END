@@ -10,7 +10,6 @@ import jakarta.inject.Inject;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 // We use @Stateless 'Bean' when this bean doesn't hold any client-specific information between method calls.
 @Stateless
@@ -42,7 +41,7 @@ public class DocumentMetadataService
 //        else
 //            // If nothing was found, then just return an Optional with no value
 //            return Optional.empty();
-        return ServiceUtility.<DocumentMetadataEntity, Long, DocumentMetadataDTO>findById(id, documentDAO, converter);
+        return GenericServiceUtility.<DocumentMetadataEntity, Long, DocumentMetadataDTO>findById(id, documentDAO, converter);
     }
 
     public List<DocumentMetadataDTO> findAll()
@@ -50,7 +49,7 @@ public class DocumentMetadataService
 //        return documentDAO.findAll().stream()
 //                .map(entity -> converter.convertToDTO(entity))
 //                .collect(Collectors.toList());
-        return ServiceUtility.<DocumentMetadataEntity, Long, DocumentMetadataDTO>findAll(documentDAO, converter);
+        return GenericServiceUtility.<DocumentMetadataEntity, Long, DocumentMetadataDTO>findAll(documentDAO, converter);
     }
 
     public void create(DocumentMetadataDTO dto)
@@ -58,7 +57,7 @@ public class DocumentMetadataService
 //        DocumentMetadataEntity entity = converter.convertToEntity(dto);
 //        documentDAO.create(entity);
 
-        ServiceUtility.<DocumentMetadataEntity, Long, DocumentMetadataDTO>create(dto, documentDAO, converter);
+        GenericServiceUtility.<DocumentMetadataEntity, Long, DocumentMetadataDTO>create(dto, documentDAO, converter);
     }
 
     public void update(DocumentMetadataDTO dto)
@@ -71,7 +70,7 @@ public class DocumentMetadataService
 //            documentDAO.update(entity);
 //        }
 
-        ServiceUtility.<DocumentMetadataEntity, Long, DocumentMetadataDTO>update(dto, documentDAO, converter);
+        GenericServiceUtility.<DocumentMetadataEntity, Long, DocumentMetadataDTO>update(dto, documentDAO, converter);
     }
 
     public void delete(Long id)

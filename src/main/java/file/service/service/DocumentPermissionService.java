@@ -11,7 +11,6 @@ import jakarta.inject.Inject;
 
 import java.util.List;
 import java.util.Optional;
-import java.util.stream.Collectors;
 
 // We use @Stateless 'Bean' when this bean doesn't hold any client-specific information between method calls.
 @Stateless
@@ -44,7 +43,7 @@ public class DocumentPermissionService
 //            // If nothing was found, then just return an Optional with no value
 //            return Optional.empty();
 
-        return ServiceUtility.<DocumentPermissionEntity, DocumentPermissionId, DocumentPermissionDTO>findById(id, dao, converter);
+        return GenericServiceUtility.<DocumentPermissionEntity, DocumentPermissionId, DocumentPermissionDTO>findById(id, dao, converter);
     }
 
     public List<DocumentPermissionDTO> findAll()
@@ -52,7 +51,7 @@ public class DocumentPermissionService
 //        return dao.findAll().stream()
 //                .map(entity -> converter.convertToDTO(entity))
 //                .collect(Collectors.toList());
-        return ServiceUtility.<DocumentPermissionEntity, DocumentPermissionId, DocumentPermissionDTO>findAll(dao, converter);
+        return GenericServiceUtility.<DocumentPermissionEntity, DocumentPermissionId, DocumentPermissionDTO>findAll(dao, converter);
     }
 
     public void create(DocumentPermissionDTO dto)
@@ -60,7 +59,7 @@ public class DocumentPermissionService
 //        DocumentPermissionEntity entity = converter.convertToEntity(dto);
 //        dao.create(entity);
 
-        ServiceUtility.<DocumentPermissionEntity, DocumentPermissionId, DocumentPermissionDTO>create(dto, dao, converter);
+        GenericServiceUtility.<DocumentPermissionEntity, DocumentPermissionId, DocumentPermissionDTO>create(dto, dao, converter);
     }
 
     public void update(DocumentPermissionDTO dto)
@@ -74,7 +73,7 @@ public class DocumentPermissionService
 //            dao.update(entity);
 //        }
 
-        ServiceUtility.<DocumentPermissionEntity, DocumentPermissionId, DocumentPermissionDTO>update(dto, dao, converter);
+        GenericServiceUtility.<DocumentPermissionEntity, DocumentPermissionId, DocumentPermissionDTO>update(dto, dao, converter);
     }
 
     public void delete(DocumentPermissionId id)
