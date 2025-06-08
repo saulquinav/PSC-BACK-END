@@ -35,37 +35,44 @@ public class UserService
 
     public Optional<UserReadingDTO> findById(Long id)
     {
-        // Use the DAO to find the requested user
-        Optional<UserEntity> optionalEntity = userDAO.findById(id);
+//        // Use the DAO to find the requested user
+//        Optional<UserEntity> optionalEntity = userDAO.findById(id);
+//
+//        // If there is a (non-null) value inside the Optional
+//        if (optionalEntity.isPresent())
+//        {
+//            // Get the User value from inside the Optional
+//            UserEntity entity = optionalEntity .get();
+//
+//            // Convert the value to DTO
+//            UserReadingDTO dto = userReadingConverter.convertToDTO(entity);
+//
+//            // Return the user converted to DTO, wrapped inside an Optional
+//            return Optional.of(dto);
+//        }
+//        else
+//            // If nothing was found, then just return an Optional with no value
+//            return Optional.empty();
 
-        // If there is a (non-null) value inside the Optional
-        if (optionalEntity.isPresent())
-        {
-            // Get the User value from inside the Optional
-            UserEntity entity = optionalEntity .get();
-
-            // Convert the value to DTO
-            UserReadingDTO dto = userReadingConverter.convertToNewDTO(entity);
-
-            // Return the user converted to DTO, wrapped inside an Optional
-            return Optional.of(dto);
-        }
-        else
-            // If nothing was found, then just return an Optional with no value
-            return Optional.empty();
+        return ServiceUtility.<UserEntity, Long, UserReadingDTO>findById(id, userDAO, userReadingConverter);
+        // this alos work, where explicit type arguments can be infered
+//        return ServiceUtility.<UserEntity, Long, UserReadingDTO>findById(id, userDAO, userReadingConverter);
     }
 
     public List<UserReadingDTO> findAll()
     {
-        return userDAO.findAll().stream()
-                .map(entity -> userReadingConverter.convertToNewDTO(entity))
-                .collect(Collectors.toList());
+//        return userDAO.findAll().stream()
+//                .map(entity -> userReadingConverter.convertToDTO(entity))
+//                .collect(Collectors.toList());
+
+        return ServiceUtility.<UserEntity, Long, UserReadingDTO>findAll(userDAO, userReadingConverter);
     }
 
     public void register(UserRegisterDTO dto)
     {
-        UserEntity entity = userCreationConverter.convertToNewEntity(dto);
-
+        // This method requires custom
+        // TO-DO: check if user already exists
+        UserEntity entity = userCreationConverter.convertToEntity(dto);
         userDAO.create(entity);
     }
 
@@ -92,7 +99,7 @@ public class UserService
 
         if (foundEntity.isPresent())
         {
-            UserReadingDTO dto = userReadingConverter.convertToNewDTO(foundEntity.get());
+            UserReadingDTO dto = userReadingConverter.convertToDTO(foundEntity.get());
             return Optional.of(dto);
         }
         else
