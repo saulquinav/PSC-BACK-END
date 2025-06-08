@@ -6,14 +6,14 @@ import java.util.HashSet;
 import java.util.Set;
 
 //{
-//        "username": "alex",
-//        "password": "1234567890",
-//        "userInfo":
-//        {
+//    "username": "alex",
+//    "password": "1234567890",
+//    "userInfo":
+//    {
 //        "firstname": "Alex-N",
 //        "surname": "N"
-//        },
-//        "documentPermissions": []
+//    },
+//    "documentPermissions": []
 //}
 
 @Entity

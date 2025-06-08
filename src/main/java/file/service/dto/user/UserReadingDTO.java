@@ -9,6 +9,8 @@ public class UserReadingDTO implements Serializable
     private Long id;
     private String username;
 
+    public UserReadingDTO() { }
+
     public UserReadingDTO(Long id, String username)
     {
         this.id = id;
