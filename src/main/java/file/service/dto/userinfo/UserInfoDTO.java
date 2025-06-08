@@ -1,4 +1,4 @@
-package file.service.dto;
+package file.service.dto.userinfo;
 
 import java.io.Serializable;
 

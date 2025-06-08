@@ -8,35 +8,34 @@ import java.util.stream.Collectors;
 ** D - DTO */
 public abstract class GenericConverter<E, D>
 {
-    public abstract D convertToDTO(E entity);
-    public abstract E convertToEntityWithoutId(D dto);
-    public abstract E convertToEntity(D dto);
-
-    public Set<E> convertAllToEntityWithoutId(Set<D> dtos)
-    {
-        return dtos.stream()
-                    .map(dto -> convertToEntityWithoutId(dto))
-                    .collect(Collectors.toSet());
-    }
+    public abstract D convertToNewDTO(E entity);
+    public abstract E convertToNewEntity(D dto);
 
     public Set<E> convertAllToEntity(Set<D> dtos)
     {
         return dtos.stream()
-                    .map(dto -> convertToEntity(dto))
-                    .collect(Collectors.toSet());
+                .map(dto -> convertToNewEntity(dto))
+                .collect(Collectors.toSet());
+    }
+
+    public List<E> convertAllToEntity(List<D> dtos)
+    {
+        return dtos.stream()
+                .map(dto -> convertToNewEntity(dto))
+                .collect(Collectors.toList());
     }
 
     public Set<D> convertAllToDTO(Set<E> entities)
     {
         return entities.stream()
-                        .map(entity -> convertToDTO(entity))
-                        .collect(Collectors.toSet());
+                .map(entity -> convertToNewDTO(entity))
+                .collect(Collectors.toSet());
     }
 
     public List<D> convertAllToDTO(List<E> entities)
     {
         return entities.stream()
-                .map(entity -> convertToDTO(entity))
+                .map(entity -> convertToNewDTO(entity))
                 .collect(Collectors.toList());
     }
 }
