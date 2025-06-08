@@ -1,14 +1,11 @@
-# 'generic-utility-service' branch
-In this branch all Service classes have been updated to use static utility generic methods from
-the GenericServiceUtility class.
+# 'generic-resource-utility' branch
+In this branch all Resource classes should be updated to use static utility generic methods from
+a generic Resource utility class.
 
-The GenericServiceUtility class is not supposed to be inherited, it has static methods only.
+The generic Resource utility class is not supposed to be inherited, it has static methods only.
 
-The GenericServiceUtility class has built-in ready-made static methods for the basic
-CRUD operations: create, findById(), findAll(), update(), delete().
-
-The GenericServiceUtility class is usefull to avoid code repetition for the CRUD operations.
-Any other operations must be added and implemented in a concrete Service class.
+The generic Resource utility class is usefull to avoid code repetition for the CRUD operations.
+Any other operations must be added and implemented in a concrete Resource class.
 
 # Payara Starter Project
 
