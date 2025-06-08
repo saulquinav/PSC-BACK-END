@@ -25,7 +25,7 @@ public class DocumentMetadataEntity
     @OneToMany(mappedBy = "document", cascade = CascadeType.ALL, orphanRemoval = true)
     private Set<DocumentPermissionEntity> documentPermissions = new HashSet<DocumentPermissionEntity>();
 
-    @OneToOne(mappedBy = "document", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "documentMetadata", fetch = FetchType.LAZY, cascade = CascadeType.ALL, orphanRemoval = true)
     private DocumentDataEntity documentData;
 
     public DocumentMetadataEntity() { }

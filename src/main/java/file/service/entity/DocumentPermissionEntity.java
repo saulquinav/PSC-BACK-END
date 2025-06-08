@@ -22,7 +22,7 @@ public class DocumentPermissionEntity
     // Many-to-one relationship with DocumentEntity
     // @MapsId("productId") maps the 'productId' part of the composite key to the Product's primary key.
     @ManyToOne(fetch = FetchType.LAZY)
-    @MapsId("documentId") // Maps the productId from UserProductId to the Product's ID
+    @MapsId("documentId") // Here 'documentId' refers to the field of the composite key DocuemntPermissionId
     @JoinColumn(name = "document_id_fk", nullable = false) // Foreign key column in document_permissions table
     private DocumentMetadataEntity document;
 

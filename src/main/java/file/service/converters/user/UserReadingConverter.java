@@ -9,13 +9,13 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class UserReadingConverter extends GenericConverter<UserEntity, UserReadingDTO>
 {
     @Override
-    public UserReadingDTO convertToNewDTO(UserEntity entity)
+    public UserReadingDTO convertToDTO(UserEntity entity)
     {
         return new UserReadingDTO(entity.getId(), entity.getUsername());
     }
 
     @Override
-    public UserEntity convertToNewEntity(UserReadingDTO dto)
+    public UserEntity convertToEntity(UserReadingDTO dto)
     {
         UserEntity entity = new UserEntity();
         entity.setId(dto.getId());

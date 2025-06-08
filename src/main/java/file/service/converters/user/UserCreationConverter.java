@@ -10,13 +10,13 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class UserCreationConverter extends GenericConverter<UserEntity, UserRegisterDTO>
 {
     @Override
-    public UserRegisterDTO convertToNewDTO(UserEntity entity)
+    public UserRegisterDTO convertToDTO(UserEntity entity)
     {
         return new UserRegisterDTO(entity.getUsername(), entity.getPassword());
     }
 
     @Override
-    public UserEntity convertToNewEntity(UserRegisterDTO dto)
+    public UserEntity convertToEntity(UserRegisterDTO dto)
     {
         UserEntity entity = new UserEntity();
         entity.setUsername(dto.getUsername());

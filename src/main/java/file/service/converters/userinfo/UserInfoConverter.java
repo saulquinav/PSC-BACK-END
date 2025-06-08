@@ -7,13 +7,13 @@ import file.service.entity.UserInfoEntity;
 public class UserInfoConverter extends GenericConverter<UserInfoEntity, UserInfoDTO>
 {
     @Override
-    public UserInfoDTO convertToNewDTO(UserInfoEntity entity)
+    public UserInfoDTO convertToDTO(UserInfoEntity entity)
     {
         return new UserInfoDTO(entity.getFirstname(), entity.getSurname());
     }
 
     @Override
-    public UserInfoEntity convertToNewEntity(UserInfoDTO dto)
+    public UserInfoEntity convertToEntity(UserInfoDTO dto)
     {
         UserInfoEntity userInfoEntity = new UserInfoEntity();
         userInfoEntity.setFirstname(dto.getFirstname());

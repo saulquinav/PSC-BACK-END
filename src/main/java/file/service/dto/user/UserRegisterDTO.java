@@ -9,6 +9,8 @@ public class UserRegisterDTO implements Serializable
     private String username;
     private String password;
 
+    public UserRegisterDTO() { }
+
     public UserRegisterDTO(String username, String password)
     {
         this.username = username;

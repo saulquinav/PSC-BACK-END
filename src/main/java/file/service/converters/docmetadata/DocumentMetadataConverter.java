@@ -10,13 +10,13 @@ public class DocumentMetadataConverter extends GenericConverter<DocumentMetadata
 {
 
     @Override
-    public DocumentMetadataDTO convertToNewDTO(DocumentMetadataEntity entity)
+    public DocumentMetadataDTO convertToDTO(DocumentMetadataEntity entity)
     {
         return new DocumentMetadataDTO(entity.getId(), entity.getName());
     }
 
     @Override
-    public DocumentMetadataEntity convertToNewEntity(DocumentMetadataDTO dto)
+    public DocumentMetadataEntity convertToEntity(DocumentMetadataDTO dto)
     {
         DocumentMetadataEntity entity = new DocumentMetadataEntity();
         entity.setId(dto.getId());

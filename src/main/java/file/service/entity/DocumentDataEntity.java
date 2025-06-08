@@ -8,7 +8,12 @@ import jakarta.persistence.*;
 public class DocumentDataEntity
 {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    /* No need for @GeneratedValue() here, because this Entity is in a one-to-one
+    ** relationship and its ID is shared from DocumentMetadataEntity using @MapsId.
+    ** @MapsId tells JPA: “use the ID from the associated entity (documentMetadata)
+    ** as the primary key.”
+    ** So the @Id field is not independently generated — it’s just a copy of
+    ** documentMetadata.id.  */
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 

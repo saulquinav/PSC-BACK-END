@@ -10,7 +10,7 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class DocumentPermissionConverter extends GenericConverter<DocumentPermissionEntity, DocumentPermissionDTO>
 {
     @Override
-    public DocumentPermissionDTO convertToNewDTO(DocumentPermissionEntity entity)
+    public DocumentPermissionDTO convertToDTO(DocumentPermissionEntity entity)
     {
         DocumentPermissionId id = entity.getId();
 
@@ -21,7 +21,7 @@ public class DocumentPermissionConverter extends GenericConverter<DocumentPermis
     }
 
     @Override
-    public DocumentPermissionEntity convertToNewEntity(DocumentPermissionDTO dto)
+    public DocumentPermissionEntity convertToEntity(DocumentPermissionDTO dto)
     {
         DocumentPermissionEntity entity = new DocumentPermissionEntity();
 

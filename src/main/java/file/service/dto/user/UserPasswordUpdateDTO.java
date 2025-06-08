@@ -12,6 +12,8 @@ public class UserPasswordUpdateDTO implements Serializable, IdOwner<Long>
     private String oldPassword;
     private String newPassword;
 
+    public UserPasswordUpdateDTO() { }
+
     public UserPasswordUpdateDTO(Long id, String username)
     {
         this.id = id;

@@ -1,11 +1,13 @@
 package file.service.dto.docpermission;
 
+import file.service.entity.DocumentPermissionId;
 import file.service.entity.DocumentPermissionType;
+import file.service.entity.IdOwner;
 
 import java.io.Serializable;
 import java.util.Objects;
 
-public class DocumentPermissionDTO implements Serializable
+public class DocumentPermissionDTO implements Serializable, IdOwner<DocumentPermissionId>
 {
     private static final long serialVersionUID = 1L;
 
@@ -41,6 +43,21 @@ public class DocumentPermissionDTO implements Serializable
 
     public DocumentPermissionType getPermissionType() { return permissionType; }
     public void setPermissionType(DocumentPermissionType permissionType) { this.permissionType = permissionType; }
+
+    // Method inherited from IdOwner<>
+    @Override
+    public DocumentPermissionId getId()
+    {
+        return new DocumentPermissionId(userId, documentId);
+    }
+
+    // Method inherited from IdOwner<>
+    @Override
+    public void setId(DocumentPermissionId documentPermissionId)
+    {
+        userId = documentPermissionId.getUserId();
+        documentId = documentPermissionId.getDocumentId();
+    }
 
     // --- equals(), hashCode() for good practice ---
     // These should be based on the natural key (userId, productId) if they uniquely identify the DTO.

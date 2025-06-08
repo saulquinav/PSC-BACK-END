@@ -9,13 +9,13 @@ import jakarta.enterprise.context.ApplicationScoped;
 public class UserPasswordUpdateConverter extends GenericConverter<UserEntity, UserPasswordUpdateDTO>
 {
     @Override
-    public UserPasswordUpdateDTO convertToNewDTO(UserEntity entity)
+    public UserPasswordUpdateDTO convertToDTO(UserEntity entity)
     {
         return new UserPasswordUpdateDTO(entity.getId(), entity.getUsername());
     }
 
     @Override
-    public UserEntity convertToNewEntity(UserPasswordUpdateDTO dto)
+    public UserEntity convertToEntity(UserPasswordUpdateDTO dto)
     {
         UserEntity entity = new UserEntity();
         entity.setId(dto.getId());

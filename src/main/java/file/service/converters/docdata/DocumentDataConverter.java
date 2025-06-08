@@ -7,13 +7,13 @@ import file.service.entity.DocumentDataEntity;
 public class DocumentDataConverter extends GenericConverter<DocumentDataEntity, DocumentDataDTO>
 {
     @Override
-    public DocumentDataDTO convertToNewDTO(DocumentDataEntity entity)
+    public DocumentDataDTO convertToDTO(DocumentDataEntity entity)
     {
         return new DocumentDataDTO(entity.getId(), entity.getData());
     }
 
     @Override
-    public DocumentDataEntity convertToNewEntity(DocumentDataDTO dto)
+    public DocumentDataEntity convertToEntity(DocumentDataDTO dto)
     {
         DocumentDataEntity entity = new DocumentDataEntity();
         entity.setId(dto.getId());
