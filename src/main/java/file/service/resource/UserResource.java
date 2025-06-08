@@ -1,10 +1,8 @@
 package file.service.resource;
 
-import file.service.dto.user.UserCreationDTO;
+import file.service.dto.user.UserRegisterDTO;
 import file.service.dto.user.UserReadingDTO;
-import file.service.dto.user.UserUpdateDTO;
-import file.service.entity.UserEntity;
-import file.service.service.CrudService;
+import file.service.dto.user.UserPasswordUpdateDTO;
 import file.service.service.UserService;
 
 import jakarta.annotation.security.PermitAll;
@@ -12,48 +10,55 @@ import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
 
+import java.util.List;
+import java.util.Optional;
+
 
 @Path("users")
 @PermitAll // This annotation allows access to anybody, it's here only for testing purposes
-public class UserResource extends CrudResource<UserEntity, Long, UserCreationDTO, UserReadingDTO, UserUpdateDTO>
+public class UserResource
 {
     @Inject
-    private UserService userService;
-
-    // Implement the only abstract method of CrudResource<E, ID, D> class
-    @Override
-    protected CrudService<UserEntity, Long, UserCreationDTO, UserReadingDTO, UserUpdateDTO> getService() { return userService; }
+    private UserService service;
 
     @GET
     @Path("/{id}")
     public Response get(@PathParam("id") Long id)
     {
-        return super.get(id); // delegate logic to base class method
+        Optional<UserReadingDTO> dto = service.findById(id);
+
+        if (dto.isPresent())
+            return Response.ok(dto.get()).build();
+        else
+            return Response.status(Response.Status.NOT_FOUND).build();
     }
 
     @GET
     public Response getAll()
     {
-        return super.getAll(); // delegate logic to base class method
+        List<UserReadingDTO> allDTOs = service.findAll();
+        return Response.ok(allDTOs).build();
     }
 
     @POST
-    public Response create(UserCreationDTO dto)
+    public Response register(UserRegisterDTO dto)
     {
-        return super.create(dto); // delegate logic to base class method
+        service.register(dto);
+        return Response.status(Response.Status.CREATED).build();
     }
 
     @PUT
     @Path("/{id}")
-    public Response update(@PathParam("id") Long id, UserUpdateDTO dto)
+    public Response changePassword(@PathParam("id") Long id, UserPasswordUpdateDTO dto)
     {
-        return super.update(id, dto); // delegate logic to base class method
-    }
+        Optional<UserReadingDTO> foundDTO = service.findById(id);
 
-    @DELETE
-    @Path("/{id}")
-    public Response delete(@PathParam("id") Long id)
-    {
-        return super.delete(id); // delegate logic to base class method
+        if (foundDTO.isPresent())
+        {
+            service.updatePassword(dto);
+            return Response.ok(dto).build();
+        }
+        else
+            return Response.status(Response.Status.NOT_FOUND).build();
     }
 }

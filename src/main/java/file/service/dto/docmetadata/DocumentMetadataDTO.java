@@ -1,16 +1,15 @@
-package file.service.dto.document;
+package file.service.dto.docmetadata;
 
 import java.io.Serializable;
 
-public class DocumentUpdateInfoDTO implements Serializable
+public class DocumentMetadataDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
     private Long id;
     private String name;
 
-    public DocumentUpdateInfoDTO(Long id,
-                                 String name)
+    public DocumentMetadataDTO(Long id, String name)
     {
         this.id = id;
         this.name = name;

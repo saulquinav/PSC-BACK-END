@@ -1,6 +1,6 @@
 package file.service.entity;
 
-public interface IdCarrier<ID>
+public interface IdOwner<ID>
 {
     ID getId();
     void setId(ID id);

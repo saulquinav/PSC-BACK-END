@@ -1,37 +1,39 @@
 package file.service.service;
 
-import file.service.converters.userinfo.UserInfoConverter;
-import file.service.dao.UserInfoDAO;
-import file.service.dto.userinfo.UserInfoDTO;
-import file.service.entity.UserInfoEntity;
+import file.service.converters.docdata.DocumentDataConverter;
+import file.service.dao.DocumentDataDAO;
+import file.service.dto.docdata.DocumentDataDTO;
+import file.service.entity.DocumentDataEntity;
 
+import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
 
-public class UserInfoService
+@Stateless
+public class DocumentDataService
 {
     @Inject
-    public UserInfoDAO dao;
+    private DocumentDataDAO dao;
 
     @Inject
-    public UserInfoConverter converter;
+    private DocumentDataConverter converter;
 
-    public Optional<UserInfoDTO> findById(Long id)
+    public Optional<DocumentDataDTO> findById(Long id)
     {
         // Use the DAO to find the requested user
-        Optional<UserInfoEntity> optionalEntity = dao.findById(id);
+        Optional<DocumentDataEntity> optionalEntity = dao.findById(id);
 
         // If there is a (non-null) value inside the Optional
         if (optionalEntity.isPresent())
         {
             // Get the User value from inside the Optional
-            UserInfoEntity entity = optionalEntity .get();
+            DocumentDataEntity entity = optionalEntity.get();
 
             // Convert the value to DTO
-            UserInfoDTO dto = converter.convertToNewDTO(entity);
+            DocumentDataDTO dto = converter.convertToNewDTO(entity);
 
             // Return the user converted to DTO, wrapped inside an Optional
             return Optional.of(dto);
@@ -41,29 +43,27 @@ public class UserInfoService
             return Optional.empty();
     }
 
-    public List<UserInfoDTO> findAll()
+    public List<DocumentDataDTO> findAll()
     {
         return dao.findAll().stream()
                 .map(entity -> converter.convertToNewDTO(entity))
                 .collect(Collectors.toList());
     }
 
-    public void create(UserInfoDTO dto)
+    public void create(DocumentDataDTO dto)
     {
-        UserInfoEntity entity = converter.convertToNewEntity(dto);
+        DocumentDataEntity entity = converter.convertToNewEntity(dto);
 
         dao.create(entity);
     }
 
-    public void update(UserInfoDTO dto)
+    public void update(DocumentDataDTO dto)
     {
-        Optional<UserInfoEntity> foundEntity =dao.findById(dto.getId());
+        Optional<DocumentDataEntity> foundEntity = dao.findById(dto.getId());
 
         if (foundEntity.isPresent())
         {
-            UserInfoEntity entity = foundEntity.get();
-            entity.setFirstname(dto.getFirstname());
-            entity.setSurname(dto.getSurname());
+            DocumentDataEntity entity = converter.convertToNewEntity(dto);
             dao.update(entity);
         }
     }

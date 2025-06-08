@@ -1,7 +1,7 @@
 package file.service.resource;
 
-import file.service.dto.userinfo.UserInfoDTO;
-import file.service.service.UserInfoService;
+import file.service.dto.docmetadata.DocumentMetadataDTO;
+import file.service.service.DocumentMetadataService;
 
 import jakarta.annotation.security.PermitAll;
 import jakarta.inject.Inject;
@@ -11,18 +11,18 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
 
-@Path("user-infos")
+@Path("documents")
 @PermitAll // This annotation allows access to anybody, it's here only for testing purposes
-public class UserInfoResource
+public class DocumentMetadataResource
 {
     @Inject
-    private UserInfoService service;
+    private DocumentMetadataService service;
 
     @GET
     @Path("/{id}")
     public Response get(@PathParam("id") Long id)
     {
-        Optional<UserInfoDTO> dto = service.findById(id);
+        Optional<DocumentMetadataDTO> dto = service.findById(id);
 
         if (dto.isPresent())
             return Response.ok(dto.get()).build();
@@ -33,12 +33,12 @@ public class UserInfoResource
     @GET
     public Response getAll()
     {
-        List<UserInfoDTO> allDTOs = service.findAll();
+        List<DocumentMetadataDTO> allDTOs = service.findAll();
         return Response.ok(allDTOs).build();
     }
 
     @POST
-    public Response create(UserInfoDTO dto)
+    public Response create(DocumentMetadataDTO dto)
     {
         service.create(dto);
         return Response.status(Response.Status.CREATED).build();
@@ -46,9 +46,9 @@ public class UserInfoResource
 
     @PUT
     @Path("/{id}")
-    public Response update(@PathParam("id") Long id, UserInfoDTO dto)
+    public Response update(@PathParam("id") Long id, DocumentMetadataDTO dto)
     {
-        Optional<UserInfoDTO> foundDTO = service.findById(id);
+        Optional<DocumentMetadataDTO> foundDTO = service.findById(id);
 
         if (foundDTO.isPresent())
         {

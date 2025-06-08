@@ -24,7 +24,7 @@ public class DocumentPermissionEntity
     @ManyToOne(fetch = FetchType.LAZY)
     @MapsId("documentId") // Maps the productId from UserProductId to the Product's ID
     @JoinColumn(name = "document_id_fk", nullable = false) // Foreign key column in document_permissions table
-    private DocumentEntity document;
+    private DocumentMetadataEntity document;
 
     @Column(name = "permission_type", nullable = false)
     @Enumerated(EnumType.STRING)
@@ -54,8 +54,8 @@ public class DocumentPermissionEntity
         this.user = userEntity;
     }
 
-    public DocumentEntity getDocument() { return document; }
-    public void setDocument(DocumentEntity fileMetadata) { this.document = fileMetadata; }
+    public DocumentMetadataEntity getDocument() { return document; }
+    public void setDocument(DocumentMetadataEntity fileMetadata) { this.document = fileMetadata; }
 
     public DocumentPermissionType getPermissionType() { return permissionType; }
     public void setPermissionType(DocumentPermissionType permissionType) { this.permissionType = permissionType; }

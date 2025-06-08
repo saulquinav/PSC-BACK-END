@@ -2,14 +2,14 @@ package file.service.dto.user;
 
 import java.io.Serializable;
 
-public class UserCreationDTO implements Serializable
+public class UserRegisterDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
     private String username;
     private String password;
 
-    public UserCreationDTO(String username, String password)
+    public UserRegisterDTO(String username, String password)
     {
         this.username = username;
         this.password = password;

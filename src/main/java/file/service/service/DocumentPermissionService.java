@@ -3,9 +3,9 @@ package file.service.service;
 import file.service.converters.docpermission.DocumentPermissionConverter;
 import file.service.dao.DocumentPermissionDAO;
 import file.service.dto.docpermission.DocumentPermissionDTO;
-import file.service.entity.DocumentEntity;
 import file.service.entity.DocumentPermissionEntity;
 import file.service.entity.DocumentPermissionId;
+
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
@@ -18,24 +18,24 @@ import java.util.stream.Collectors;
 public class DocumentPermissionService
 {
     @Inject
-    private DocumentPermissionDAO documentPermissionDAO;
+    private DocumentPermissionDAO dao;
 
     @Inject
-    private DocumentPermissionConverter documentPermissionsConverter;
+    private DocumentPermissionConverter converter;
 
     public Optional<DocumentPermissionDTO> findById(DocumentPermissionId id)
     {
         // Use the DAO to find the requested user
-        Optional<DocumentPermissionEntity> optionalEntity = documentPermissionDAO.findById(id);
+        Optional<DocumentPermissionEntity> optionalEntity = dao.findById(id);
 
         // If there is a (non-null) value inside the Optional
         if (optionalEntity.isPresent())
         {
             // Get the User value from inside the Optional
-            E entity = optionalEntity .get();
+            DocumentPermissionEntity entity = optionalEntity .get();
 
             // Convert the value to DTO
-            DR dto = getReadingConverter().convertToNewDTO(entity);
+            DocumentPermissionDTO dto = converter.convertToNewDTO(entity);
 
             // Return the user converted to DTO, wrapped inside an Optional
             return Optional.of(dto);
@@ -45,33 +45,34 @@ public class DocumentPermissionService
             return Optional.empty();
     }
 
-    public List<DR> findAll()
+    public List<DocumentPermissionDTO> findAll()
     {
-        return documentPermissionDAO.findAll().stream()
-                .map(entity -> getReadingConverter().convertToNewDTO(entity))
+        return dao.findAll().stream()
+                .map(entity -> converter.convertToNewDTO(entity))
                 .collect(Collectors.toList());
     }
 
-    public void create(DC dto)
+    public void create(DocumentPermissionDTO dto)
     {
-        E entity = getCreationConverter().convertToNewEntity(dto);
+        DocumentPermissionEntity entity = converter.convertToNewEntity(dto);
 
-        getDao().create(entity);
+        dao.create(entity);
     }
 
-    public void update(DU dto)
+    public void update(DocumentPermissionDTO dto)
     {
-        Optional<E> foundEntity = documentPermissionDAO.findById(dto.getId());
+        DocumentPermissionId id = new DocumentPermissionId(dto.getUserId(), dto.getDocumentId());
+        Optional<DocumentPermissionEntity> foundEntity = dao.findById(id);
 
         if (foundEntity.isPresent())
         {
-            E entity = getUpdateConverter().convertToNewEntity(dto);
-            documentPermissionDAO.update(entity);
+            DocumentPermissionEntity entity = converter.convertToNewEntity(dto);
+            dao.update(entity);
         }
     }
 
-    public void delete(ID id)
+    public void delete(DocumentPermissionId id)
     {
-        documentPermissionDAO.delete(id);
+        dao.delete(id);
     }
 }

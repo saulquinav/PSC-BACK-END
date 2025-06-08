@@ -1,15 +1,20 @@
-package file.service.dto.document;
+package file.service.dto.docdata;
 
 import java.io.Serializable;
 
-public class DocumentUpdateDataDTO implements Serializable
+public class DocumentDataDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
     private Long id;
     private byte[] data; // the document BLOB
 
-    public DocumentUpdateDataDTO(Long id, byte[] data)
+    public DocumentDataDTO(byte[] data)
+    {
+        this.data = data;
+    }
+
+    public DocumentDataDTO(Long id, byte[] data)
     {
         this.id = id;
         this.data = data;

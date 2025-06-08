@@ -2,13 +2,14 @@ package file.service.service;
 
 import file.service.converters.user.UserCreationConverter;
 import file.service.converters.user.UserReadingConverter;
-import file.service.converters.user.UserUpdateConverter;
+import file.service.converters.user.UserPasswordUpdateConverter;
 import file.service.dao.UserDAO;
-import file.service.dto.user.UserCreationDTO;
+import file.service.dto.user.UserRegisterDTO;
 import file.service.dto.user.UserLoginDTO;
 import file.service.dto.user.UserReadingDTO;
-import file.service.dto.user.UserUpdateDTO;
+import file.service.dto.user.UserPasswordUpdateDTO;
 import file.service.entity.UserEntity;
+
 import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
@@ -30,7 +31,7 @@ public class UserService
     private UserReadingConverter userReadingConverter;
 
     @Inject
-    private UserUpdateConverter userUpdateConverter;
+    private UserPasswordUpdateConverter userPasswordUpdateConverter;
 
     public Optional<UserReadingDTO> findById(Long id)
     {
@@ -61,20 +62,21 @@ public class UserService
                 .collect(Collectors.toList());
     }
 
-    public void create(UserCreationDTO dto)
+    public void register(UserRegisterDTO dto)
     {
         UserEntity entity = userCreationConverter.convertToNewEntity(dto);
 
         userDAO.create(entity);
     }
 
-    public void update(UserUpdateDTO dto)
+    public void updatePassword(UserPasswordUpdateDTO dto)
     {
         Optional<UserEntity> foundEntity = userDAO.findById(dto.getId());
 
         if (foundEntity.isPresent())
         {
-            UserEntity entity = userUpdateConverter.convertToNewEntity(dto);
+            UserEntity entity = foundEntity.get();
+            entity.setPassword(dto.getNewPassword());
             userDAO.update(entity);
         }
     }
@@ -84,9 +86,17 @@ public class UserService
         userDAO.delete(id);
     }
 
-    public Optional<UserEntity> findByUsername(String username)
+    public Optional<UserReadingDTO> findByUsername(String username)
     {
-        return userDAO.findByUsername(username);
+        Optional<UserEntity> foundEntity = userDAO.findByUsername(username);
+
+        if (foundEntity.isPresent())
+        {
+            UserReadingDTO dto = userReadingConverter.convertToNewDTO(foundEntity.get());
+            return Optional.of(dto);
+        }
+        else
+            return Optional.empty();
     }
 
     public Optional<UserEntity> authenticate(UserLoginDTO userLoginDTO)
