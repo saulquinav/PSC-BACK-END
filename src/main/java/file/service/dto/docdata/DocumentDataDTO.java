@@ -1,6 +1,7 @@
 package file.service.dto.docdata;
 
 import file.service.entity.IdOwner;
+import jakarta.json.bind.annotation.JsonbProperty;
 
 import java.io.Serializable;
 
@@ -9,6 +10,8 @@ public class DocumentDataDTO implements Serializable, IdOwner<Long>
     private static final long serialVersionUID = 1L;
 
     private Long id;
+
+    @JsonbProperty("data") // Optional
     private byte[] data; // the document BLOB
 
     public DocumentDataDTO() { }

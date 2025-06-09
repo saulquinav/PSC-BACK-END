@@ -19,7 +19,7 @@ public class DocumentMetadataResource
     private DocumentMetadataService service;
 
     @OPTIONS
-//    @Path("{path : .*}")
+//    @Path("{path : .*}") // does not seem to be necessary
     public Response handleOptions()
     {
         return Response.ok().build();
