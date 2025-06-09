@@ -11,6 +11,13 @@ public class DocumentMetadataDTO implements Serializable, IdOwner<Long>
     private Long id;
     private String name;
 
+    public DocumentMetadataDTO() { }
+
+    public DocumentMetadataDTO(String name)
+    {
+        this.name = name;
+    }
+
     public DocumentMetadataDTO(Long id, String name)
     {
         this.id = id;

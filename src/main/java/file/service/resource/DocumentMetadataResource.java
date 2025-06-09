@@ -11,12 +11,31 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
 
-@Path("documents")
+@Path("doc-metadatas")
 @PermitAll // This annotation allows access to anybody, it's here only for testing purposes
 public class DocumentMetadataResource
 {
     @Inject
     private DocumentMetadataService service;
+
+    @OPTIONS
+//    @Path("{path : .*}")
+    public Response handleOptions()
+    {
+        return Response.ok().build();
+    }
+
+//    @OPTIONS
+//    @Path("{path : .*}")
+//    public Response preflight() {
+//        return Response.ok()
+//                .header("Access-Control-Allow-Origin", "*")
+////                .header("Access-Control-Allow-Origin", "http://localhost:3000")
+//                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
+//                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
+//                .header("Access-Control-Allow-Headers", "Content-Type")
+//                .build();
+//    }
 
     @GET
     @Path("/{id}")

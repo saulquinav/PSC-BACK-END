@@ -21,15 +21,22 @@ public class DocumentPermissionConverter extends GenericConverter<DocumentPermis
     }
 
     @Override
-    public DocumentPermissionEntity convertToEntity(DocumentPermissionDTO dto)
+    public DocumentPermissionEntity convertToEntityWithoutId(DocumentPermissionDTO dto)
     {
         DocumentPermissionEntity entity = new DocumentPermissionEntity();
-
-        DocumentPermissionId documentPermissionId = new DocumentPermissionId(dto.getUserId(), dto.getDocumentId());
-        entity.setId(documentPermissionId);
-
         entity.setName(dto.getName());
         entity.setPermissionType(dto.getPermissionType());
+
+        return entity;
+    }
+
+    @Override
+    public DocumentPermissionEntity convertToEntity(DocumentPermissionDTO dto)
+    {
+        DocumentPermissionEntity entity = convertToEntityWithoutId(dto);
+
+        DocumentPermissionId documentPermissionId = new DocumentPermissionId(dto.getUserId(), dto.getDocumentId());
+        entity.setId(documentPermissionId); // also set the ID from the DTO
 
         return entity;
     }

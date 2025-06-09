@@ -11,6 +11,8 @@ public class DocumentDataDTO implements Serializable, IdOwner<Long>
     private Long id;
     private byte[] data; // the document BLOB
 
+    public DocumentDataDTO() { }
+
     public DocumentDataDTO(byte[] data)
     {
         this.data = data;

@@ -13,11 +13,21 @@ public class UserInfoConverter extends GenericConverter<UserInfoEntity, UserInfo
     }
 
     @Override
-    public UserInfoEntity convertToEntity(UserInfoDTO dto)
+    public UserInfoEntity convertToEntityWithoutId(UserInfoDTO dto)
     {
         UserInfoEntity userInfoEntity = new UserInfoEntity();
+        userInfoEntity.setId(dto.getId());
         userInfoEntity.setFirstname(dto.getFirstname());
         userInfoEntity.setSurname(dto.getSurname());
+
+        return userInfoEntity;
+    }
+
+    @Override
+    public UserInfoEntity convertToEntity(UserInfoDTO dto)
+    {
+        UserInfoEntity userInfoEntity = convertToEntityWithoutId(dto);
+        userInfoEntity.setId(dto.getId()); // also set the ID from the DTO
 
         return userInfoEntity;
     }

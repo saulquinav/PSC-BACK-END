@@ -1,8 +1,15 @@
 package file.service.auth;
 
+import jakarta.servlet.FilterChain;
+import jakarta.servlet.ServletException;
+import jakarta.servlet.ServletRequest;
+import jakarta.servlet.ServletResponse;
+import jakarta.servlet.http.HttpServletRequest;
+import jakarta.servlet.http.HttpServletResponse;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;
 import jakarta.ws.rs.container.ContainerResponseFilter;
+import jakarta.ws.rs.core.Response;
 import jakarta.ws.rs.ext.Provider;
 
 import java.io.IOException;
@@ -29,6 +36,7 @@ public class CorsFilter implements ContainerResponseFilter
 
         // Manually set OK status for OPTIONS preflight (optional for some cases)
         if ("OPTIONS".equalsIgnoreCase(requestContext.getMethod()))
-            responseContext.setStatus(200);
+            responseContext.setStatus(Response.Status.OK.getStatusCode()); // a better choice
+//            responseContext.setStatus(HttpServletResponse.SC_OK); // not recommended
     }
 }

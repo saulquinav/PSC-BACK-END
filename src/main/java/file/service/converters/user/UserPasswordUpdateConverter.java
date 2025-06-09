@@ -15,11 +15,19 @@ public class UserPasswordUpdateConverter extends GenericConverter<UserEntity, Us
     }
 
     @Override
-    public UserEntity convertToEntity(UserPasswordUpdateDTO dto)
+    public UserEntity convertToEntityWithoutId(UserPasswordUpdateDTO dto)
     {
         UserEntity entity = new UserEntity();
-        entity.setId(dto.getId());
         entity.setUsername(dto.getNewPassword());
+
+        return entity;
+    }
+
+    @Override
+    public UserEntity convertToEntity(UserPasswordUpdateDTO dto)
+    {
+        UserEntity entity = convertToEntityWithoutId(dto);
+        entity.setId(dto.getId()); // also set the ID from the DTO
 
         return entity;
     }

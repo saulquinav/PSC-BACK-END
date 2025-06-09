@@ -45,7 +45,9 @@ public class GenericServiceUtility
 
     public static <E, ID, D> void create(D dto, CrudDAO<E, ID> dao, GenericConverter<E, D> converter)
     {
-        E entity = converter.convertToEntity(dto);
+        /* When creating a new Entity, the ID doesn't yet exist, so we convert from DTO
+        ** to Entity without getting the ID from the DTO */
+        E entity = converter.convertToEntityWithoutId(dto);
 
         dao.create(entity);
     }

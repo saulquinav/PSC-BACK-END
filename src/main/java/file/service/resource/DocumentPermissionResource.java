@@ -12,7 +12,7 @@ import jakarta.ws.rs.core.Response;
 import java.util.List;
 import java.util.Optional;
 
-@Path("document-permissions")
+@Path("doc-permissions")
 @PermitAll // This annotation allows access to anybody, it's here only for testing purposes
 public class DocumentPermissionResource
 {

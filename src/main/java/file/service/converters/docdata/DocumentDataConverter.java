@@ -13,11 +13,19 @@ public class DocumentDataConverter extends GenericConverter<DocumentDataEntity, 
     }
 
     @Override
-    public DocumentDataEntity convertToEntity(DocumentDataDTO dto)
+    public DocumentDataEntity convertToEntityWithoutId(DocumentDataDTO dto)
     {
         DocumentDataEntity entity = new DocumentDataEntity();
-        entity.setId(dto.getId());
         entity.setData(dto.getData());
+
+        return entity;
+    }
+
+    @Override
+    public DocumentDataEntity convertToEntity(DocumentDataDTO dto)
+    {
+        DocumentDataEntity entity = convertToEntityWithoutId(dto);
+        entity.setId(dto.getId()); // also set the ID from the DTO
 
         return entity;
     }

@@ -7,6 +7,7 @@
         <class>file.service.entity.UserInfoEntity</class>
         <class>file.service.entity.DocumentPermissionEntity</class>
         <class>file.service.entity.DocumentMetadataEntity</class>
+        <class>file.service.entity.DocumentDataEntity</class>
         <properties>
             <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
