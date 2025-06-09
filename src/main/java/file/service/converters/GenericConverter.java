@@ -10,6 +10,7 @@ public abstract class GenericConverter<E, D>
 {
     public abstract D convertToDTO(E entity);
     public abstract E convertToEntity(D dto);
+    public abstract E convertToEntityWithoutId(D dto);
 
     public Set<E> convertAllToEntity(Set<D> dtos)
     {
