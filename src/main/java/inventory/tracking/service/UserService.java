@@ -4,7 +4,6 @@ import inventory.tracking.converters.user.UserRegisterConverter;
 import inventory.tracking.converters.user.UserReadingConverter;
 import inventory.tracking.converters.user.UserPasswordUpdateConverter;
 import inventory.tracking.dao.UserDAO;
-import file.tracking.dto.user.*;
 import inventory.tracking.dto.user.*;
 import inventory.tracking.entity.UserEntity;
 
@@ -32,46 +31,19 @@ public class UserService
 
     public Optional<UserReadingDTO> findById(Long id)
     {
-//        // Use the DAO to find the requested user
-//        Optional<UserEntity> optionalEntity = userDAO.findById(id);
-//
-//        // If there is a (non-null) value inside the Optional
-//        if (optionalEntity.isPresent())
-//        {
-//            // Get the User value from inside the Optional
-//            UserEntity entity = optionalEntity .get();
-//
-//            // Convert the value to DTO
-//            UserReadingDTO dto = userReadingConverter.convertToDTO(entity);
-//
-//            // Return the user converted to DTO, wrapped inside an Optional
-//            return Optional.of(dto);
-//        }
-//        else
-//            // If nothing was found, then just return an Optional with no value
-//            return Optional.empty();
-
         return GenericServiceUtility.<UserEntity, Long, UserReadingDTO>findById(id, userDAO, userReadingConverter);
-        // this alos work, where explicit type arguments can be infered
-//        return ServiceUtility.<UserEntity, Long, UserReadingDTO>findById(id, userDAO, userReadingConverter);
+        // this alos work, where explicit type arguments can be inferred
+//        return ServiceUtility.findById(id, userDAO, userReadingConverter);
     }
 
     public List<UserReadingDTO> findAll()
     {
-//        return userDAO.findAll().stream()
-//                .map(entity -> userReadingConverter.convertToDTO(entity))
-//                .collect(Collectors.toList());
-
         return GenericServiceUtility.<UserEntity, Long, UserReadingDTO>findAll(userDAO, userReadingConverter);
     }
 
     public void register(UserRegisterDTO dto)
     {
-        // This method requires custom
         // TO-DO: check if user already exists
-//        UserEntity entity = userCreationConverter.convertToEntity(dto);
-//        userDAO.create(entity);
-
         GenericServiceUtility.<UserEntity, Long, UserRegisterDTO>create(dto, userDAO, userRegisterConverter);
     }
 
