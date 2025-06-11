@@ -2,7 +2,6 @@ package inventory.tracking.converters.docdata;
 
 import inventory.tracking.converters.GenericConverter;
 import inventory.tracking.dto.docdata.DocumentDataDTO;
-import inventory.tracking.entity.DocumentDataEntity;
 
 public class DocumentDataConverter extends GenericConverter<DocumentDataEntity, DocumentDataDTO>
 {

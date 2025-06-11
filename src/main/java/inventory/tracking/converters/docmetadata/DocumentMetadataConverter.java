@@ -2,7 +2,6 @@ package inventory.tracking.converters.docmetadata;
 
 import inventory.tracking.converters.GenericConverter;
 import inventory.tracking.dto.docmetadata.DocumentMetadataDTO;
-import inventory.tracking.entity.DocumentMetadataEntity;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped

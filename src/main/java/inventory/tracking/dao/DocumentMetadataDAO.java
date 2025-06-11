@@ -1,6 +1,5 @@
 package inventory.tracking.dao;
 
-import inventory.tracking.entity.DocumentMetadataEntity;
 import jakarta.ejb.Stateless;
 
 @Stateless // the @Stateless annotation is recommended for DAO

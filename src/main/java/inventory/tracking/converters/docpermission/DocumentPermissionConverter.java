@@ -2,8 +2,6 @@ package inventory.tracking.converters.docpermission;
 
 import inventory.tracking.converters.GenericConverter;
 import inventory.tracking.dto.docpermission.DocumentPermissionDTO;
-import inventory.tracking.entity.DocumentPermissionEntity;
-import inventory.tracking.entity.DocumentPermissionId;
 import jakarta.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped

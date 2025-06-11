@@ -1,7 +1,5 @@
 package inventory.tracking.dao;
 
-import inventory.tracking.entity.DocumentPermissionEntity;
-import inventory.tracking.entity.DocumentPermissionId;
 import jakarta.ejb.Stateless;
 
 @Stateless // the @Stateless annotation is recommended for DAO
