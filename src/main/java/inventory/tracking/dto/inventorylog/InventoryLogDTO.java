@@ -12,8 +12,12 @@ public class InventoryLogDTO
 
     public InventoryLogDTO() { }
 
-    public InventoryLogDTO(InventoryAction action, Integer quantityChange, String note)
+    public InventoryLogDTO(Long id,
+                           InventoryAction action,
+                           Integer quantityChange,
+                           String note)
     {
+        this.id = id;
         this.action = action;
         this.quantityChange = quantityChange;
         this.note = note;
