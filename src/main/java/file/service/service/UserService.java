@@ -1,13 +1,10 @@
 package file.service.service;
 
-import file.service.converters.user.UserCreationConverter;
+import file.service.converters.user.UserRegisterConverter;
 import file.service.converters.user.UserReadingConverter;
 import file.service.converters.user.UserPasswordUpdateConverter;
 import file.service.dao.UserDAO;
-import file.service.dto.user.UserRegisterDTO;
-import file.service.dto.user.UserLoginDTO;
-import file.service.dto.user.UserReadingDTO;
-import file.service.dto.user.UserPasswordUpdateDTO;
+import file.service.dto.user.*;
 import file.service.entity.UserEntity;
 
 import jakarta.ejb.Stateless;
@@ -24,7 +21,7 @@ public class UserService
     private UserDAO userDAO; // a service always has one or more DAO instances
 
     @Inject
-    private UserCreationConverter userCreationConverter;
+    private UserRegisterConverter userRegisterConverter;
 
     @Inject
     private UserReadingConverter userReadingConverter;
@@ -71,8 +68,10 @@ public class UserService
     {
         // This method requires custom
         // TO-DO: check if user already exists
-        UserEntity entity = userCreationConverter.convertToEntity(dto);
-        userDAO.create(entity);
+//        UserEntity entity = userCreationConverter.convertToEntity(dto);
+//        userDAO.create(entity);
+
+        GenericServiceUtility.<UserEntity, Long, UserRegisterDTO>create(dto, userDAO, userRegisterConverter);
     }
 
     public void updatePassword(UserPasswordUpdateDTO dto)
@@ -83,6 +82,19 @@ public class UserService
         {
             UserEntity entity = foundEntity.get();
             entity.setPassword(dto.getNewPassword());
+            userDAO.update(entity);
+        }
+    }
+
+    public void update(UserUpdateDTO dto)
+    {
+        Optional<UserEntity> foundEntity = userDAO.findById(dto.getId());
+
+        if (foundEntity.isPresent())
+        {
+            UserEntity entity = foundEntity.get();
+            entity.setUsername(dto.getUsername());
+            entity.setPassword(dto.getPassword());
             userDAO.update(entity);
         }
     }

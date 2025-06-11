@@ -3,6 +3,7 @@ package file.service.resource;
 import file.service.dto.user.UserRegisterDTO;
 import file.service.dto.user.UserReadingDTO;
 import file.service.dto.user.UserPasswordUpdateDTO;
+import file.service.dto.user.UserUpdateDTO;
 import file.service.service.UserService;
 
 import jakarta.annotation.security.PermitAll;
@@ -20,6 +21,13 @@ public class UserResource
 {
     @Inject
     private UserService service;
+
+    @OPTIONS
+    public Response handleOptions()
+    {
+        return Response.ok().build();
+    }
+
 
     @GET
     @Path("/{id}")
@@ -49,16 +57,24 @@ public class UserResource
 
     @PUT
     @Path("/{id}")
-    public Response changePassword(@PathParam("id") Long id, UserPasswordUpdateDTO dto)
+    public Response editUser(@PathParam("id") Long id, UserUpdateDTO dto)
     {
         Optional<UserReadingDTO> foundDTO = service.findById(id);
 
         if (foundDTO.isPresent())
         {
-            service.updatePassword(dto);
+            service.update(dto);
             return Response.ok(dto).build();
         }
         else
             return Response.status(Response.Status.NOT_FOUND).build();
+    }
+
+    @DELETE
+    @Path("/{id}")
+    public Response delete(@PathParam("id") Long id)
+    {
+        service.delete(id);
+        return Response.ok().build();
     }
 }

@@ -1,47 +1,36 @@
 package file.service.resource;
 
-import file.service.dto.docmetadata.DocumentMetadataDTO;
-import file.service.service.DocumentMetadataService;
+import file.service.dto.docdata.DocumentDataDTO;
+import file.service.service.DocumentDataService;
 
 import jakarta.annotation.security.PermitAll;
+import jakarta.servlet.http.Part;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
+import jakarta.ws.rs.core.MediaType;
 import jakarta.ws.rs.core.Response;
 
 import java.util.List;
 import java.util.Optional;
 
-@Path("doc-metadatas")
+@Path("doc-datas")
 @PermitAll // This annotation allows access to anybody, it's here only for testing purposes
-public class DocumentMetadataResource
+public class DocumentDataResource
 {
     @Inject
-    private DocumentMetadataService service;
+    private DocumentDataService service;
 
     @OPTIONS
-//    @Path("{path : .*}") // does not seem to be necessary
     public Response handleOptions()
     {
         return Response.ok().build();
     }
 
-//    @OPTIONS
-//    @Path("{path : .*}")
-//    public Response preflight() {
-//        return Response.ok()
-//                .header("Access-Control-Allow-Origin", "*")
-////                .header("Access-Control-Allow-Origin", "http://localhost:3000")
-//                .header("Access-Control-Allow-Headers", "origin, content-type, accept, authorization")
-//                .header("Access-Control-Allow-Methods", "GET, POST, PUT, DELETE, OPTIONS")
-//                .header("Access-Control-Allow-Headers", "Content-Type")
-//                .build();
-//    }
-
     @GET
     @Path("/{id}")
     public Response get(@PathParam("id") Long id)
     {
-        Optional<DocumentMetadataDTO> dto = service.findById(id);
+        Optional<DocumentDataDTO> dto = service.findById(id);
 
         if (dto.isPresent())
             return Response.ok(dto.get()).build();
@@ -52,22 +41,33 @@ public class DocumentMetadataResource
     @GET
     public Response getAll()
     {
-        List<DocumentMetadataDTO> allDTOs = service.findAll();
+        List<DocumentDataDTO> allDTOs = service.findAll();
         return Response.ok(allDTOs).build();
     }
 
+//    @POST
+//    @Consumes(MediaType.APPLICATION_JSON) // explicitly tell Jakarta which content type to use
+//    public Response create(DocumentDataDTO dto)
+//    {
+//        service.create(dto);
+//        return Response.status(Response.Status.CREATED).build();
+//    }
+
     @POST
-    public Response create(DocumentMetadataDTO dto)
+    @Consumes(MediaType.APPLICATION_JSON) // explicitly tell Jakarta which content type to use
+    public Response create(@FormDataParam("file") Part filePart)
     {
+
         service.create(dto);
         return Response.status(Response.Status.CREATED).build();
     }
 
     @PUT
     @Path("/{id}")
-    public Response update(@PathParam("id") Long id, DocumentMetadataDTO dto)
+    @Consumes(MediaType.APPLICATION_JSON) // explicitly tell Jakarta which content type to use
+    public Response update(@PathParam("id") Long id, DocumentDataDTO dto)
     {
-        Optional<DocumentMetadataDTO> foundDTO = service.findById(id);
+        Optional<DocumentDataDTO> foundDTO = service.findById(id);
 
         if (foundDTO.isPresent())
         {

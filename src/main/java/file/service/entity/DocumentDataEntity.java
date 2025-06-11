@@ -18,7 +18,8 @@ public class DocumentDataEntity
     private Long id;
 
     @Lob
-    @Column(name = "data", length = 100000)
+//    @Column(name = "data", length = 100000)
+    @Column(name = "data", columnDefinition = "bytea")
     private byte[] data; // the document BLOB
 
     // One-to-one relationship with DocumentMedata

@@ -1,14 +1,8 @@
-# 'generic-utility-service' branch
-In this branch all Service classes have been updated to use static utility generic methods from
-the GenericServiceUtility class.
+# 'crud-test' branch
+In this branch the basic CRUD functionality is tested for all Entities.
+Minor adjustments are made to the CORS filters and other settings are adjusted as well.
 
-The GenericServiceUtility class is not supposed to be inherited, it has static methods only.
-
-The GenericServiceUtility class has built-in ready-made static methods for the basic
-CRUD operations: create, findById(), findAll(), update(), delete().
-
-The GenericServiceUtility class is usefull to avoid code repetition for the CRUD operations.
-Any other operations must be added and implemented in a concrete Service class.
+This branch is finished when the CRUD operations work for all Entities.
 
 # Payara Starter Project
 

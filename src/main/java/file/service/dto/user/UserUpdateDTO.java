@@ -2,7 +2,7 @@ package file.service.dto.user;
 
 import java.io.Serializable;
 
-public class UserReadingDTO implements Serializable
+public class UserUpdateDTO implements Serializable
 {
     private static final long serialVersionUID = 1L;
 
@@ -10,15 +10,9 @@ public class UserReadingDTO implements Serializable
     private String username;
     private String password;
 
-    public UserReadingDTO() { }
+    public UserUpdateDTO() { }
 
-    public UserReadingDTO(Long id, String username)
-    {
-        this.id = id;
-        this.username = username;
-    }
-
-    public UserReadingDTO(Long id, String username, String password)
+    public UserUpdateDTO(Long id, String username, String password)
     {
         this.id = id;
         this.username = username;

@@ -18,6 +18,8 @@ public class DocumentPermissionDTO implements Serializable, IdOwner<DocumentPerm
     private String name;
     private DocumentPermissionType permissionType;
 
+    public DocumentPermissionDTO() { }
+
     public DocumentPermissionDTO(Long userId,
                                  Long documentId,
                                  String name,
