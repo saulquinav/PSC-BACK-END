@@ -9,12 +9,12 @@ public class InventoryItemConverter extends GenericConverter<InventoryItemEntity
     @Override
     public InventoryItemDTO convertToDTO(InventoryItemEntity entity)
     {
-        return new InventoryItemDTO(entity.getName(),
+        return new InventoryItemDTO(entity.getId(),
+                                    entity.getName(),
                                     entity.getItemType(),
                                     entity.getBrand(),
                                     entity.getModel(),
                                     entity.getQuantity());
-
     }
 
     @Override

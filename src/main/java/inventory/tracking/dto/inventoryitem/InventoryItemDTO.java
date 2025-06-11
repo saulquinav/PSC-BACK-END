@@ -13,12 +13,14 @@ public class InventoryItemDTO
 
     public InventoryItemDTO() { }
 
-    public InventoryItemDTO(String name,
+    public InventoryItemDTO(Long id,
+                            String name,
                             InventoryAction itemType,
                             String brand,
                             String model,
                             Integer quantity)
     {
+        this.id = id;
         this.name = name;
         this.itemType = itemType;
         this.brand = brand;
