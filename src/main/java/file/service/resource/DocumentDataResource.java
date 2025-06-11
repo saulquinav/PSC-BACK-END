@@ -4,6 +4,7 @@ import file.service.dto.docdata.DocumentDataDTO;
 import file.service.service.DocumentDataService;
 
 import jakarta.annotation.security.PermitAll;
+import jakarta.servlet.http.Part;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.MediaType;
@@ -44,10 +45,19 @@ public class DocumentDataResource
         return Response.ok(allDTOs).build();
     }
 
+//    @POST
+//    @Consumes(MediaType.APPLICATION_JSON) // explicitly tell Jakarta which content type to use
+//    public Response create(DocumentDataDTO dto)
+//    {
+//        service.create(dto);
+//        return Response.status(Response.Status.CREATED).build();
+//    }
+
     @POST
     @Consumes(MediaType.APPLICATION_JSON) // explicitly tell Jakarta which content type to use
-    public Response create(DocumentDataDTO dto)
+    public Response create(@FormDataParam("file") Part filePart)
     {
+
         service.create(dto);
         return Response.status(Response.Status.CREATED).build();
     }
