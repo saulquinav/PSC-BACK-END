@@ -1,4 +1,4 @@
-# 'iventory-basic-crud' branch
+# 'inventory-basic-crud' branch
 In this branch the basic CRUD functionality is tested for all Entities of the Inventory tracking system.
 Minor adjustments are made to the CORS filters and other settings are adjusted as well.
 
