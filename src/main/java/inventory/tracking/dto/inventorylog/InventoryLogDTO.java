@@ -1,10 +1,15 @@
 package inventory.tracking.dto.inventorylog;
 
+import inventory.tracking.entity.IdOwner;
 import inventory.tracking.entity.InventoryAction;
 import jakarta.persistence.*;
 
-public class InventoryLogDTO
+import java.io.Serializable;
+
+public class InventoryLogDTO implements Serializable, IdOwner<Long>
 {
+    private static final long serialVersionUID = 1L;
+
     private Long id;
     private InventoryAction action; // CREATE, UPDATE, DELETE
     private Integer quantityChange;

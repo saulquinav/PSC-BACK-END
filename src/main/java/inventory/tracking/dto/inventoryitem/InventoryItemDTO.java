@@ -1,9 +1,14 @@
 package inventory.tracking.dto.inventoryitem;
 
+import inventory.tracking.entity.IdOwner;
 import inventory.tracking.entity.InventoryAction;
 
-public class InventoryItemDTO
+import java.io.Serializable;
+
+public class InventoryItemDTO implements Serializable, IdOwner<Long>
 {
+    private static final long serialVersionUID = 1L;
+
     private Long id;
     private String name;
     private InventoryAction itemType;
