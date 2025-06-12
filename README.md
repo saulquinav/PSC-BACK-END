@@ -1,5 +1,5 @@
-# 'crud-test' branch
-In this branch the basic CRUD functionality is tested for all Entities.
+# 'inventory-basic-crud' branch
+In this branch the basic CRUD functionality is tested for all Entities of the Inventory tracking system.
 Minor adjustments are made to the CORS filters and other settings are adjusted as well.
 
 This branch is finished when the CRUD operations work for all Entities.
