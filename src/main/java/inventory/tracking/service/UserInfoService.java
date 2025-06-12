@@ -5,11 +5,14 @@ import inventory.tracking.dao.UserInfoDAO;
 import inventory.tracking.dto.userinfo.UserInfoDTO;
 import inventory.tracking.entity.UserInfoEntity;
 
+import jakarta.ejb.Stateless;
 import jakarta.inject.Inject;
 
 import java.util.List;
 import java.util.Optional;
 
+// We use @Stateless 'Bean' when this bean doesn't hold any client-specific information between method calls.
+@Stateless
 public class UserInfoService
 {
     @Inject
