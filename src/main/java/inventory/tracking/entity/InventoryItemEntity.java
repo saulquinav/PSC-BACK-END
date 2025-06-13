@@ -16,7 +16,7 @@ public class InventoryItemEntity
 
     @Column(name = "item_type", nullable = false)
     @Enumerated(EnumType.STRING)
-    private InventoryAction itemType;
+    private ItemType itemType;
 
     @Column(name = "brand", unique = true, nullable = false)
     private String brand;
@@ -35,8 +35,8 @@ public class InventoryItemEntity
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public InventoryAction getItemType() { return itemType; }
-    public void setItemType(InventoryAction itemType) { this.itemType = itemType; }
+    public ItemType getItemType() { return itemType; }
+    public void setItemType(ItemType itemType) { this.itemType = itemType; }
 
     public String getBrand() { return brand; }
     public void setBrand(String brand) { this.brand = brand; }
