@@ -25,7 +25,7 @@ public class AppSecurityContext implements SecurityContext
     @Override
     public boolean isUserInRole(String role)
     {
-        // You can implement roles if needed
+        // Here we should implement roles, if necessary
         return false;
     }
 
