@@ -1,7 +1,7 @@
 package inventory.tracking.dto.inventoryitem;
 
 import inventory.tracking.entity.IdOwner;
-import inventory.tracking.entity.InventoryAction;
+import inventory.tracking.entity.ItemType;
 
 import java.io.Serializable;
 
@@ -11,7 +11,7 @@ public class InventoryItemDTO implements Serializable, IdOwner<Long>
 
     private Long id;
     private String name;
-    private InventoryAction itemType;
+    private ItemType itemType;
     private String brand;
     private String model;
     private Integer quantity;
@@ -20,7 +20,7 @@ public class InventoryItemDTO implements Serializable, IdOwner<Long>
 
     public InventoryItemDTO(Long id,
                             String name,
-                            InventoryAction itemType,
+                            ItemType itemType,
                             String brand,
                             String model,
                             Integer quantity)
@@ -39,8 +39,8 @@ public class InventoryItemDTO implements Serializable, IdOwner<Long>
     public String getName() { return name; }
     public void setName(String name) { this.name = name; }
 
-    public InventoryAction getItemType() { return itemType; }
-    public void setItemType(InventoryAction itemType) { this.itemType = itemType; }
+    public ItemType getItemType() { return itemType; }
+    public void setItemType(ItemType itemType) { this.itemType = itemType; }
 
     public String getBrand() { return brand; }
     public void setBrand(String brand) { this.brand = brand; }

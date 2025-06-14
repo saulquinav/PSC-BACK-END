@@ -32,8 +32,8 @@ public class UserService
     public Optional<UserReadingDTO> findById(Long id)
     {
         return GenericServiceUtility.<UserEntity, Long, UserReadingDTO>findById(id, userDAO, userReadingConverter);
-        // this alos work, where explicit type arguments can be inferred
-//        return ServiceUtility.findById(id, userDAO, userReadingConverter);
+        // this also works, where explicit type arguments can be inferred
+//        return GenericServiceUtility.findById(id, userDAO, userReadingConverter);
     }
 
     public List<UserReadingDTO> findAll()

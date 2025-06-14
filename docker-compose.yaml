@@ -4,7 +4,7 @@ services:
     image: postgres:15
     # The name of the container, this is what we will see in the Docker list of containers.
     # We use this name in order to start or stop the container.
-    container_name: postgres-db-file-service
+    container_name: postgres-db-inventory
     restart: always
     environment:
       POSTGRES_DB: userdb
