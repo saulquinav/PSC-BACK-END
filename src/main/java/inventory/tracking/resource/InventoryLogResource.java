@@ -3,6 +3,7 @@ package inventory.tracking.resource;
 import inventory.tracking.dto.inventorylog.InventoryLogDTO;
 import inventory.tracking.service.InventoryLogService;
 import jakarta.annotation.security.PermitAll;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
@@ -11,7 +12,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Path("inventorylogs")
-@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
+//@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
+@RolesAllowed("USER")
 public class InventoryLogResource
 {
     @Inject

@@ -45,13 +45,18 @@ public class UserService
         return GenericServiceUtility.<UserEntity, Long, UserReadingDTO>findAll(userDAO, userReadingConverter);
     }
 
-    // This method is analogous witht the usual 'create()' method of a Service
+    // This method is analogous with the usual 'create()' method of a Service
     public void register(UserRegisterDTO dto)
     {
         // TO-DO: check if user already exists
         String hashedPassword = BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt());
-        dto.setPassword(hashedPassword); // update the password with the encrypted password
-        GenericServiceUtility.<UserEntity, Long, UserRegisterDTO>create(dto, userDAO, userRegisterConverter);
+
+        UserEntity user = new UserEntity();
+        user.setUsername(dto.getUsername());
+        user.setPassword(hashedPassword);
+        user.setRole("USER");
+
+        userDAO.create(user);
     }
 
     public void updatePassword(UserPasswordUpdateDTO dto)
@@ -97,14 +102,14 @@ public class UserService
             return Optional.empty();
     }
 
-    public String login(UserLoginDTO userLoginDTO)
+    public Optional<String> login(UserLoginDTO userLoginDTO)
     {
         if (userLoginDTO.getUsername() == null ||
             userLoginDTO.getUsername().trim().isEmpty() ||
             userLoginDTO.getPassword() == null ||
             userLoginDTO.getPassword().trim().isEmpty())
         {
-            return null;
+            return Optional.empty();
         }
 
         Optional<UserEntity> userOpt = userDAO.findByUsername(userLoginDTO.getUsername());
@@ -113,12 +118,14 @@ public class UserService
         {
             UserEntity user = userOpt.get();
 
-            if (BCrypt.checkpw(userLoginDTO.getPassword(), user.getPassword())) {
-                return JwtUtil.generateToken(user.getUsername(), user.getRole());
+            if (BCrypt.checkpw(userLoginDTO.getPassword(), user.getPassword()))
+            {
+                String token = JwtUtil.generateToken(user.getUsername(), user.getRole());
+                return Optional.of(token);
             }
         }
 
         // Else, just return null
-        return null;
+        return Optional.empty();
     }
 }

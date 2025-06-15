@@ -4,14 +4,18 @@ import inventory.tracking.dto.user.UserRegisterDTO;
 import inventory.tracking.dto.user.UserLoginDTO;
 import inventory.tracking.service.UserService;
 
+import jakarta.annotation.security.PermitAll;
 import jakarta.inject.Inject;
 import jakarta.json.Json;
 import jakarta.ws.rs.POST;
 import jakarta.ws.rs.Path;
 import jakarta.ws.rs.core.Response;
 
+import java.util.Optional;
+
 
 @Path("/auth")
+@PermitAll
 public class AuthResource
 {
     @Inject
@@ -19,22 +23,22 @@ public class AuthResource
 
     @POST
     @Path("/register")
-    public Response register(UserRegisterDTO user)
+    public Response register(UserRegisterDTO dto)
     {
-        userService.register(user);
+        userService.register(dto);
         return Response.ok().build();
     }
 
     @POST
-    @Path("login")
-    public Response login(UserLoginDTO userLoginDTO)
+    @Path("/login")
+    public Response login(UserLoginDTO dto)
     {
-        String token = userService.login(userLoginDTO);
+        Optional<String> token = userService.login(dto);
 
-        if (token != null)
+        if (token.isPresent())
         {
             return Response.ok(Json.createObjectBuilder()
-                            .add("token", token).build())
+                            .add("token", token.get()).build())
                             .build();
         }
         return Response.status(Response.Status.UNAUTHORIZED).build();

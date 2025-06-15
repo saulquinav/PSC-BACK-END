@@ -10,7 +10,6 @@ import java.time.temporal.ChronoUnit;
 import java.util.Date;
 import java.security.Key;
 
-import inventory.tracking.entity.UserEntity;
 
 public class JwtUtil
 {

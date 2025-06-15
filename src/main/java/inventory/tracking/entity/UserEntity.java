@@ -18,7 +18,7 @@ public class UserEntity
     @Column(name = "password", nullable = false)
     private String password;
 
-    @Column(name = "role", nullable = false)
+    @Column(name = "role")
     private String role;
 
     // One-to-one relationship with UserInfo
