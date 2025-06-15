@@ -1,5 +1,7 @@
 package inventory.tracking.auth;
 
+import jakarta.annotation.Priority;
+import jakarta.ws.rs.Priorities;
 import jakarta.ws.rs.container.ContainerRequestContext;
 import jakarta.ws.rs.container.ContainerResponseContext;
 import jakarta.ws.rs.container.ContainerResponseFilter;
@@ -12,6 +14,7 @@ import java.io.IOException;
 ** This filter allows all origins (*). For production, we should replace * with our
 ** actual front-end origin (e.g., http://localhost:3000). */
 @Provider
+@Priority(Priorities.HEADER_DECORATOR) // make this filter run early
 public class CorsFilter implements ContainerResponseFilter
 {
     @Override
@@ -31,6 +34,7 @@ public class CorsFilter implements ContainerResponseFilter
         // Manually set OK status for OPTIONS preflight (optional for some cases)
         if ("OPTIONS".equalsIgnoreCase(requestContext.getMethod()))
             responseContext.setStatus(Response.Status.OK.getStatusCode()); // a better choice
+
 //            responseContext.setStatus(HttpServletResponse.SC_OK); // not recommended
     }
 }

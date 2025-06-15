@@ -15,8 +15,11 @@ public class UserEntity
     @Column(name = "username", unique = true, nullable = false)
     private String username;
 
-    @Column(name = "password", unique = true, nullable = false)
+    @Column(name = "password", nullable = false)
     private String password;
+
+    @Column(name = "role")
+    private String role;
 
     // One-to-one relationship with UserInfo
     // CascadeType.ALL: Operations (persist, merge, remove) on User will cascade to UserInfo.
@@ -44,6 +47,9 @@ public class UserEntity
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 
     public UserInfoEntity getUserInfo() { return userInfo; }
     public void setUserInfo(UserInfoEntity userInfo) { this.userInfo = userInfo; }

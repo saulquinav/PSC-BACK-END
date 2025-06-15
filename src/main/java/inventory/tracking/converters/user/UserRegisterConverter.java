@@ -21,6 +21,7 @@ public class UserRegisterConverter extends GenericConverter<UserEntity, UserRegi
         UserEntity entity = new UserEntity();
         entity.setUsername(dto.getUsername());
         entity.setPassword(dto.getPassword());
+        entity.setRole("USER");
 
         return entity;
     }

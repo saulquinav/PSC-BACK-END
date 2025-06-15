@@ -5,6 +5,7 @@ import inventory.tracking.dto.userinfo.UserInfoDTO;
 import inventory.tracking.service.InventoryItemService;
 import inventory.tracking.service.UserInfoService;
 import jakarta.annotation.security.PermitAll;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
@@ -13,11 +14,18 @@ import java.util.List;
 import java.util.Optional;
 
 @Path("inventoryitems")
-@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
+//@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
+@RolesAllowed("USER")
 public class InventoryItemResource
 {
     @Inject
     private InventoryItemService service;
+
+//    @OPTIONS
+//    public Response handleOptions()
+//    {
+//        return Response.ok().build();
+//    }
 
     @GET
     @Path("/{id}")

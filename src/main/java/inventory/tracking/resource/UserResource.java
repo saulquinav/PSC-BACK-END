@@ -6,6 +6,7 @@ import inventory.tracking.dto.user.UserUpdateDTO;
 import inventory.tracking.service.UserService;
 
 import jakarta.annotation.security.PermitAll;
+import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
@@ -15,7 +16,8 @@ import java.util.Optional;
 
 
 @Path("users")
-@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
+//@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
+@RolesAllowed("USER")
 public class UserResource
 {
     @Inject
@@ -47,12 +49,13 @@ public class UserResource
         return Response.ok(allDTOs).build();
     }
 
-    @POST
-    public Response register(UserRegisterDTO dto)
-    {
-        service.register(dto);
-        return Response.status(Response.Status.CREATED).build();
-    }
+//    @POST
+//    @Path("/register")
+//    public Response register(UserRegisterDTO dto)
+//    {
+//        service.register(dto);
+//        return Response.status(Response.Status.CREATED).build();
+//    }
 
     @PUT
     @Path("/{id}")
