@@ -1,5 +1,6 @@
 package inventory.tracking.service;
 
+import inventory.tracking.auth.JwtUtil;
 import inventory.tracking.converters.user.UserRegisterConverter;
 import inventory.tracking.converters.user.UserReadingConverter;
 import inventory.tracking.converters.user.UserPasswordUpdateConverter;
@@ -12,6 +13,9 @@ import jakarta.inject.Inject;
 
 import java.util.List;
 import java.util.Optional;
+
+import org.mindrot.jbcrypt.BCrypt;
+
 
 // We use @Stateless 'Bean' when this bean doesn't hold any client-specific information between method calls.
 @Stateless
@@ -41,9 +45,12 @@ public class UserService
         return GenericServiceUtility.<UserEntity, Long, UserReadingDTO>findAll(userDAO, userReadingConverter);
     }
 
+    // This method is analogous witht the usual 'create()' method of a Service
     public void register(UserRegisterDTO dto)
     {
         // TO-DO: check if user already exists
+        String hashedPassword = BCrypt.hashpw(dto.getPassword(), BCrypt.gensalt());
+        dto.setPassword(hashedPassword); // update the password with the encrypted password
         GenericServiceUtility.<UserEntity, Long, UserRegisterDTO>create(dto, userDAO, userRegisterConverter);
     }
 
@@ -90,31 +97,28 @@ public class UserService
             return Optional.empty();
     }
 
-    public Optional<UserEntity> authenticate(UserLoginDTO userLoginDTO)
+    public String login(UserLoginDTO userLoginDTO)
     {
         if (userLoginDTO.getUsername() == null ||
-                userLoginDTO.getUsername().trim().isEmpty() ||
-                userLoginDTO.getPassword() == null ||
-                userLoginDTO.getPassword().trim().isEmpty())
+            userLoginDTO.getUsername().trim().isEmpty() ||
+            userLoginDTO.getPassword() == null ||
+            userLoginDTO.getPassword().trim().isEmpty())
         {
-            return Optional.empty();
+            return null;
         }
 
         Optional<UserEntity> userOpt = userDAO.findByUsername(userLoginDTO.getUsername());
 
         if (userOpt.isPresent())
         {
-            // In a real application, we should compare hashed passwords here:
-            // if (BCrypt.checkpw(password, user.getPassword())) {
-            //    return user;
-            // }
+            UserEntity user = userOpt.get();
 
-            UserEntity userEntity = userOpt.get();
-
-            // But for this example, we're doing a plain text comparison (NOT SECURE FOR PRODUCTION)
-            if (userEntity.getPassword().equals(userLoginDTO.getPassword()))
-                return userOpt;
+            if (BCrypt.checkpw(userLoginDTO.getPassword(), user.getPassword())) {
+                return JwtUtil.generateToken(user.getUsername(), user.getRole());
+            }
         }
-        return Optional.empty();
+
+        // Else, just return null
+        return null;
     }
 }

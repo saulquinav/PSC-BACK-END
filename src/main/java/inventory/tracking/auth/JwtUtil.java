@@ -1,77 +1,38 @@
 package inventory.tracking.auth;
 
-import io.jsonwebtoken.Jwts;
-import io.jsonwebtoken.SignatureAlgorithm;
-import io.jsonwebtoken.security.Keys;
-import inventory.tracking.entity.UserEntity;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.exceptions.JWTVerificationException;
+import com.auth0.jwt.interfaces.DecodedJWT;
 
-import java.security.Key;
+import java.time.Instant;
+import java.time.temporal.ChronoUnit;
 import java.util.Date;
+import java.security.Key;
+
+import inventory.tracking.entity.UserEntity;
 
 public class JwtUtil
 {
 //    private static final SecretKey KEY = Keys.hmacShaKeyFor("super-secret-super-secret-super-secret".getBytes()); // at least 256 bits
-    private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Use a strong, random key in production
-    private static final long EXPIRATION_TIME = 864_000_00; // 24 hours
+//    private static final Key SECRET_KEY = Keys.secretKeyFor(SignatureAlgorithm.HS256); // Use a strong, random key in production
 
-    public static String generateToken(UserEntity userEntity)
+    private static final String SECRET_KEY = "secret";
+
+    private static final long EXPIRATION_TIME = 24; // 24 hours
+
+    /* This method generates a JSON Web Token (JWT), for proving the user's identity */
+    public static String generateToken(String username, String role)
     {
-        return Jwts.builder()
-                .setSubject(userEntity.getUsername())
-                .setIssuedAt(new Date())
-                .setExpiration(new Date(System.currentTimeMillis() + EXPIRATION_TIME))
-//                .signWith(KEY, SignatureAlgorithm.HS512)
-                .signWith(SECRET_KEY)
-                .compact();
+        return JWT.create()
+                .withSubject(username)
+                .withClaim("role", role)
+                .withExpiresAt(Date.from(Instant.now().plus(EXPIRATION_TIME, ChronoUnit.HOURS)))
+                .sign(Algorithm.HMAC256(SECRET_KEY));
     }
 
-    public static String getUsernameFromToken(String token)
+    public static DecodedJWT verifyToken(String token) throws JWTVerificationException
     {
-//        JwtParser parser = Jwts.parserBuilder()
-//        JwtParser parser = Jwts.parser()
-//                .setSigningKey(KEY)
-//                .build();
-//
-//        Claims claims = parser.parseClaimsJws(token).getBody();
-//        return claims.getSubject();
-
-//        return Jwts.parser()
-//                .setSigningKey(KEY)
-//                .build()
-//                .parseClaimsJws(token)
-//                .getBody()
-//                .getSubject();
-
-        return Jwts.parser()
-                .setSigningKey(SECRET_KEY)
-                .build()
-                .parseClaimsJws(token)
-                .getBody()
-                .getSubject();
-    }
-
-// old
-//    public static Optional<User> parseToken(String token)
-//    {
-//        String username = getUsernameFromToken(token);
-//
-//        Optional<User> user = new UserService().findByUsername(username); // Should ideally be injected or passed in
-//
-//        return user;
-//    }
-
-    public boolean validateToken(String token, String username) {
-        final String tokenUsername = getUsernameFromToken(token);
-        return (tokenUsername.equals(username) && !isTokenExpired(token));
-    }
-
-    private boolean isTokenExpired(String token) {
-        final Date expiration = Jwts.parser()
-                .setSigningKey(SECRET_KEY)
-                .build()
-                .parseClaimsJws(token)
-                .getBody()
-                .getExpiration();
-        return expiration.before(new Date());
+        return JWT.require(Algorithm.HMAC256(SECRET_KEY)).build().verify(token);
     }
 }
