@@ -9,6 +9,7 @@ public class UserReadingDTO implements Serializable
     private Long id;
     private String username;
     private String password;
+    private String role;
 
     public UserReadingDTO() { }
 
@@ -18,11 +19,12 @@ public class UserReadingDTO implements Serializable
         this.username = username;
     }
 
-    public UserReadingDTO(Long id, String username, String password)
+    public UserReadingDTO(Long id, String username, String password, String role)
     {
         this.id = id;
         this.username = username;
         this.password = password;
+        this.role = role;
     }
 
     public Long getId() { return id; }
@@ -33,4 +35,7 @@ public class UserReadingDTO implements Serializable
 
     public String getPassword() { return password; }
     public void setPassword(String password) { this.password = password; }
+
+    public String getRole() { return role; }
+    public void setRole(String role) { this.role = role; }
 }
