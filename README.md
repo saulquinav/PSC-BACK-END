@@ -1,5 +1,7 @@
-# 'inventory-auth' branch
-This branch is for adding authentication (login) and authorization for the resources endpoints.
+# 'inventory-login-unprotected-endpoints' branch
+This branch is for demonstrating the main CRUD functionality of the back-end and front-end.
+Because of this, the endpoints are not protected, because authorization based on @RolesAllowed did
+not work and there was no way to demonstrate CRUD functionality.
 
 # Payara Starter Project
 
