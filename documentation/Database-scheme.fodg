@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:anim="urn:oasis:names:tc:opendocument:xmlns:animation:1.0" xmlns:smil="urn:oasis:names:tc:opendocument:xmlns:smil-compatible:1.0" xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.graphics">
- <office:meta><meta:creation-date>2025-03-07T16:57:57.388121362</meta:creation-date><dc:date>2025-06-17T07:46:20.073102802</dc:date><meta:editing-duration>PT9H50M47S</meta:editing-duration><meta:editing-cycles>58</meta:editing-cycles><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:document-statistic meta:object-count="15"/></office:meta>
+ <office:meta><meta:creation-date>2025-03-07T16:57:57.388121362</meta:creation-date><dc:date>2025-06-17T07:47:20.003271334</dc:date><meta:editing-duration>PT9H51M12S</meta:editing-duration><meta:editing-cycles>60</meta:editing-cycles><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:document-statistic meta:object-count="15"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">-1632</config:config-item>
@@ -36,7 +36,7 @@
      <config:config-item config:name="SlidesPerRow" config:type="short">4</config:config-item>
      <config:config-item config:name="EditMode" config:type="int">0</config:config-item>
      <config:config-item config:name="VisibleAreaTop" config:type="int">-1632</config:config-item>
-     <config:config-item config:name="VisibleAreaLeft" config:type="int">-1124</config:config-item>
+     <config:config-item config:name="VisibleAreaLeft" config:type="int">-1102</config:config-item>
      <config:config-item config:name="VisibleAreaWidth" config:type="int">25798</config:config-item>
      <config:config-item config:name="VisibleAreaHeight" config:type="int">18588</config:config-item>
      <config:config-item config:name="GridCoarseWidth" config:type="int">1270</config:config-item>
@@ -148,7 +148,7 @@
   <draw:marker draw:name="Arrowheads_20_3" draw:display-name="Arrowheads 3" svg:viewBox="0 0 3000 3000" svg:d="M1500 3000l1500-2789v-211h-114l-1286 2392v-2392h-200v2392l-1286-2392h-114v211z"/>
   <style:default-style style:family="graphic">
    <style:graphic-properties svg:stroke-color="#3465a4" draw:fill-color="#729fcf" fo:wrap-option="no-wrap" style:writing-mode="lr-tb"/>
-   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" style:line-break="strict" loext:tab-stop-distance="0cm" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
+   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" style:line-break="strict" loext:tab-stop-distance="0cm" style:font-independent-line-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
    <style:text-properties style:use-window-font-color="true" loext:opacity="0%" style:font-name="Liberation Serif" fo:font-size="24pt" fo:language="en" fo:country="US" style:font-name-asian="DejaVu Sans" style:font-size-asian="24pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Noto Sans1" style:font-size-complex="24pt" style:language-complex="hi" style:country-complex="IN"/>
@@ -514,6 +514,7 @@
     <draw:custom-shape draw:style-name="gr5" draw:text-style-name="P3" xml:id="id4" draw:id="id4" draw:layer="layout" svg:width="6.033cm" svg:height="2.935cm" svg:x="14.922cm" svg:y="10.16cm">
      <text:p text:style-name="P1"><text:span text:style-name="T1">inventory_logs</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">id: BIGINT PK</text:span></text:p>
+     <text:p text:style-name="P1"><text:span text:style-name="T2">inventory_item_id_fk</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">action: ENUM</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">quantity_change: VARCHAR</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">note: VARCHAR</text:span></text:p>
