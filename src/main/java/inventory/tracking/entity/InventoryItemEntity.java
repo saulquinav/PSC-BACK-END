@@ -2,6 +2,8 @@ package inventory.tracking.entity;
 
 import jakarta.persistence.*;
 
+import java.util.Set;
+
 @Entity
 @Table(name = "iventory_items")
 public class InventoryItemEntity
@@ -27,6 +29,15 @@ public class InventoryItemEntity
     @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
+    /* One-to-many relationship with DocumentPermissionEntity (the join table entity).
+    ** 'mappedBy' indicates that the 'inventoryItem' field in InventoryLogEntity is the owning side.
+    ** The 'inventoryItem' is of type InventoryItemEntity, so the owning side is this entity (InventoryLogEntity).
+    ** CascadeType.ALL will propagate persist, merge, remove operations from InventoryItemEntity to InventoryLogEntity.
+    ** orphanRemoval = true ensures that if a DocumentPermissionEntity association is removed from this set,
+    ** the InventoryLogEntity entity itself is deleted from the database. */
+    @OneToMany(mappedBy = "inventoryItem", cascade = CascadeType.ALL, orphanRemoval = true)
+    private Set<InventoryLogEntity> inventoryLogs;
+
     public InventoryItemEntity() { }
 
     public Long getId() { return id; }
@@ -46,4 +57,7 @@ public class InventoryItemEntity
 
     public Integer getQuantity() { return quantity; }
     public void setQuantity(Integer quantity) { this.quantity = quantity; }
+
+    public Set<InventoryLogEntity> getInventoryLogs() { return inventoryLogs; }
+    public void setInventoryLogs(Set<InventoryLogEntity> inventoryLogs) { this.inventoryLogs = inventoryLogs; }
 }
