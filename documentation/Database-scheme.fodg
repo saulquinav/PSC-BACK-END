@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <office:document xmlns:anim="urn:oasis:names:tc:opendocument:xmlns:animation:1.0" xmlns:smil="urn:oasis:names:tc:opendocument:xmlns:smil-compatible:1.0" xmlns:presentation="urn:oasis:names:tc:opendocument:xmlns:presentation:1.0" xmlns:css3t="http://www.w3.org/TR/css3-text/" xmlns:grddl="http://www.w3.org/2003/g/data-view#" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xforms="http://www.w3.org/2002/xforms" xmlns:dom="http://www.w3.org/2001/xml-events" xmlns:script="urn:oasis:names:tc:opendocument:xmlns:script:1.0" xmlns:form="urn:oasis:names:tc:opendocument:xmlns:form:1.0" xmlns:math="http://www.w3.org/1998/Math/MathML" xmlns:office="urn:oasis:names:tc:opendocument:xmlns:office:1.0" xmlns:ooo="http://openoffice.org/2004/office" xmlns:fo="urn:oasis:names:tc:opendocument:xmlns:xsl-fo-compatible:1.0" xmlns:config="urn:oasis:names:tc:opendocument:xmlns:config:1.0" xmlns:ooow="http://openoffice.org/2004/writer" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:drawooo="http://openoffice.org/2010/draw" xmlns:oooc="http://openoffice.org/2004/calc" xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:calcext="urn:org:documentfoundation:names:experimental:calc:xmlns:calcext:1.0" xmlns:style="urn:oasis:names:tc:opendocument:xmlns:style:1.0" xmlns:text="urn:oasis:names:tc:opendocument:xmlns:text:1.0" xmlns:of="urn:oasis:names:tc:opendocument:xmlns:of:1.2" xmlns:tableooo="http://openoffice.org/2009/table" xmlns:draw="urn:oasis:names:tc:opendocument:xmlns:drawing:1.0" xmlns:dr3d="urn:oasis:names:tc:opendocument:xmlns:dr3d:1.0" xmlns:rpt="http://openoffice.org/2005/report" xmlns:formx="urn:openoffice:names:experimental:ooxml-odf-interop:xmlns:form:1.0" xmlns:svg="urn:oasis:names:tc:opendocument:xmlns:svg-compatible:1.0" xmlns:chart="urn:oasis:names:tc:opendocument:xmlns:chart:1.0" xmlns:officeooo="http://openoffice.org/2009/office" xmlns:table="urn:oasis:names:tc:opendocument:xmlns:table:1.0" xmlns:field="urn:openoffice:names:experimental:ooo-ms-interop:xmlns:field:1.0" xmlns:number="urn:oasis:names:tc:opendocument:xmlns:datastyle:1.0" xmlns:meta="urn:oasis:names:tc:opendocument:xmlns:meta:1.0" xmlns:loext="urn:org:documentfoundation:names:experimental:office:xmlns:loext:1.0" office:version="1.3" office:mimetype="application/vnd.oasis.opendocument.graphics">
- <office:meta><meta:creation-date>2025-03-07T16:57:57.388121362</meta:creation-date><dc:date>2025-06-11T21:21:41.043408952</dc:date><meta:editing-duration>PT9H10M26S</meta:editing-duration><meta:editing-cycles>56</meta:editing-cycles><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:document-statistic meta:object-count="15"/></office:meta>
+ <office:meta><meta:creation-date>2025-03-07T16:57:57.388121362</meta:creation-date><dc:date>2025-06-17T07:46:20.073102802</dc:date><meta:editing-duration>PT9H50M47S</meta:editing-duration><meta:editing-cycles>58</meta:editing-cycles><meta:generator>LibreOffice/24.2.7.2$Linux_X86_64 LibreOffice_project/420$Build-2</meta:generator><meta:document-statistic meta:object-count="15"/></office:meta>
  <office:settings>
   <config:config-item-set config:name="ooo:view-settings">
    <config:config-item config:name="VisibleAreaTop" config:type="int">-1632</config:config-item>
-   <config:config-item config:name="VisibleAreaLeft" config:type="int">2580</config:config-item>
+   <config:config-item config:name="VisibleAreaLeft" config:type="int">-1124</config:config-item>
    <config:config-item config:name="VisibleAreaWidth" config:type="int">18477</config:config-item>
    <config:config-item config:name="VisibleAreaHeight" config:type="int">18587</config:config-item>
    <config:config-item-map-indexed config:name="Views">
@@ -36,8 +36,8 @@
      <config:config-item config:name="SlidesPerRow" config:type="short">4</config:config-item>
      <config:config-item config:name="EditMode" config:type="int">0</config:config-item>
      <config:config-item config:name="VisibleAreaTop" config:type="int">-1632</config:config-item>
-     <config:config-item config:name="VisibleAreaLeft" config:type="int">2580</config:config-item>
-     <config:config-item config:name="VisibleAreaWidth" config:type="int">18478</config:config-item>
+     <config:config-item config:name="VisibleAreaLeft" config:type="int">-1124</config:config-item>
+     <config:config-item config:name="VisibleAreaWidth" config:type="int">25798</config:config-item>
      <config:config-item config:name="VisibleAreaHeight" config:type="int">18588</config:config-item>
      <config:config-item config:name="GridCoarseWidth" config:type="int">1270</config:config-item>
      <config:config-item config:name="GridCoarseHeight" config:type="int">1270</config:config-item>
@@ -148,7 +148,7 @@
   <draw:marker draw:name="Arrowheads_20_3" draw:display-name="Arrowheads 3" svg:viewBox="0 0 3000 3000" svg:d="M1500 3000l1500-2789v-211h-114l-1286 2392v-2392h-200v2392l-1286-2392h-114v211z"/>
   <style:default-style style:family="graphic">
    <style:graphic-properties svg:stroke-color="#3465a4" draw:fill-color="#729fcf" fo:wrap-option="no-wrap" style:writing-mode="lr-tb"/>
-   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" style:line-break="strict" loext:tab-stop-distance="0cm" style:font-independent-line-spacing="false">
+   <style:paragraph-properties style:text-autospace="ideograph-alpha" style:punctuation-wrap="simple" style:line-break="strict" loext:tab-stop-distance="0cm" style:writing-mode="lr-tb" style:font-independent-line-spacing="false">
     <style:tab-stops/>
    </style:paragraph-properties>
    <style:text-properties style:use-window-font-color="true" loext:opacity="0%" style:font-name="Liberation Serif" fo:font-size="24pt" fo:language="en" fo:country="US" style:font-name-asian="DejaVu Sans" style:font-size-asian="24pt" style:language-asian="zh" style:country-asian="CN" style:font-name-complex="Noto Sans1" style:font-size-complex="24pt" style:language-complex="hi" style:country-complex="IN"/>
@@ -361,23 +361,26 @@
   </style:style>
   <style:style style:name="P4" style:family="paragraph">
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-align="center" fo:text-indent="0cm"/>
-   <style:text-properties fo:color="#ffffff" loext:opacity="100%" style:font-name="Liberation Sans" fo:font-size="8pt" style:letter-kerning="true" style:font-name-asian="Noto Sans CJK SC" style:font-size-asian="18pt" style:font-name-complex="Noto Sans Devanagari" style:font-size-complex="18pt"/>
   </style:style>
   <style:style style:name="P5" style:family="paragraph">
-   <style:paragraph-properties fo:text-align="center"/>
+   <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:text-align="center" fo:text-indent="0cm"/>
    <style:text-properties fo:color="#ffffff" loext:opacity="100%" fo:font-size="8pt"/>
   </style:style>
   <style:style style:name="P6" style:family="paragraph">
    <style:paragraph-properties fo:text-align="center"/>
   </style:style>
   <style:style style:name="P7" style:family="paragraph">
-   <style:paragraph-properties fo:text-align="start"/>
+   <style:paragraph-properties fo:text-align="center"/>
+   <style:text-properties fo:color="#ffffff" loext:opacity="100%" fo:font-size="8pt"/>
   </style:style>
   <style:style style:name="P8" style:family="paragraph">
    <style:paragraph-properties fo:text-align="start"/>
-   <style:text-properties fo:color="#ffffff" loext:opacity="100%" fo:font-size="8pt"/>
   </style:style>
   <style:style style:name="P9" style:family="paragraph">
+   <style:paragraph-properties fo:text-align="start"/>
+   <style:text-properties fo:color="#ffffff" loext:opacity="100%" fo:font-size="8pt"/>
+  </style:style>
+  <style:style style:name="P10" style:family="paragraph">
    <loext:graphic-properties draw:fill="none"/>
    <style:paragraph-properties fo:margin-left="0cm" fo:margin-right="0cm" fo:margin-top="0cm" fo:margin-bottom="0cm" fo:line-height="100%" fo:text-align="justify" fo:text-indent="0cm" style:writing-mode="lr-tb"/>
    <style:text-properties fo:font-size="8pt"/>
@@ -395,6 +398,9 @@
    <style:text-properties fo:font-variant="normal" fo:text-transform="none" fo:color="#ffffff" loext:opacity="100%" style:text-outline="false" style:text-line-through-style="none" style:text-line-through-type="none" style:font-name="Liberation Sans" fo:font-size="8pt" fo:font-style="normal" fo:text-shadow="none" style:text-underline-style="none" fo:font-weight="normal" style:letter-kerning="true" style:font-name-asian="Noto Sans CJK SC" style:font-size-asian="18pt" style:font-style-asian="normal" style:font-weight-asian="normal" style:font-name-complex="Noto Sans Devanagari" style:font-size-complex="18pt" style:font-style-complex="normal" style:font-weight-complex="normal" style:text-emphasize="none" style:font-relief="none" style:text-overline-style="none" style:text-overline-color="font-color"/>
   </style:style>
   <style:style style:name="T5" style:family="text">
+   <style:text-properties fo:color="#ffffff" loext:opacity="100%" style:font-name="Liberation Sans" fo:font-size="8pt" style:letter-kerning="true" style:font-name-asian="Noto Sans CJK SC" style:font-size-asian="18pt" style:font-name-complex="Noto Sans Devanagari" style:font-size-complex="18pt"/>
+  </style:style>
+  <style:style style:name="T6" style:family="text">
    <style:text-properties fo:color="#ffffff" loext:opacity="100%" fo:font-size="8pt"/>
   </style:style>
   <text:list-style style:name="L1">
@@ -471,7 +477,7 @@
   <office:drawing>
    <draw:page draw:name="page1" draw:style-name="dp2" draw:master-page-name="Default">
     <draw:custom-shape draw:style-name="gr1" draw:text-style-name="P3" xml:id="id1" draw:id="id1" draw:layer="layout" svg:width="6.033cm" svg:height="3.175cm" svg:x="0.73cm" svg:y="5.507cm">
-     <text:p text:style-name="P1"><text:span text:style-name="T1">user</text:span></text:p>
+     <text:p text:style-name="P1"><text:span text:style-name="T1">users</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">id: BIGINT PK</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">username: VARCHAR</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">password: VARCHAR (enc)</text:span></text:p>
@@ -482,7 +488,7 @@
      <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
     </draw:custom-shape>
     <draw:custom-shape draw:style-name="gr2" draw:text-style-name="P3" xml:id="id2" draw:id="id2" draw:layer="layout" svg:width="6.033cm" svg:height="2.858cm" svg:x="9.525cm" svg:y="3.175cm">
-     <text:p text:style-name="P1"><text:span text:style-name="T1">user_info</text:span></text:p>
+     <text:p text:style-name="P1"><text:span text:style-name="T1">user_infos</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">id: BIGINT PK</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">user_id_fk: BIGINT FK</text:span></text:p>
      <text:p text:style-name="P2"><text:span text:style-name="T4">firstname: VARCHAR</text:span><text:span text:style-name="T2"> (enc)</text:span></text:p>
@@ -493,10 +499,10 @@
      <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
     </draw:custom-shape>
     <draw:connector draw:style-name="gr3" draw:text-style-name="P5" draw:layer="layout" svg:x1="6.763cm" svg:y1="7.094cm" svg:x2="9.525cm" svg:y2="4.604cm" draw:start-shape="id1" draw:start-glue-point="1" draw:end-shape="id2" draw:end-glue-point="3" svg:d="M6763 7094h1380v-2490h1382" svg:viewBox="0 0 2763 2491">
-     <text:p text:style-name="P4">One to one</text:p>
+     <text:p text:style-name="P4"><text:span text:style-name="T5">One to one</text:span></text:p>
     </draw:connector>
     <draw:custom-shape draw:style-name="gr4" draw:text-style-name="P3" xml:id="id3" draw:id="id3" draw:layer="layout" svg:width="4.127cm" svg:height="2.858cm" svg:x="8.255cm" svg:y="10.734cm">
-     <text:p text:style-name="P1"><text:span text:style-name="T1">inventory_item</text:span></text:p>
+     <text:p text:style-name="P1"><text:span text:style-name="T1">inventory_items</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">id: BIGINT PK</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">name: VARCHAR</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">item_type: ENUM</text:span></text:p>
@@ -506,15 +512,15 @@
      <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
     </draw:custom-shape>
     <draw:custom-shape draw:style-name="gr5" draw:text-style-name="P3" xml:id="id4" draw:id="id4" draw:layer="layout" svg:width="6.033cm" svg:height="2.935cm" svg:x="14.922cm" svg:y="10.16cm">
-     <text:p text:style-name="P1"><text:span text:style-name="T1">inventory_log</text:span></text:p>
+     <text:p text:style-name="P1"><text:span text:style-name="T1">inventory_logs</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">id: BIGINT PK</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">action: ENUM</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">quantity_change: VARCHAR</text:span></text:p>
      <text:p text:style-name="P1"><text:span text:style-name="T2">note: VARCHAR</text:span></text:p>
      <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
     </draw:custom-shape>
-    <draw:connector draw:style-name="gr6" draw:text-style-name="P5" draw:layer="layout" svg:x1="12.382cm" svg:y1="12.163cm" svg:x2="14.922cm" svg:y2="11.627cm" draw:start-shape="id3" draw:start-glue-point="1" draw:end-shape="id4" draw:end-glue-point="3" svg:d="M12382 12163h1269v-536h1271" svg:viewBox="0 0 2541 537">
-     <text:p text:style-name="P6"><text:span text:style-name="T5">One to many</text:span></text:p>
+    <draw:connector draw:style-name="gr6" draw:text-style-name="P7" draw:layer="layout" svg:x1="12.382cm" svg:y1="12.163cm" svg:x2="14.922cm" svg:y2="11.627cm" draw:start-shape="id3" draw:start-glue-point="1" draw:end-shape="id4" draw:end-glue-point="3" svg:d="M12382 12163h1269v-536h1271" svg:viewBox="0 0 2541 537">
+     <text:p text:style-name="P6"><text:span text:style-name="T6">One to many</text:span></text:p>
     </draw:connector>
    </draw:page>
    <draw:page draw:name="page2" draw:style-name="dp2" draw:master-page-name="Default">
@@ -541,13 +547,13 @@
      <text:p text:style-name="P1"><text:span text:style-name="T3"/></text:p>
      <draw:enhanced-geometry svg:viewBox="0 0 21600 21600" draw:type="rectangle" draw:enhanced-path="M 0 0 L 21600 0 21600 21600 0 21600 0 0 Z N"/>
     </draw:custom-shape>
-    <draw:connector draw:style-name="gr6" draw:text-style-name="P5" draw:layer="layout" svg:x1="6.763cm" svg:y1="7.094cm" svg:x2="9.62cm" svg:y2="9.539cm" draw:start-shape="id5" draw:start-glue-point="1" draw:end-shape="id6" draw:end-glue-point="3" svg:d="M6763 7094h1428v2445h1429" svg:viewBox="0 0 2858 2446">
-     <text:p text:style-name="P6"><text:span text:style-name="T5">One to many</text:span></text:p>
+    <draw:connector draw:style-name="gr6" draw:text-style-name="P7" draw:layer="layout" svg:x1="6.763cm" svg:y1="7.094cm" svg:x2="9.62cm" svg:y2="9.539cm" draw:start-shape="id5" draw:start-glue-point="1" draw:end-shape="id6" draw:end-glue-point="3" svg:d="M6763 7094h1428v2445h1429" svg:viewBox="0 0 2858 2446">
+     <text:p text:style-name="P6"><text:span text:style-name="T6">One to many</text:span></text:p>
     </draw:connector>
-    <draw:connector draw:style-name="gr7" draw:text-style-name="P8" draw:layer="layout" svg:x1="15.653cm" svg:y1="9.539cm" svg:x2="18.509cm" svg:y2="6.839cm" draw:start-shape="id6" draw:start-glue-point="1" draw:end-shape="id7" draw:end-glue-point="3" svg:d="M15653 9539h1427v-2700h1429" svg:viewBox="0 0 2857 2701">
-     <text:p text:style-name="P7"><text:span text:style-name="T5">Many to one</text:span></text:p>
+    <draw:connector draw:style-name="gr7" draw:text-style-name="P9" draw:layer="layout" svg:x1="15.653cm" svg:y1="9.539cm" svg:x2="18.509cm" svg:y2="6.839cm" draw:start-shape="id6" draw:start-glue-point="1" draw:end-shape="id7" draw:end-glue-point="3" svg:d="M15653 9539h1427v-2700h1429" svg:viewBox="0 0 2857 2701">
+     <text:p text:style-name="P8"><text:span text:style-name="T6">Many to one</text:span></text:p>
     </draw:connector>
-    <draw:custom-shape draw:style-name="gr8" draw:text-style-name="P9" xml:id="id7" draw:id="id7" draw:layer="layout" svg:width="3.811cm" svg:height="3.175cm" svg:x="18.509cm" svg:y="5.252cm">
+    <draw:custom-shape draw:style-name="gr8" draw:text-style-name="P10" xml:id="id7" draw:id="id7" draw:layer="layout" svg:width="3.811cm" svg:height="3.175cm" svg:x="18.509cm" svg:y="5.252cm">
      <text:p text:style-name="P2"><text:span text:style-name="T1">document_metadata</text:span></text:p>
      <text:p text:style-name="P2"><text:span text:style-name="T2">id: BIGINT PK</text:span></text:p>
      <text:p text:style-name="P2"><text:span text:style-name="T2">is_edited: BOOL</text:span></text:p>
@@ -573,7 +579,7 @@
     <draw:connector draw:style-name="gr9" draw:text-style-name="P6" draw:layer="layout" svg:x1="6.763cm" svg:y1="7.094cm" svg:x2="9.525cm" svg:y2="4.604cm" draw:start-shape="id5" draw:start-glue-point="1" draw:end-shape="id8" draw:end-glue-point="3" svg:d="M6763 7094h1380v-2490h1382" svg:viewBox="0 0 2763 2491">
      <text:p/>
     </draw:connector>
-    <draw:custom-shape draw:style-name="gr10" draw:text-style-name="P9" xml:id="id9" draw:id="id9" draw:layer="layout" svg:width="4.763cm" svg:height="3.175cm" svg:x="23.812cm" svg:y="5.08cm">
+    <draw:custom-shape draw:style-name="gr10" draw:text-style-name="P10" xml:id="id9" draw:id="id9" draw:layer="layout" svg:width="4.763cm" svg:height="3.175cm" svg:x="23.812cm" svg:y="5.08cm">
      <text:p text:style-name="P2"><text:span text:style-name="T1">document_data</text:span></text:p>
      <text:p text:style-name="P2"><text:span text:style-name="T2">id: BIGINT PK</text:span></text:p>
      <text:p text:style-name="P2"><text:span text:style-name="T2">metadata_id_fk: BIGINT FK</text:span></text:p>
