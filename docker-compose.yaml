@@ -7,8 +7,8 @@ services:
     container_name: postgres-db-inventory
     restart: always
     environment:
-      POSTGRES_DB: userdb
+      POSTGRES_DB: inventorydb
       POSTGRES_USER: user
-      POSTGRES_PASSWORD: password
+      POSTGRES_PASSWORD: postgres-db-inventory
     ports:
       - "5432:5432"

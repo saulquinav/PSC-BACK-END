@@ -2,13 +2,15 @@
              version="2.2">
 
     <persistence-unit name="ExamplePersistenceUnit" transaction-type="JTA">
-        <jta-data-source>jdbc/postgres</jta-data-source>
+<!--        <jta-data-source>jdbc/postgres</jta-data-source>-->
+        <jta-data-source>jdbc/inventorydb</jta-data-source>
         <class>inventory.tracking.entity.UserEntity</class>
         <class>inventory.tracking.entity.UserInfoEntity</class>
         <class>inventory.tracking.entity.InventoryItemEntity</class>
         <class>inventory.tracking.entity.InventoryLogEntity</class>
         <properties>
-            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>
+<!--            <property name="jakarta.persistence.schema-generation.database.action" value="create"/>-->
+            <property name="jakarta.persistence.schema-generation.database.action" value="none"/>
             <property name="jakarta.persistence.jdbc.driver" value="org.postgresql.Driver"/>
             <!-- Necessary? -->
 <!--            <property name="jakarta.persistence.jdbc.url" value="jdbc:postgresql://localhost:5432/userdb"/>-->
