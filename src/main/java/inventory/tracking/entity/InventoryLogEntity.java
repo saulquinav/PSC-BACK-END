@@ -21,6 +21,15 @@ public class InventoryLogEntity
     @Column(name = "note", nullable = false)
     private String note;
 
+    /* Many-to-one relationship with InventoryItemEntity
+    ** @JoinColumn specifies the foreign key (FK) column of this table/entity that points
+    ** to the InventoryItem
+    ** Optional: in the @JoinColumn we can add 'nullable = false' to enforce that a InventoryLogEntity
+    * is always associated with a InventoryItemEntity */
+    @ManyToOne(fetch = FetchType.LAZY)
+    @JoinColumn(name = "inventory_item_id_fk")
+    private InventoryItemEntity inventoryItem;
+
     public InventoryLogEntity() { }
 
     public Long getId() { return id; }
@@ -34,4 +43,7 @@ public class InventoryLogEntity
 
     public String getNote() { return note; }
     public void setNote(String note) { this.note = note; }
+
+    public InventoryItemEntity getInventoryItem() { return inventoryItem; }
+    public void setInventoryItem(InventoryItemEntity inventoryItem) { this.inventoryItem = inventoryItem; }
 }
