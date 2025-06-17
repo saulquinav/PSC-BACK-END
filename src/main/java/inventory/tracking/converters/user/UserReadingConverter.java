@@ -11,7 +11,10 @@ public class UserReadingConverter extends GenericConverter<UserEntity, UserReadi
     @Override
     public UserReadingDTO convertToDTO(UserEntity entity)
     {
-        return new UserReadingDTO(entity.getId(), entity.getUsername(), entity.getPassword());
+        return new UserReadingDTO(entity.getId(),
+                                    entity.getUsername(),
+                                    entity.getPassword(),
+                                    entity.getRole());
     }
 
     @Override

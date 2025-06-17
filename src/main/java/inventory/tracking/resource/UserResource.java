@@ -16,8 +16,8 @@ import java.util.Optional;
 
 
 @Path("users")
-//@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
-@RolesAllowed("USER")
+@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
+//@RolesAllowed("USER")
 public class UserResource
 {
     @Inject
@@ -48,14 +48,6 @@ public class UserResource
         List<UserReadingDTO> allDTOs = service.findAll();
         return Response.ok(allDTOs).build();
     }
-
-//    @POST
-//    @Path("/register")
-//    public Response register(UserRegisterDTO dto)
-//    {
-//        service.register(dto);
-//        return Response.status(Response.Status.CREATED).build();
-//    }
 
     @PUT
     @Path("/{id}")

@@ -22,7 +22,7 @@ public class UserInfoEntity
     // nullable = false ensures that every UserInfo must be linked to a User.
     // unique = true ensures that only one UserInfo can point to a specific User, enforcing the one-to-one.
     @OneToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user_id", referencedColumnName = "id", nullable = false, unique = true)
+    @JoinColumn(name = "user_id", referencedColumnName = "id", unique = true)
     private UserEntity user;
 
     public UserInfoEntity() { }

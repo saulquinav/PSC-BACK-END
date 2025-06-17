@@ -11,20 +11,20 @@ public class InventoryItemEntity
     @Column(name = "id", unique = true, nullable = false)
     private Long id;
 
-    @Column(name = "name", unique = true, nullable = false)
+    @Column(name = "name", nullable = false)
     private String name;
 
     @Column(name = "item_type", nullable = false)
     @Enumerated(EnumType.STRING)
     private ItemType itemType;
 
-    @Column(name = "brand", unique = true, nullable = false)
+    @Column(name = "brand", nullable = false)
     private String brand;
 
-    @Column(name = "model", unique = true, nullable = false)
+    @Column(name = "model", nullable = false)
     private String model;
 
-    @Column(name = "quantity", unique = true, nullable = false)
+    @Column(name = "quantity", nullable = false)
     private Integer quantity;
 
     public InventoryItemEntity() { }

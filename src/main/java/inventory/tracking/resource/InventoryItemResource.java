@@ -14,8 +14,8 @@ import java.util.List;
 import java.util.Optional;
 
 @Path("inventoryitems")
-//@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
-@RolesAllowed("USER")
+@PermitAll // This annotation allows access to anybody, it's here only for testing purposes
+//@RolesAllowed("USER") // does not seem to work
 public class InventoryItemResource
 {
     @Inject
