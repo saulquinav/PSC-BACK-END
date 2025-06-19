@@ -1,7 +1,6 @@
-# 'inventory-login-unprotected-endpoints' branch
-This branch is for demonstrating the main CRUD functionality of the back-end and front-end.
-Because of this, the endpoints are not protected, because authorization based on @RolesAllowed did
-not work and there was no way to demonstrate CRUD functionality.
+# 'inventory-laptop' branch
+
+This branch is for tweaking authentication (login) and for using public endpoints from the back-end, so that they work on a different laptop computer.
 
 # Payara Starter Project
 
