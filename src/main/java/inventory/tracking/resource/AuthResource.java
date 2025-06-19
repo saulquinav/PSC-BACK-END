@@ -1,7 +1,10 @@
 package inventory.tracking.resource;
 
+import inventory.tracking.auth.JwtUtil;
+import inventory.tracking.dto.user.UserLoginResponseDTO;
 import inventory.tracking.dto.user.UserRegisterDTO;
 import inventory.tracking.dto.user.UserLoginDTO;
+import inventory.tracking.entity.UserEntity;
 import inventory.tracking.service.UserService;
 
 import jakarta.annotation.security.PermitAll;
@@ -29,17 +32,32 @@ public class AuthResource
         return Response.ok().build();
     }
 
-    @POST
-    @Path("/login")
-    public Response login(UserLoginDTO dto)
-    {
-        Optional<String> token = userService.login(dto);
+//    @POST
+//    @Path("/login")
+//    public Response login(UserLoginDTO dto)
+//    {
+//        Optional<String> token = userService.login(dto);
+//
+//        if (token.isPresent())
+//        {
+//            return Response.ok(Json.createObjectBuilder()
+//                            .add("token", token.get()).build())
+//                            .build();
+//        }
+//        return Response.status(Response.Status.UNAUTHORIZED).build();
+//    }
 
-        if (token.isPresent())
+    @POST
+    @Path("login")
+    public Response login(UserLoginDTO userLoginDTO)
+    {
+        Optional<UserEntity> userOpt = userService.login(userLoginDTO);
+
+        if (userOpt.isPresent())
         {
-            return Response.ok(Json.createObjectBuilder()
-                            .add("token", token.get()).build())
-                            .build();
+            String token = JwtUtil.generateToken(userOpt.get());
+//            return Response.ok(Collections.singletonMap("token", token)).build();
+            return Response.ok().entity(new UserLoginResponseDTO(token)).build();
         }
         return Response.status(Response.Status.UNAUTHORIZED).build();
     }

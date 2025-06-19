@@ -29,7 +29,6 @@ public class UserResource
         return Response.ok().build();
     }
 
-
     @GET
     @Path("/{id}")
     public Response get(@PathParam("id") Long id)

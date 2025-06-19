@@ -22,11 +22,11 @@ public class InventoryItemResource
     @Inject
     private InventoryItemService service;
 
-    @OPTIONS
-    public Response handleOptions()
-    {
-        return Response.ok().build();
-    }
+//    @OPTIONS
+//    public Response handleOptions()
+//    {
+//        return Response.ok().build();
+//    }
 
 //    @OPTIONS
     @GET
