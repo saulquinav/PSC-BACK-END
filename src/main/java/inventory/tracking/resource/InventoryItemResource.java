@@ -9,6 +9,7 @@ import jakarta.annotation.security.RolesAllowed;
 import jakarta.inject.Inject;
 import jakarta.ws.rs.*;
 import jakarta.ws.rs.core.Response;
+import jakarta.ws.rs.OPTIONS;
 
 import java.util.List;
 import java.util.Optional;
@@ -21,12 +22,13 @@ public class InventoryItemResource
     @Inject
     private InventoryItemService service;
 
-//    @OPTIONS
-//    public Response handleOptions()
-//    {
-//        return Response.ok().build();
-//    }
+    @OPTIONS
+    public Response handleOptions()
+    {
+        return Response.ok().build();
+    }
 
+//    @OPTIONS
     @GET
     @Path("/{id}")
     public Response get(@PathParam("id") Long id)
@@ -39,6 +41,7 @@ public class InventoryItemResource
             return Response.status(Response.Status.NOT_FOUND).build();
     }
 
+//    @OPTIONS
     @GET
     public Response getAll()
     {
@@ -46,6 +49,7 @@ public class InventoryItemResource
         return Response.ok(allDTOs).build();
     }
 
+//    @OPTIONS
     @POST
     public Response create(InventoryItemDTO dto)
     {
@@ -53,6 +57,7 @@ public class InventoryItemResource
         return Response.status(Response.Status.CREATED).build();
     }
 
+//    @OPTIONS
     @PUT
     @Path("/{id}")
     public Response update(@PathParam("id") Long id, InventoryItemDTO dto)
@@ -68,6 +73,7 @@ public class InventoryItemResource
             return Response.status(Response.Status.NOT_FOUND).build();
     }
 
+//    @OPTIONS
     @DELETE
     @Path("/{id}")
     public Response delete(@PathParam("id") Long id)
