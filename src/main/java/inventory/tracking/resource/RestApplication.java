@@ -15,19 +15,20 @@ import java.util.Set;
 @ApplicationPath("resources")
 public class RestApplication extends Application
 {
-//    @Override
-//    public Set<Class<?>> getClasses() {
-//        Set<Class<?>> classes = new HashSet<>();
-//        classes.add(AuthResource.class);
-//        classes.add(HelloWorldResource.class);
-//        classes.add(InventoryItemResource.class);
-//        classes.add(InventoryLogResource.class);
-//        classes.add(PreflightResource.class);
-//        classes.add(UserInfoResource.class);
-//        classes.add(UserResource.class);
-//
-//        classes.add(CorsFilter.class); // Make sure this is added
-//        classes.add(JwtRequestFilter.class);
-//        return classes;
-//    }
+    @Override
+    public Set<Class<?>> getClasses() {
+        Set<Class<?>> classes = new HashSet<>();
+        classes.add(AuthResource.class);
+        classes.add(HelloWorldResource.class);
+        classes.add(InventoryItemResource.class);
+        classes.add(InventoryLogResource.class);
+        classes.add(PreflightResource.class);
+        classes.add(UserInfoResource.class);
+        classes.add(UserResource.class);
+
+        classes.add(CorsFilter.class); // Make sure this is added
+        classes.add(JwtRequestFilter.class);
+
+        return classes;
+    }
 }

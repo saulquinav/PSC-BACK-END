@@ -23,11 +23,11 @@ public class UserResource
     @Inject
     private UserService service;
 
-    @OPTIONS
-    public Response handleOptions()
-    {
-        return Response.ok().build();
-    }
+//    @OPTIONS
+//    public Response handleOptions()
+//    {
+//        return Response.ok().build();
+//    }
 
 
     @GET

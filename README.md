@@ -1,4 +1,4 @@
-# 'inventory-login-unprotected-endpoints' branch
+# 'inventory-laptop-v2' branch
 This branch is for demonstrating the main CRUD functionality of the back-end and front-end.
 Because of this, the endpoints are not protected, because authorization based on @RolesAllowed did
 not work and there was no way to demonstrate CRUD functionality.
